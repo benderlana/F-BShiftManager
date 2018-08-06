@@ -1,0 +1,95 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:comp="myapp.control"
+          controllerName="myapp.controller.Piani">
+    <Page title="{locale>myapp.view.piani.title}">
+        <headerContent>
+            <Button icon="sap-icon://log" press="onAddPress" text="Uscita"
+                    ariaLabelledBy="exitButtonLabel" class="sapUiSmallMarginEnd"/>
+        </headerContent>
+        <content>
+
+            <Table id="idProductsTable"
+                   inset="false"
+                   items="{
+			path: '/pianidiconfezionamento',
+			sorter: {
+				path: 'Data'
+			}
+		}">
+                <headerToolbar>
+                    <Toolbar>
+                        <content>
+                            <Title text="Fara San Martino - Reparto Confezionamento " level="H1"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+
+                    <Column
+                        width="12em">
+                        <comp:StyleTextTreeTableAttr text="" />
+                    </Column>
+                    <Column
+                        width="12em">
+                        <comp:StyleTextTreeTableAttr text="Data" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                        <comp:StyleTextTreeTableAttr text="Turno" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="End">
+                        <comp:StyleTextTreeTableAttr text="Q.li confezionati" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="Center">
+                        <comp:StyleTextTreeTableAttr text="Q.li residui" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="Center">
+                        <comp:StyleTextTreeTableAttr text="LineeP" />
+                    </Column>
+                    <Column
+                        hAlign="End">
+                        <comp:StyleTextTreeTableAttr text="Turni" />
+                    </Column>
+                </columns>
+                <items >
+                    <ColumnListItem>
+                        <cells>
+                            <core:Icon
+                                src="{icon}"
+                                class="size4"
+                                press="managePiano"
+                                color="black" >
+                            </core:Icon>
+             
+                    
+                            <comp:StyleTextTreeTableAttr
+                                text="{data}" area="{area}"/>
+                            <comp:StyleTextTreeTableAttr
+                                text="{turno}" />
+                            <comp:StyleTextTreeTableAttr
+                                text="{qliconf}" />
+                            <comp:StyleTextTreeTableAttr
+                                text="{qliresidui}" />
+                            <comp:StyleTextTreeTableAttr
+                                text="{lineep}" />
+                            <comp:StyleTextTreeTableAttr
+                                text="{turni}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
