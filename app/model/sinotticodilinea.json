@@ -1,0 +1,37 @@
+{
+    "sinotticodilinea": {
+        "lineaID": 4,
+        "linea": "Gruppo 4",
+        "batchMacchina": "057 Sedani Rigati 3kg",
+        "macchine": [
+            {
+                "macchinaID": 21,
+                "nomeMacchina": "Confezionatrice A",
+                "statusMacchina": "Attivo",
+                "sinottico": false,
+                "tag": [
+                    {
+                        "nomeTag": "programma",
+                        "attributiTag": {
+                            "attributo": "KZ11"
+                        }
+                    }
+                ]
+            },
+            {
+                "macchinaID": 25,
+                "nomeMacchina": "Marker A",
+                "statusMacchina": "Attivo",
+                "sinottico": false,
+                "tag": [
+                    {
+                        "nomeTag": "layout stampa",
+                        "attributiTag": {
+                            "attributo": "CEE"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,133 @@
+{
+    "pianidiconfezionamento": {
+        "conclusi": [
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-05-02",
+                "turno": "06:00 - 14:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "1"
+            },
+            {
+                "icon": "sap-icon://circle-task-2",
+                "data": "2018-05-03",
+                "turno": "06:00 - 14:00",
+                "qliconf": "206.32",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "3"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-05-03",
+                "turno": "14:00 - 22:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "4"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-05-04",
+                "turno": "06:00 - 14:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "5"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-05-08",
+                "turno": "06:00 - 14:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "7"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-05-31",
+                "turno": "22:00 - 06:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "0",
+                "PdcID": "9"
+            }
+        ],
+        "incorso": [
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-06-09",
+                "turno": "06:00 - 14:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "1",
+                "PdcID": "8"
+            }
+        ],
+        "programmati": [
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-06-08",
+                "turno": "06:00 - 14:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "2",
+                "PdcID": "8"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-06-08",
+                "turno": "14:00 - 22:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "2",
+                "PdcID": "8"
+            },
+            {
+                "icon": "bo-strategy-management",
+                "data": "2018-06-09",
+                "turno": "22:00 - 06:00",
+                "qliconf": "0.0",
+                "qliresidui": "0.0",
+                "lineep": "0",
+                "turni": "0",
+                "area": "2",
+                "PdcID": "8"
+            }
+        ],
+        "dacreare": [
+            {
+                "icon": "sap-icon://feeder-arrow",
+                "data": "2018-06-08",
+                "turno": "14:00 - 22:00",
+                "qliconf": "",
+                "qliresidui": "",
+                "lineep": "",
+                "turni": "",
+                "area": "-1",
+                "PdcID": ""
+            }
+        ]
+    }
+}

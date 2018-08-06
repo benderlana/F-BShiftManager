@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+    controllerName="myapp.controller.SPCWindow"
+    id="SPCWindow"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:t="sap.ui.table">
+    <Dialog contentWidth="1220px" contentHeight="720px" id="SPCWindow" afterClose="CloseSPCDialog" showHeader="false" class="colorPage bordoBlu">
+        <FlexBox alignItems="Start" justifyContent="Center">
+            <VBox height="700px" width="1200px">
+                <VBox height="14px" width="1200px" class="colorPage"/>
+                <VBox height="56px" width="1200px" class="colorPage">
+                    <HBox>
+                        <VBox height="56px" width="1200px">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <Text id="headerSPCWindow" text="" class="textTop"/>
+                            </FlexBox>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox height="56px" width="1200px" class="colorPage">
+                    <HBox>
+                        <VBox height="56px" width="1200px">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <Text id="samplingSPC" text="" class="textTop"/>
+                            </FlexBox>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox id="plotBox" height="504px" width="1200px" class="colorPage"/>
+                <VBox height="21px" width="1200px" class="colorPage"/>
+                <VBox height="49px" width="1200px" class="colorPage">
+                    <HBox>
+                        <VBox height="49px" width="120px"/>
+                        <VBox height="49px" width="360px">
+                            <Button text="Chiudi" width="360px" press="CloseSPCDialog" class="chiudiButton"/>
+                        </VBox>
+                        <VBox height="49px" width="240px"/>
+                        <VBox height="49px" width="360px">
+                            <Button id="alarmButton" text="Rimuovi allarme" width="360px" enabled="false" press="RemoveAlarm" class="chiudiButton"/>
+                        </VBox>
+                        <VBox height="49px" width="120px"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </FlexBox>
+    </Dialog>
+</core:FragmentDefinition>

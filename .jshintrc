@@ -11,6 +11,9 @@
         "sprintf" : false,
         "accounting" : false,
 		"alert": false,
-		"setTimeout": false
+		"setTimeout": false,
+		"Plotly": false,
+		"setInterval": false,
+        "clearInterval": false
     }
 }

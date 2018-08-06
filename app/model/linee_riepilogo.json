@@ -1,0 +1,106 @@
+{
+    "linee": {
+        "PastaLunga": [
+            {
+                "lineaID": 6,
+                "linea": "Gruppo 6",
+                "statolinea": "Disponibile.Lavorazione",
+                "avanzamento": "55",
+                "barColor": "green",
+                "disponibilita": "85%",
+                "efficienza": "89%",
+                "cniconf": "476",
+                "cniresidui": "456",
+                "batchLavorazione": "041 Penne Rigate 500gr.",
+                "oreRimanenti": "04:15",
+                "statoSPC": "1"
+            },
+            {
+                "lineaID": 5,
+                "linea": "Gruppo 5",
+                "statolinea": "Disponibile.Fermo",
+                "avanzamento": "99",
+                "barColor": "green",
+                "disponibilita": "65%",
+                "efficienza": "91%",
+                "cniconf": "345",
+                "cniresidui": "2876",
+                "batchLavorazione": "057 Sedani Rigati 3kg.",
+                "oreRimanenti": "06:31",
+                "statoSPC": "0"
+            },
+            {
+                "lineaID": 4,
+                "linea": "Gruppo 4",
+                "statolinea": "Nondisponibile",
+                "avanzamento": "0",
+                "barColor": "",
+                "disponibilita": "",
+                "efficienza": "",
+                "cniconf": "",
+                "cniresidui": "",
+                "batchLavorazione": "",
+                "oreRimanenti": "",
+                "statoSPC": ""
+            },
+            {
+                "lineaID": 3,
+                "linea": "Gruppo 3",
+                "statolinea": "Disponibile.Attrezzaggio",
+                "avanzamento": "0",
+                "barColor": "",
+                "disponibilita": "",
+                "efficienza": "",
+                "cniconf": "",
+                "cniresidui": "12345",
+                "batchLavorazione": "023 Rigatoni 500gr.",
+                "oreRimanenti": "07:43",
+                "statoSPC": ""
+            },
+            {
+                "lineaID": 2,
+                "linea": "Gruppo 2",
+                "statolinea": "Disponibile.Lavorazione",
+                "avanzamento": "78",
+                "barColor": "yellow",
+                "disponibilita": "78%",
+                "efficienza": "74%",
+                "cniconf": "1234",
+                "cniresidui": "765",
+                "batchLavorazione": "093 Farfalle 500gr.***",
+                "oreRimanenti": "03:15",
+                "statoSPC": "1"
+            } 
+        ],
+        "PastaCorta": [
+            {
+                "lineaID": 11,
+                "linea": "Linea 11",
+                "statolinea": "Disponibile.Lavorazione",
+                "avanzamento": "70",
+                "barColor": "yellow",
+                "disponibilita": "70%",
+                "efficienza": "71%",
+                "cniconf": "345",
+                "cniresidui": "2876",
+                "batchLavorazione": "007 Linguine 500gr. ***",
+                "oreRimanenti": "02:51",
+                "statoSPC": "1"
+            },
+            {
+                "lineaID": 9,
+                "linea": "Linea 9",
+                "statolinea": "Disponibile.Svuotamento",
+                "avanzamento": "30",
+                "barColor": "green",
+                "disponibilita": "85%",
+                "efficienza": "91%",
+                "cniconf": "4321",
+                "cniresidui": "",
+                "batchLavorazione": "413 Spaghettoni",
+                "oreRimanenti": "",
+                "statoSPC": ""
+            }
+        ]
+    }
+}

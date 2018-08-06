@@ -1,0 +1,304 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:cus="myapp.control"
+          controllerName="myapp.controller.ManagePianoGrey"
+          id="ManagePianoGrey">
+    <Page id="managePianoGrey" class="colorPage" showHeader="false">
+        <content>
+            <VBox height="100%" width="100%">
+                <VBox height="5%" width="100%"/>
+                <VBox height="10%" width="100%">
+                    <HBox height="100%">
+                        <VBox height="100%" width="5%"/>
+                        <HBox height="100%" width="25%">
+                            <HBox height="100%">
+                                <Button text="Calcolo Consuntivi"
+                                        press="CreateReport"
+                                        ariaDescribedBy="defaultButtonDescription genericButtonDescription"
+                                        class="chiudiButton noFocus paddingleft larghezzaButtonLeft pianoGreyButton">
+                                </Button>
+                                <Button 
+                                    id="reportButton"
+                                    class="chiudiButton noFocus larghezzaButtonRight shiftButtonLeft pianoGreyButton" 
+                                    text="Report OEE"
+                                    visible="true"
+                                    enabled="false"
+                                    press="ShowReport"
+                                    ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+                                </Button>  
+                            </HBox>    
+                        </HBox>                  
+                        <VBox height="100%" width="40%">
+                            <VBox height="50%" width="100%" alignItems="Center">
+                                <Text id="ReportTitle"/>
+                            </VBox> 
+                        </VBox>
+                        <HBox height="100%" width="25%">
+                            <HBox width="100%" justifyContent="End">
+                                <Button text="Conferma Chiusura"
+                                        id="chiusuraPiano"
+                                        press="ConfermaChiusuraPiano"
+                                        enabled="false"
+                                        ariaDescribedBy="defaultButtonDescription genericButtonDescription"
+                                        class="chiudiButton noFocus larghezzaButtonLeft shiftButtonRight pianoGreyButton">
+                                </Button>
+                                <Button text="Esci" press="BackToPiani" class="chiudiButton noFocus paddingright larghezzaButtonRight pianoGreyButton"/>
+                            </HBox> 
+                        </HBox> 
+                        <VBox height="100%" width="5%"/>
+                    </HBox>
+                </VBox>
+                <VBox height="85%" width="100%">
+                    <HBox>
+                        <VBox height="100%" width="5%"/>
+                        <VBox height="100%" width="90%">
+                            <IconTabBar
+                                id="ManageIconTabBar"
+                                select="ChangeReparto"
+                                applyContentPadding="true"
+                                expandable="false"
+                                items="{reparti>/ListaReparti}"
+                                selectedKey="1">
+                                <items>
+                                    <IconTabFilter
+                                        text="{reparti>Reparto}"
+                                        key="{reparti>RepartoID}">
+                                    </IconTabFilter>                  
+                                </items>
+                                <content>
+                                    <Table 
+                                        inset="false" 
+                                        items="{path: 'linea>/linee'}" 
+                                        id="ManagePianoTableGrey">
+                                        <headerToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column
+                                                width="12em">
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem class="noDelimitator noFocus">
+                                                <cells>
+                                                    <VBox width="100%" height="100%" class="colorPage bordoBlu">
+                                                        <HBox width="100%" height="35%" class="scrollingbarTransparent">
+                                                            <VBox width="70%">
+                                                                <Text text="{linea>linea}"
+                                                                      width="50%"
+                                                                      class="fixTestoInLinea">
+                                                                </Text>                                        
+                                                            </VBox>
+                                                            <HBox width="30%">
+                                                                <VBox justifyContent="Center" alignItems="Center" width="16.5%">
+                                                                    <TextArea visible="false" value="{linea>OEE}" editable="false" growing="false" rows="1" cols="4" textAlign="Center" width="100%" class="textArea"/>
+                                                                </VBox>
+                                                                <VBox justifyContent="Center" alignItems="Center" width="16.5%">
+                                                                    <TextArea visible="false" value="{linea>disponibilita}" editable="false" growing="false" rows="1" cols="4" textAlign="Center" class="textArea"/>
+                                                                </VBox>
+                                                                <VBox justifyContent="Center" alignItems="Center" width="16.5%">
+                                                                    <TextArea visible="false" value="{linea>produttivita}" editable="false" growing="false" rows="1" cols="4" textAlign="Center" class="textArea"/>
+                                                                </VBox>
+                                                                <VBox justifyContent="Center" alignItems="Center" width="16.5%">
+                                                                    <TextArea visible="false" value="{linea>qualita}" editable="false" growing="false" rows="1" cols="4" textAlign="Center" class="textArea"/>
+                                                                </VBox>
+                                                                <VBox width="33%">
+                                                                    <Button visible="false" width="100%" text="{linea>fermo}" enabled="{= !(${linea>fermo} === '0:00:00' || ${linea>fermo} === '')}" press='CausalizzazioneFermi'/>
+                                                                </VBox>
+                                                            </HBox>
+                                                        </HBox>
+                                                        <HBox height="65%" width="100%">
+                                                            <VBox width="100%">
+                                                                <Table 
+                                                                    showNoData="false"
+                                                                    inset="false"
+                                                                    fixedLayout="false"
+                                                                    class="scrollingbar headerTabella paddingHeaderTabella">
+                                                                    <columns class="colorPage">
+                                                                        <Column
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Seq." />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="15%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Formato" />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="9%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Confez." />
+                                                                        </Column>
+                                                                        <Column width="25%">
+                                                                            <Text text="" />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Qli" />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Cart." />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="6%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Ore" />
+                                                                        </Column>
+                                                                        <Column
+                                                                            visible="false"
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="OEE"/>
+                                                                        </Column>
+                                                                        <Column
+                                                                            visible="false"
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="A"/>
+                                                                        </Column>
+                                                                        <Column
+                                                                            visible="false"
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="P"/>
+                                                                        </Column>
+                                                                        <Column
+                                                                            visible="false"
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Q"/>
+                                                                        </Column>
+                                                                        <Column
+                                                                            visible="false"
+                                                                            width="10%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text/>
+                                                                        </Column>
+                                                                    </columns>
+                                                                </Table>
+                                                                <ScrollContainer vertical="true" height="155px" class="scrollingbar">
+                                                                    <Table 
+                                                                        items="{linea>batchlist}"
+                                                                        inset="false"
+                                                                        noDataText="Nessun batch lavorato"
+                                                                        fixedLayout="false">
+                                                                        <columns class="colorPage">
+                                                                            <Column
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                width="15%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                width="9%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column width="25%"
+                                                                                    vAlign="Middle"
+                                                                                    hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                width="6%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                visible="false"
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                visible="false"
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                visible="false"
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                visible="false"
+                                                                                width="5%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                            <Column
+                                                                                visible="false"
+                                                                                width="10%"
+                                                                                vAlign="Middle"
+                                                                                hAlign="Center">
+                                                                            </Column>
+                                                                        </columns>
+                                                                        <items>
+                                                                            <ColumnListItem class="cellePiani">
+                                                                                <cells>
+                                                                                    <Text text="{linea>sequenza}" />
+                                                                                    <Text text="{linea>formatoProduttivo}" />
+                                                                                    <Text text="{linea>confezione}" />
+                                                                                    <Text text="{linea>destinazione}"/>
+                                                                                    <Text
+                                                                                        text="{linea>qli}" />
+                                                                                    <Text
+                                                                                        text="{linea>cartoni}" />
+                                                                                    <Text
+                                                                                        text="{linea>ore}" />
+                                                                                    <Text text="{linea>OEE}" />
+                                                                                    <Text text="{linea>disponibilita}"/>
+                                                                                    <Text text="{linea>produttivita}"/>
+                                                                                    <Text text="{linea>qualita}"/>
+                                                                                    <Button text="{linea>fermo}" enabled="{= !(${linea>fermo} === '0:00:00' || ${linea>fermo} === '')}" press='CausalizzazioneFermi'/>
+                                                                                </cells>
+                                                                            </ColumnListItem>
+                                                                        </items>
+                                                                    </Table>
+                                                                </ScrollContainer>
+                                                            </VBox>
+                                                        </HBox>
+                                                    </VBox>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </content>
+                            </IconTabBar>                        
+                        </VBox>
+                        <VBox height="100%" width="5%"/> 
+                    </HBox>
+                </VBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

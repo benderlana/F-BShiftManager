@@ -1,0 +1,22 @@
+{
+    "ProductCollection": [
+        {
+            "seq": ">>>",
+            "formato": "093 semola",
+            "confezionamento": "500 gr",
+            "button": "0",
+            "qli": "31",
+            "cart": "125",
+            "ore": "0:35"
+        }, {
+            "seq": "10",
+            "formato": "093 semola",
+            "confezionamento": "500 gr",
+            "button": "0",
+            "qli": "31",
+            "cart": "125",
+            "ore": "0:35"
+        }
+    ]
+}
+

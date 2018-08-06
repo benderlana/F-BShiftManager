@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    controllerName="myapp.controller.ManagePianoGrey"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table">
+    <Dialog
+        afterClose="DestroyDialog"
+        class="colorPage bordoBlu"
+        contentWidth="1200px"
+        id="CausalizzazioneFermoPanel">
+        <VBox id="CausalizzazioneFermoPanelBox" class="sapUiSmallMarginTop sapUiSmallMarginBottom"></VBox>
+    </Dialog>
+</core:FragmentDefinition>

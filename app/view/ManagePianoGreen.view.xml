@@ -1,0 +1,214 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+          xmlns:cus="myapp.control"
+          controllerName="myapp.controller.ManagePianoGreen">
+    <Page id="managePianoGreen" class="colorPage" showHeader="false">
+        <content>
+            <VBox height="100%" width="100%">
+                <VBox height="5%"/>
+                <VBox height="10%" width="100%">
+                    <HBox>
+                        <VBox height="100%" width="5%"/>
+                        <VBox height="100%" width="15%">
+                            <Button text="Aggiorna" press="RefreshButton" width="100%" class="allarmeButton noFocus paddingleft" />
+                        </VBox>
+                        <VBox height="100%" width="60%">
+                            <VBox alignItems="Center" height="50%" width="100%">
+                                <Text id="Title"/>
+                            </VBox>
+                        </VBox>
+                        <VBox height="100%" width="15%">
+                            <Button text="Esci" press="BackToPiani" width="100%" class="chiudiButton noFocus paddingright" />
+                        </VBox>
+                        <VBox height="100%" width="5%"/>
+                    </HBox>
+                </VBox>
+                <VBox height="85%" width="100%">
+                    <HBox>
+                        <VBox height="100%" width="5%"/>
+                        <VBox height="100%" width="90%">
+                            <IconTabBar
+                                id="ManageIconTabBar"
+                                select="ChangeReparto"
+                                applyContentPadding="true"
+                                expandable="false"
+                                items="{reparti>/ListaReparti}"
+                                selectedKey="{ParametriPiano>/reparto}">
+                                <items>
+                                    <IconTabFilter
+                                        text="{reparti>Reparto}"
+                                        key="{reparti>RepartoID}">
+                                    </IconTabFilter>                  
+                                </items>
+                                <content>
+                                    <Table inset="false" items="{path: 'linea>/linee'}" id="managePianoTable">
+                                        <columns>
+                                            <Column width="12em"/>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem class="noDelimitator">
+                                                <cells>
+                                                    <VBox width="100%" height="100%" class="colorPage">
+                                                        <HBox>
+                                                            <VBox width="20%" height="100%">
+                                                                <VBox>
+                                                                    <VBox width="100%" height="20%" class="bordoBluL bordoBluR bordoBluT bordoBluB">
+                                                                        <Button text="{linea>linea}" class="noFocus buttonDimension" press="ShowStatoLinea" width="100%"/>
+                                                                    </VBox >
+                                                                    <VBox width="100%" height="80%" class="bordoBluL bordoBluB bordoBluR">
+                                                                        <VBox width="100%" height="30%">
+                                                                            <Table 
+                                                                                showNoData="false"
+                                                                                class="headerTabella paddingHeaderTabella">
+                                                                                <columns>
+                                                                                    <Column  hAlign="Center">
+                                                                                        <Text text="Operatori"/>
+                                                                                    </Column>
+                                                                                </columns>
+                                                                            </Table>
+                                                                        </VBox>
+                                                                        <VBox width="100%" height="70%">
+                                                                            <ScrollContainer vertical='true' height="155px">  
+                                                                                <Table 
+                                                                                    items="{path: 'linea>operatori'}"
+                                                                                    inset="false"
+                                                                                    growing="true"
+                                                                                    fixedLayout="false"
+                                                                                    class="headerTabella">
+                                                                                    <columns>
+                                                                                        <Column  hAlign="Center">
+                                                                                        </Column>
+                                                                                    </columns>
+                                                                                    <items>
+                                                                                        <ColumnListItem class="noDelimitator paddingOperatori">
+                                                                                            <cells>
+                                                                                                <ComboBox width="95%"  value="{= ${linea>nome} === '---' ? '' : ${linea>cognome} + ' ' + ${linea>nome} }" placeholder="{linea>sezione}" loadItems="LoadOperatori" selectionChange="CheckOperatore"/>
+                                                                                            </cells>
+                                                                                        </ColumnListItem>
+                                                                                    </items>
+                                                                                </Table>    
+                                                                            </ScrollContainer> 
+                                                                        </VBox>
+                                                                    </VBox>
+                                                                </VBox>
+                                                            </VBox>
+                                                            <VBox width="80%" height="100%">
+                                                                <VBox height="20%" width="100%">
+                                                                    <HBox>
+                                                                        <VBox width="70%" height="100%" class="bordoBluR bordoBluT">
+                                                                            <ProgressIndicator
+                                                                                percentValue="{linea>avanzamento}"
+                                                                                displayValue="{linea>perc_avanzamento}"
+                                                                                showValue="true"
+                                                                                width="100%"
+                                                                                height="2.99rem"
+                                                                                class="ProgressBarFix"
+                                                                                barColor="{linee>barColor}"/>
+                                                                        </VBox>
+                                                                        <VBox width="10%" height="100%" class="bordoBluR bordoBluT">
+                                                                            <Button enabled="false" width="100%" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="0"/>
+                                                                        </VBox>
+                                                                        <VBox width="10%" height="100%" class="bordoBluT">
+                                                                            <Button enabled="false" width="100%" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="1"/>
+                                                                        </VBox>
+                                                                        <VBox width="10%" height="100%" class="bordoBluR bordoBluT bordoBluL">
+                                                                            <Button icon="sap-icon://add" press="AddBatch" width="100%" class="AddButton"/>
+                                                                        </VBox>
+                                                                    </HBox>
+                                                                </VBox>
+                                                                <VBox height="80%" width="100%" class="bordoBluR bordoBluB bordoBluT">
+                                                                    <Table
+                                                                        showNoData="false"
+                                                                        growingThreshold="2"
+                                                                        class="headerTabella paddingHeaderTabella scrollingbar">
+                                                                        <columns>
+                                                                            <Column width="6%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Seq." />
+                                                                            </Column>
+                                                                            <Column width="22%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Formato" />
+                                                                            </Column>
+                                                                            <Column width="15%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Confezionamento" />
+                                                                            </Column>
+                                                                            <Column width="26%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Destinazione" />
+                                                                            </Column>
+                                                                            <Column width="7%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Quintali" />
+                                                                            </Column>
+                                                                            <Column width="7%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Cartoni" />
+                                                                            </Column>
+                                                                            <Column width="9%" hAlign="Center" vAlign="Middle">
+                                                                                <Text text="Ore" />
+                                                                            </Column>
+                                                                            <Column width="8%" hAlign="Center" vAlign="Middle">
+                                                                                <Text/>
+                                                                            </Column>
+                                                                        </columns>
+                                                                    </Table>
+                                                                    <ScrollContainer vertical='true' width="100%" height="155px" class="scrollingbar">
+                                                                        <Table class="removeBorders1 removeBorders2" 
+                                                                               width="100%" 
+                                                                               noDataText="Nessun batch programmato"
+                                                                               items="{path: 'linea>batchlist', templateShareable:false}">
+                                                                            <columns>
+                                                                                <Column width="6%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="22%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="15%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="26%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="7%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="7%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="9%" vAlign="Middle" hAlign="Center"/>
+                                                                                <Column width="8%" vAlign="Middle" hAlign="Center"/>
+                                                                            </columns>
+                                                                            <items>
+                                                                                <ColumnListItem class="noDelimitator cellePiani">
+                                                                                    <cells>
+                                                                                        <Input textAlign="Center" value="{linea>sequenza}" type="Text" maxLength="3" liveChange="SEQChanged" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <ComboBox value="{linea>formatoProduttivo}" width="100%"  loadItems="CaricaFormati" selectionChange="ResetConfezionamenti" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}"  enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <ComboBox value="{linea>confezione}" loadItems="CaricaConfezionamenti"  selectionChange="LoadDestinazione" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <Button width="90%" text="{linea>destinazione}" press="ModifyBatchDetails" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <Input textAlign="Center" value="{linea>qli}" type="Text" maxLength="6" liveChange="QLIChanged" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <Input textAlign="Center" value="{linea>cartoni}" type="Text" maxLength="4" liveChange="CRTChanged" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <TimePicker localeId="it_IT" class="TimePickerDimensions" value="{linea>ore}" valueFormat="HH:mm" displayFormat="HH:mm" change="HOURChanged" visible="{= ${linea>statoBatch} === '#ADD#' ? false : true}" enabled="{= ${linea>statoBatch} === 'In lavorazione' || ${linea>statoBatch} === 'Attesa presa in carico' || ${linea>statoBatch} === 'Attrezzaggio' ? false : true}"/>
+                                                                                        <VBox height="100%" width="100%">
+                                                                                            <HBox height="100%" width="100%">
+                                                                                                <VBox height="100%" width="100%">
+                                                                                                    <Button icon="sap-icon://action-settings" press="BatchSettings" width="100%" visible="{= ${linea>modifyBatch} === 1 ? false : true}"/>
+                                                                                                    <HBox>
+                                                                                                        <VBox height="100%" width="50%">
+                                                                                                            <Button icon="sap-icon://accept" class="StileV" press="InsertNewBatch" width="50%" visible="{= ${linea>modifyBatch} === 1 ? true : false}"/>
+                                                                                                        </VBox>
+                                                                                                        <VBox height="100%" width="50%">
+                                                                                                            <Button icon="sap-icon://decline" class="StileX" press="UndoBatchCreation" width="50%" visible="{= ${linea>modifyBatch} === 1 ? true : false}"/>
+                                                                                                        </VBox>
+                                                                                                    </HBox>
+                                                                                                </VBox>
+                                                                                            </HBox>
+                                                                                        </VBox>
+                                                                                    </cells>
+                                                                                </ColumnListItem>
+                                                                            </items>                                                                                                                                
+                                                                        </Table>
+                                                                    </ScrollContainer>  
+                                                                </VBox>
+                                                            </VBox>       
+                                                        </HBox>
+                                                    </VBox>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </content>  
+                            </IconTabBar>   
+                        </VBox>
+                        <VBox height="100%" width="5%"/> 
+                    </HBox>
+                </VBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

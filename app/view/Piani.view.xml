@@ -1,95 +1,272 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
           xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
           xmlns:comp="myapp.control"
-          controllerName="myapp.controller.Piani">
-    <Page title="{locale>myapp.view.piani.title}">
-        <headerContent>
-            <Button icon="sap-icon://log" press="onAddPress" text="Uscita"
-                    ariaLabelledBy="exitButtonLabel" class="sapUiSmallMarginEnd"/>
-        </headerContent>
+          controllerName="myapp.controller.Piani"
+          id="Piani">
+    <Page class="colorPage" showHeader="false" id="piani">
         <content>
+            <VBox height="100%" width="100%">
+                <VBox height="25%" width="100%">
+                    <HBox alignItems="Center">
+                        <VBox height="100%" width="20%">
+                            <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                        </VBox>
+                        <VBox height="100%" alignItems="Center" width="60%" fitContainer="true">
+                            <Text text="Fara San Martino - Reparto Confezionamento" class="customTextTitle"/>
+                        </VBox>
+                        <HBox height="100%" width="20%">
+                            <VBox width="23%"/>
+                            <VBox width="55%">
+                                <Button text="Esci" width="100%" press="BackToMain" class="chiudiButton noFocus"/>
+                            </VBox>
+                            <VBox width="22%"/>
+                        </HBox>
+                    </HBox>
+                </VBox>
+                <VBox height="75%" width="100%">
+                    <VBox height="100%" width="100%" class="pianiOverviewPosition">
+                        <HBox>
+                            <VBox height="100%" width="10%"/>
+                            <VBox height="100%" width="80%">
+                                <VBox height="10%" width="100%">
+                                    <Table width="100%" showNoData='false' class="totalWhiteTable tableTextSize blueText scrollingbarTransparent">
+                                        <columns>
+                                            <Column>
+                                                <header>
+                                                    <Text text="" />
+                                                </header>
+                                            </Column>
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Data"/>
+                                                </header>
+                                            </Column>
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Turno"/>
+                                                </header>
+                                            </Column>
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Q.li confezionati"/>
+                                                </header>
+                                            </Column>
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Q.li residui"/>
+                                                </header>
+                                            </Column>  
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Linee Disponibili"/>
+                                                </header>
+                                            </Column> 
+                                            <Column hAlign="Center">
+                                                <header>
+                                                    <Text text="Ore"/>
+                                                </header>
+                                            </Column>                                             
+                                        </columns>
+                                    </Table>
+                                </VBox>
+                                <VBox height="5%" width="100%"/>
+                                <VBox height="30%" width="100%" class="bordoBlu grey">
+                                    <ScrollContainer id="scrollTurniConclusi" height="187px" horizontal="false" vertical="true" class="scrollingbar">
+                                        <Table 
+                                            noDataText="Nessun piano passato da chiudere"
+                                            width="100%"
+                                            class="tableTextSize noBorder greyTable"
+                                            items="{path: 'turni>/pianidiconfezionamento/conclusi'}">
+                                            <columns>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="End" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="End" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column> 
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>                                         
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem>
+                                                    <cells>
+                                                        <core:Icon
+                                                            src="{turni>icon}"
+                                                            class="iconSize"
+                                                            press="SwitcherTurni"
+                                                            color="black" >
+                                                        </core:Icon>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>data}" area="{turni>area}"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>turno}" />
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>qliconf}" class="decimalPositioning"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>qliresidui}" class="decimalPositioning"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>lineed}"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>ore}"/>
+                                                    </cells>
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                    </ScrollContainer>
+                                </VBox>
+                                <VBox height="5%" width="100%">
+                                    <Text/>
+                                </VBox>
+                                <VBox height="10%" width="100%" class="bordoBlu green scrollingbarTransparent">
+                                    <Table width="100%" items='{turni>/pianidiconfezionamento/incorso}' class="tableTextSize greenTable">
+                                        <columns>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="End" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="End" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column> 
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>                                         
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem>
+                                                <cells>
+                                                    <core:Icon
+                                                        src="{turni>icon}"
+                                                        class="iconSize"
+                                                        press="SwitcherTurni"
+                                                        color="black" >
+                                                    </core:Icon>
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>data}" area="{turni>area}"/>
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>turno}" />
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>qliconf}" class="decimalPositioning"/>
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>qliresidui}" class="decimalPositioning"/>
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>lineed}"/>
+                                                    <comp:StyleTextTableAttr
+                                                        text="{turni>ore}"/>
 
-            <Table id="idProductsTable"
-                   inset="false"
-                   items="{
-			path: '/pianidiconfezionamento',
-			sorter: {
-				path: 'Data'
-			}
-		}">
-                <headerToolbar>
-                    <Toolbar>
-                        <content>
-                            <Title text="Fara San Martino - Reparto Confezionamento " level="H1"/>
-                            <ToolbarSpacer />
-                        </content>
-                    </Toolbar>
-                </headerToolbar>
-                <columns>
-
-                    <Column
-                        width="12em">
-                        <comp:StyleTextTreeTableAttr text="" />
-                    </Column>
-                    <Column
-                        width="12em">
-                        <comp:StyleTextTreeTableAttr text="Data" />
-                    </Column>
-                    <Column
-                        minScreenWidth="Tablet"
-                        demandPopin="true">
-                        <comp:StyleTextTreeTableAttr text="Turno" />
-                    </Column>
-                    <Column
-                        minScreenWidth="Desktop"
-                        demandPopin="true"
-                        hAlign="End">
-                        <comp:StyleTextTreeTableAttr text="Q.li confezionati" />
-                    </Column>
-                    <Column
-                        minScreenWidth="Desktop"
-                        demandPopin="true"
-                        hAlign="Center">
-                        <comp:StyleTextTreeTableAttr text="Q.li residui" />
-                    </Column>
-                    <Column
-                        minScreenWidth="Desktop"
-                        demandPopin="true"
-                        hAlign="Center">
-                        <comp:StyleTextTreeTableAttr text="LineeP" />
-                    </Column>
-                    <Column
-                        hAlign="End">
-                        <comp:StyleTextTreeTableAttr text="Turni" />
-                    </Column>
-                </columns>
-                <items >
-                    <ColumnListItem>
-                        <cells>
-                            <core:Icon
-                                src="{icon}"
-                                class="size4"
-                                press="managePiano"
-                                color="black" >
-                            </core:Icon>
-             
-                    
-                            <comp:StyleTextTreeTableAttr
-                                text="{data}" area="{area}"/>
-                            <comp:StyleTextTreeTableAttr
-                                text="{turno}" />
-                            <comp:StyleTextTreeTableAttr
-                                text="{qliconf}" />
-                            <comp:StyleTextTreeTableAttr
-                                text="{qliresidui}" />
-                            <comp:StyleTextTreeTableAttr
-                                text="{lineep}" />
-                            <comp:StyleTextTreeTableAttr
-                                text="{turni}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </VBox>
+                                <VBox height="5%" width="100%">
+                                    <Text/>
+                                </VBox>
+                                <VBox height="30%" width="100%" class="bordoBlu yellow">
+                                    <ScrollContainer id="scrollTurniProgrammati" height="187px" horizontal="false" vertical="true" class="scrollingbar">
+                                        <Table 
+                                            noDataText="Nessun piano programmato"
+                                            width="100%"
+                                            items="{path: 'turni>/pianidiconfezionamento/programmati'}"
+                                            class="tableTextSize noBorder yellowTable">
+                                            <columns>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="End" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="End" vAlign="Middle">
+                                                </Column>
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column> 
+                                                <Column hAlign="Center" vAlign="Middle">
+                                                </Column>                                         
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem>
+                                                    <cells>
+                                                        <core:Icon
+                                                            src="{turni>icon}"
+                                                            class="iconSize"
+                                                            press="SwitcherTurni"
+                                                            color="black" >
+                                                        </core:Icon>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>data}" area="{turni>area}"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>turno}" />
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>qliconf}" class="decimalPositioning"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>qliresidui}" class="decimalPositioning"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>lineed}"/>
+                                                        <comp:StyleTextTableAttr
+                                                            text="{turni>ore}"/>
+                                                    </cells>
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                    </ScrollContainer>            
+                                </VBox>
+                                
+                                
+                                <VBox height="5%" width="100%">
+                                    <Table width="100%" items="{turni>/pianidiconfezionamento/dacreare}" class="noBorder tableTextSize scrollingbarTransparent"> 
+                                        <columns>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column> 
+                                            <Column hAlign="Center" vAlign="Middle">
+                                            </Column>                                         
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem>
+                                                <cells>
+                                                    <core:Icon
+                                                        src="sap-icon://feeder-arrow"
+                                                        class="iconSize noFocus"
+                                                        press="SwitcherTurni"
+                                                        color="black" >
+                                                    </core:Icon>
+                                                    <comp:StyleTextTableAttr text="{turni>data}" area="{turni>area}"/>
+                                                    <comp:StyleTextTableAttr text="{turni>turno}"/>
+                                                    <comp:StyleTextTableAttr text="{turni>qliconf}"/>
+                                                    <comp:StyleTextTableAttr text="{turni>qliresidui}"/>
+                                                    <comp:StyleTextTableAttr text="{turni>lineed}"/>
+                                                    <comp:StyleTextTableAttr text="{turni>ore}"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </VBox>
+                            </VBox>
+                            <VBox height="100%" width="10%"/>
+                        </HBox>     
+                    </VBox>    
+                </VBox>
+            </VBox>
         </content>
     </Page>
 </mvc:View>

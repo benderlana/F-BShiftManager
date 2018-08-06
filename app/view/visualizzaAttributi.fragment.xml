@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:wt="myapp.control" 
+    controllerName="myapp.controller.MenuItemEventing"
+    xmlns:t="sap.ui.table">
+    <Dialog contentWidth="1200px" contentHeight="700px" horizontalScrolling="false" afterClose="DestroyDialog" verticalScrolling="true" showHeader="false" class="colorPage bordoBlu"  id="visualizzaAttributi">
+        <VBox height="100%" width="100%">
+            <VBox height="90%" width="100%">
+                <TabContainer id="attributiContainer" itemSelect="TabSelectionShow">
+                    <items>    
+                        <TabContainerItem name="Attributi" id="Attributi">
+                            <content>
+                                <VBox height="100%" width="100%">
+                                    <wt:CustomTreeTable
+                                        id="SKU_TT"
+                                        rows="{path:'SKU>/attributi', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        enableSelectAll="false"
+                                        enableColumnReordering="false"
+                                        visibleRowCount="17"
+                                        cellClick="TreeTableRowClickExpander"
+                                        collapseRecursive="true"
+                                        app:mydata="SKU_TT">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="Speciali" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <wt:StyleTextTreeTableAttr text="{SKU>name}" diff="{SKU>expand}" discr="{SKU>value}" maxLines="1"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <HBox>
+                                                        <wt:StyleTextTreeTableValue text="{SKU>value}" diff="{SKU>expand}" maxLines="1" tooltip="{SKU>value}"/>
+                                                    </HBox>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                </VBox>
+                            </content>
+                        </TabContainerItem>
+                        <TabContainerItem name="Parametri" id="Parametri">
+                            <content>
+                                <VBox height="100%" width="100%">                 
+                                    <wt:CustomTreeTable
+                                        id="Parametri_TT"
+                                        rows="{path:'ModelParametri>/', parameters: {arrayNames:['attributi']}}"
+                                        selectionMode="None"
+                                        enableColumnReordering="false"
+                                        ariaLabelledBy="title"
+                                        visibleRowCount="17"
+                                        cellClick="TreeTableRowClickExpander"
+                                        app:mydata="Parametri_TT">
+                                        <wt:toolbar>
+                                            <Toolbar>
+                                                <ToolbarSpacer/>
+                                                <Button text="Collassa" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                                <Button text="Espandi" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                            </Toolbar>
+                                        </wt:toolbar>
+                                        <wt:columns>
+                                            <t:Column width="15rem" resizable="false">
+                                                <Label text="ATTRIBUTI"/>
+                                                <t:template>
+                                                    <Text text="{ModelParametri>name}" maxLines="1"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="VALORE"/>
+                                                <t:template>
+                                                    <Text text="{ModelParametri>value}" maxLines="1" tooltip="{ModelParametri>value}"/>
+                                                </t:template>
+                                            </t:Column>
+                                            <t:Column width="5rem" resizable="false">
+                                                <Label text="MATRICOLA/LOTTO"/>
+                                                <t:template>
+                                                    <Text text="{ModelParametri>codeValue}" visible="{= ${ModelParametri>code} === 1}" maxLines="1" tooltip="{ModelParametri>codeValue}"/>
+                                                </t:template>
+                                            </t:Column>
+                                        </wt:columns>
+                                    </wt:CustomTreeTable>
+                                </VBox>
+                            </content>
+                        </TabContainerItem>                
+                    </items>
+                </TabContainer>
+            </VBox>
+            <VBox height="10%" width="100%">
+                <HBox>
+                    <VBox height="100%" width="30%"/>
+                    <VBox height="100%" width="40%">
+                        <Button text="Chiudi" width="100%" class="annullaButton" press="AnnullaModifiche"></Button>
+                    </VBox>
+                    <VBox height="100%" width="30%"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,47 @@
+<core:FragmentDefinition
+    id="modificaGuasti"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+>
+    <Dialog afterClose="DestroyDialog" contentWidth="600px" horizontalScrolling="false" verticalScrolling="true" class="colorPage bordoBlu">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+
+                </contentLeft>
+                <contentMiddle>
+                    <Title id="title"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://decline" press="DestroyDialog">
+                    </Button>
+                </contentRight>
+            </Bar>
+        </customHeader>        
+        <VBox width="100%" height="100%">
+            <VBox id="topBox" height="25%" class="sapUiSmallMargin">
+                <VBox height="50%">                      
+                </VBox>
+                <VBox height="50%" class="sapUiSmallMargin">
+                </VBox>
+            </VBox>
+            <VBox id="centralBox" height="50%">
+            </VBox>
+            <VBox id="bottomBox" height="25%" class="sapUiSmallMargin">
+                <VBox height="50%">
+                </VBox>
+                <VBox height="50%" class="sapUiSmallMargin">
+                </VBox>                
+            </VBox>
+        </VBox>
+        <HBox>
+            <VBox width="10%"/>
+            <VBox width="80%">
+                <Button width="100%" text="Conferma" press="ConfermaCambio" id="confermaModificheButton" class="chiudiButton"/>
+            </VBox>
+            <VBox width="10%"/>
+        </HBox>
+    </Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,34 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    controllerName="myapp.controller.guastiLinea">
+    <u:Menu itemSelect="ModificaGuasti">
+        <u:MenuItem
+            text="Inserisci Fermo"
+            startsSection= "false"
+            enabled= "true"
+            />
+        <u:MenuItem
+            text="Modifica Causale Fermo"
+            startsSection= "true"
+            enabled= "true"
+            />
+        <u:MenuItem
+            text="Modifica Inizio/Fine del Fermo"
+            startsSection= "false"
+            enabled= "true"
+            />                    
+        <u:MenuItem
+            text="Fraziona Causale di Fermo"
+            startsSection= "true"
+            enabled= "true"
+            />        
+        <u:MenuItem
+            text="Elimina Fermo"
+            startsSection= "false"
+            enabled= "true"
+            />       
+    </u:Menu>
+
+</core:FragmentDefinition>

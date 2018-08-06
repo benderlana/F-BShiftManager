@@ -1,0 +1,11 @@
+{
+ "error": "0",
+ "errorMessage": "",
+ "confezioni": [
+   {
+     "ID": "1",
+     "confezione": "Film",
+     "grammatura": "500"
+   }
+ ]
+}

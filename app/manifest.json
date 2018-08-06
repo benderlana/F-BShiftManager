@@ -80,34 +80,73 @@
                     "pattern": "",
                     "target": "main"
                 }, {
-                    "name": "tmp",
-                    "pattern": "tmp",
-                    "target": "tmp"
-                }, {
                     "name": "piani",
                     "pattern": "piani",
                     "target": "piani"
                 }, {
                     "name": "managePiano",
-                    "pattern": "managePiano",
+                    "pattern": "managePiano/{turnoPath}/{pianoPath}",
                     "target": "managePiano"
+                },{
+                    "name": "managePianoGreen",
+                    "pattern": "managePianoGreen/{turnoPath}/{pianoPath}",
+                    "target": "managePianoGreen"
+                }, {
+                    "name": "managePianoYellow",
+                    "pattern": "managePianoYellow/{turnoPath}/{pianoPath}",
+                    "target": "managePianoYellow"
+                },{
+                    "name": "managePianoGrey",
+                    "pattern": "managePianoGrey/{turnoPath}/{pianoPath}",
+                    "target": "managePianoGrey"
+                }, {
+                    "name": "Report",
+                    "pattern": "managePianoGrey/{turnoPath}/{pianoPath}/Report",
+                    "target": "Report"                    
+                }, {
+                    "name": "guastidilinea",
+                    "pattern": "managePianoGrey/{turnoPath}/{pianoPath}/Report/{guastiPath}",
+                    "target": "guastiLinea"
+                }, {
+                    "name": "RiepilogoLinee",
+                    "pattern": "RiepilogoLinee",
+                    "target": "RiepilogoLinee"
+                }, {
+                    "name": "sinotticoLinea",
+                    "pattern": "sinotticoLinea",
+                    "target": "sinotticoLinea"
                 }],
             "targets": {
                 "main": {
                     "viewName": "view.Main",
                     "viewLevel": 0
                 },
-                "tmp": {
-                    "viewName": "view.Tmp",
-                    "viewLevel": 1
-                },
                 "piani": {
-                    "viewName": "view.Piani",
-                    "viewLevel": 1
+                    "viewName": "view.Piani"
                 },
                 "managePiano": {
-                    "viewName": "view.managePiano",
-                    "viewLevel": 1
+                    "viewName": "view.managePiano"
+                },
+                "managePianoGreen": {
+                    "viewName": "view.ManagePianoGreen"
+                },
+                "managePianoYellow": {
+                    "viewName": "view.ManagePianoYellow"
+                },
+                "managePianoGrey": {
+                    "viewName": "view.ManagePianoGrey"
+                },
+                "Report": {
+                    "viewName": "view.Report"
+                },
+                "guastiLinea": {
+                    "viewName": "view.guastiLinea"
+                },
+                "RiepilogoLinee": {
+                    "viewName": "view.RiepilogoLinee"
+                },
+                "sinotticoLinea": {
+                    "viewName": "view.SinotticiDiLinea"
                 }
             }
         },

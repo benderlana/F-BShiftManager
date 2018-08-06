@@ -1,4 +1,7 @@
 node_modules/**
 alert
 setTimeout
-app/component/**
+app/component/**7
+Plotly
+setInterval
+clearInterval

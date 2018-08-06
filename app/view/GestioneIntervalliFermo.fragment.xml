@@ -1,0 +1,85 @@
+<core:FragmentDefinition
+    controllerName="myapp.controller.ManagePianoGreen"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:cus="myapp.control">
+    <Dialog
+        afterClose="DestroyDialog"
+        showHeader="false"
+        class="colorPage bordoBlu"
+        contentWidth="1600px"
+        contentHeight= "700px"
+        id="GestioneIntervalliFermo"
+    >
+        <VBox height="100%" width="100%">
+            <VBox height="4%" width="100%"/>
+            <VBox height="6%" width="100%">
+                <HBox>
+                    <VBox height="100%" width="5%"/>
+                    <HBox height="100%" width="20%"></HBox>                
+                    <VBox height="100%" width="50%">
+                        <VBox height="50%" width="100%" alignItems="Center">
+                            <Text id="turno"/>
+                        </VBox> 
+                    </VBox>
+                    <HBox height="100%" width="20%">
+                        <VBox width="100%">
+                            <Button text="Esci" press="onCloseDialog" class="chiudiButton paddingright" width="100%"/>
+                        </VBox>
+                    </HBox> 
+                    <VBox height="100%" width="5%"/>
+                </HBox>
+            </VBox>
+            <VBox height="4%" width="100%"/>
+                
+            <VBox height="86%" width="100%">
+                <HBox>
+                    <VBox height="100%" width="100%">
+                        <t:Table
+                            enableColumnReordering="false"
+                            selectionMode="None"
+                            visibleRowCount="10"
+                            class="alternate-color"
+                            rows="{guasti>/fermi}"
+                            id="GuastiDiLineaTable">
+                            <t:columns>
+                                <t:Column hAlign="Center" width="15%">
+                                    <Label text="Inizio"/>
+                                    <t:template>
+                                        <Text text="{guasti>inizio}"/>
+                                    </t:template>
+                                </t:Column>
+                                <t:Column hAlign="Center" width="15%">
+                                    <Label text="Fine"/>
+                                    <t:template>
+                                        <Text text="{guasti>fine}"/>
+                                    </t:template>
+                                </t:Column>
+                                <t:Column hAlign="Center" width="15%">
+                                    <Label text="Tempo"/>
+                                    <t:template>
+                                        <Text text="{guasti>intervallo}"/>
+                                    </t:template>
+                                </t:Column>
+                                <t:Column hAlign="Center" width="45%">
+                                    <Label text="Causale"/>
+                                    <t:template>
+                                        <Text text="{guasti>causale}"/>
+                                    </t:template>
+                                </t:Column>
+                                <t:Column hAlign="Center" width="10%">
+                                    <Button class="AddFermoButton noFocus" icon="sap-icon://add-equipment" press="AggiungiFermo" />
+                                    <t:template>
+                                        <Button press="OpenMenuCausalizzazione" icon="sap-icon://technical-object"/>
+                                    </t:template>
+                                </t:Column>
+                            </t:columns>
+                        </t:Table> 
+                    </VBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>   

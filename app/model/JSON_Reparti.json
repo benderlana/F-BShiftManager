@@ -1,0 +1,18 @@
+{
+ "error": "0",
+ "errorMessage": "",
+ "ListaReparti": [
+   {
+     "RepartoID": "1",
+     "Reparto": "Pasta Corta"
+   },
+   {
+     "RepartoID": "2",
+     "Reparto": "Pasta Lunga"
+   },
+   {
+     "RepartoID": "3",
+     "Reparto": "Nidi"
+   }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+    "linee": [
+        {
+            "icon": "sap-icon://machine",
+            "linea": "Piani di confezionamento",
+            "info": "Produzione",
+            "infoState": "Success",
+            "idlinea": "1P",
+            "linea_desc": "1",
+            "press": "onToPianiPage"
+        },
+        {
+            "icon": "sap-icon://org-chart",
+            "linea": "Sinottici",
+            "info": "Produzione",
+            "infoState": "Success",
+            "idlinea": "2P",
+            "linea_desc": "2",
+            "press": "onSinotticiPage"
+        }
+    ]
+}

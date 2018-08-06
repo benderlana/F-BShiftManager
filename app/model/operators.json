@@ -1,0 +1,48 @@
+{
+  "error": "0",
+  "errorMessage": "",
+  "operatori": [
+    {
+      "cognome": "Baratella",
+      "nome": "Marco",
+      "sezione": "Macchinista",
+      "livello": "A"
+    },
+    {
+      "cognome": "Lupi",
+      "nome": "Alessandro",
+      "sezione": "Macchinista",
+      "livello": "A"
+    },
+    {
+      "cognome": "Capano",
+      "nome": "Mattia",
+      "sezione": "Macchinista",
+      "livello": "B"
+    },
+    {
+      "cognome": "Battilana",
+      "nome": "Matteo",
+      "sezione": "Macchinista",
+      "livello": "C"
+    },
+    {
+      "cognome": "Sartori",
+      "nome": "Nicolò",
+      "sezione": "Fardellatore",
+      "livello": "A"
+    },
+    {
+      "cognome": "Sapuppo",
+      "nome": "Andrea",
+      "sezione": "Fardellatore",
+      "livello": "B"
+    },
+    {
+      "cognome": "Marrone",
+      "nome": "Marco",
+      "sezione": "Fardellatore",
+      "livello": "C"
+    }
+  ]
+}

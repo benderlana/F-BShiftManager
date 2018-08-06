@@ -1,0 +1,99 @@
+<core:FragmentDefinition
+    controllerName="myapp.controller.ManagePianoGrey"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table">
+    <Dialog
+        showHeader="false"
+        class="colorPage bordoBlu"
+        contentWidth="1200px"
+        contentHeight="500px"
+        id="CausalizzazioneFermo"
+        title="Causalizzazione Fermi Automatici">
+        <VBox height="100%">
+            <VBox id="vbox_table" height="25%">
+                <Table
+                    class="totaliTable"
+                    id="TotaleTable">
+                    <columns>
+                        <Column width="30%" hAlign="Center">
+                        </Column>
+                        <Column width="15%" hAlign="Center">
+                            <Label text="Tempo"/>                                                       
+                        </Column>
+                        <Column width="45%" hAlign="Center">
+                            <Label text="Causale"/>
+                        </Column>
+                        <Column width="10%" hAlign="Center">
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem class="paddingTotaliCelle TotaliText TotaliCB" visible="true">
+                            <cells>
+                                <Text textAlign="Center" text="Totale Complessivo"/>
+                                <Text text="{guastilinea>/Totale/tempoGuastoTotale}"/>
+                                <Text text="{guastilinea>/Totale/causaleTotale}"/>
+                                <CheckBox textAlign="Center" id="CBTotaleCausa" selected="false" select="ChangeCheckedCausa" class="CBTotaleCausaCustom sapUiTinyMarginBegin"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <TextArea id="NoFermiDaCausalizzare" width="100%" value="Non esistono fermi automatici da causalizzare" textAlign="Center" editable="false" visible="false"></TextArea>      
+            </VBox>
+            <VBox height="60%">
+                <t:Table
+                    id="GuastiTable"
+                    visibleRowCount="5"
+                    class="alternate-color"
+                    selectionMode="None"
+                    rows="{guastilinea>/fermi}">
+                    <t:columns>
+                        <t:Column hAlign="Center" width="15%" resizable="false">
+                            <Label text="Inizio"/>
+                            <t:template>
+                                <Text text="{guastilinea>inizio}"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column hAlign="Center" width="15%" resizable="false">
+                            <Label text="Fine"/>
+                            <t:template>
+                                <Text text="{guastilinea>fine}"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column hAlign="Center" width="15%" resizable="false">
+                            <Label text="Tempo"/>
+                            <t:template>
+                                <Text text="{guastilinea>intervallo}"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column hAlign="Center" width="45%" resizable="false">
+                            <Label text="Causale"/>
+                            <t:template>
+                                <Text text="{guastilinea>causale}"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column hAlign="Center" width="10%" resizable="false">
+                            <t:template>
+                                <CheckBox id="CBSingoloCausa" selected="{guastilinea>selected}" select="ChangeCheckedCausa"/>
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                    <t:noData>
+                        <Text class="sapUiTableCtrlEmptyMsg" text="Non ci sono fermi automatici da causalizzare" textAlign="Center"/>
+                    </t:noData>
+                </t:Table>
+            </VBox>
+            <HBox width="100%" height="15%" alignItems="Center">
+                <VBox width="5%"/>
+                <VBox width="35%">
+                    <Button width="100%" text="Esci" class="annullaButton" press="onCloseDialog"/>
+                </VBox>
+                <VBox width="20%"/>
+                <VBox width="35%">
+                    <Button width="100%" enabled="false" text="Causalizza" press="onCausalizzaButton" class="confermaButton" id="ConfermaFermi"/>
+                </VBox>
+                <VBox width="5%"/>
+            </HBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

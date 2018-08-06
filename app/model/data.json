@@ -1,0 +1,29 @@
+{
+    "descrizione": "Fara San Martino - Pasta Corta",
+    "errore": "0",
+    "linee": [{
+            "icon": "sap-icon://process",
+            "type": "Monitor",
+            "linea": "Coppia04",
+            "info": "Libera",
+            "infoState": "Success",
+            "idlinea": "1",
+            "linea_desc": "Coppia 04"
+        }, {
+            "icon": "sap-icon://process",
+            "type": "Monitor",
+            "linea": "Coppia02",
+            "info": "Libera",
+            "infoState": "Success",
+            "idlinea": "12",
+            "linea_desc": "Coppia 02"
+        }, {
+            "icon": "sap-icon://process",
+            "type": "Monitor",
+            "linea": "Linea12",
+            "info": "Libera",
+            "infoState": "Success",
+            "idlinea": "41",
+            "linea_desc": "Linea 12"
+        }]
+}

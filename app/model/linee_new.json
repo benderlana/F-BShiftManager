@@ -1,0 +1,52 @@
+{
+  "linee": [
+    {
+      "lineaID": "1",
+      "linea": "Coppia 04",
+      "statolinea": "Disponibile.Vuota",
+      "nOperatori": "2",
+      "disponibilita": "",
+      "efficienza": "",
+      "qualita": "",
+      "fermo": "",
+      "avanzamento": "0",
+      "perc_avanzamento": "0 %",
+      "barColor": "orange",
+      "batchlist": [
+        {
+          "batchID": "3",
+          "sequenza": "",
+          "statoBatch": "Chiuso",
+          "erroreBatch": "NA",
+          "formatoProduttivo": "Zitone tagliato 020",
+          "confezione": "Film",
+          "grammatura": "500",
+          "destinazione": "ITALIA + ESTERO",
+          "qli": "3.42.4.22",
+          "cartoni": "612",
+          "ore": "attesa",
+          "disponibilita": "wait",
+          "produttivita": "wait",
+          "qualita": "wait",
+          "fermo": "wait"
+        }
+      ]
+    },
+    {
+      "lineaID": "12",
+      "linea": "Coppia 02",
+      "statolinea": "Disponibile.Vuota",
+      "nOperatori": "2",
+      "disponibilita": "",
+      "efficienza": "",
+      "qualita": "",
+      "fermo": "",
+      "avanzamento": "0",
+      "perc_avanzamento": "0 %",
+      "barColor": "orange",
+      "batchlist": [
+        
+      ]
+    }
+  ]
+}

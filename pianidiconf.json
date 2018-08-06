@@ -1,0 +1,69 @@
+{
+    
+    "pianidiconfezionamento": [
+        {
+            "icon": "sap-icon://circle-task-2",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "0"
+        }, {
+            "icon": "sap-icon://circle-task-2",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "0"
+        }, {
+            "icon": "bo-strategy-management",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "0"
+        }, {
+            "icon": "sap-icon://circle-task",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "1"
+        }, {
+            "icon": "sap-icon://circle-task",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "2"
+        }, {
+            "icon": "sap-icon://bo-strategy-management",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "956",
+            "qliresidui": "",
+            "lineep": "8",
+            "turni": "8",
+            "area": "2"
+        }, {
+            "icon": "sap-icon://initiative",
+            "data": "22/04/2018",
+            "turno": "06:00 - 14:00",
+            "qliconf": "",
+            "qliresidui": "",
+            "lineep": "",
+            "turni": "",
+            "area": "-1"
+        }
+    ]
+}

@@ -1,15 +1,13 @@
 <core:FragmentDefinition
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:u="sap.ui.unified">
-    <u:Menu items="{path: '/menu'}">
+    xmlns:u="sap.ui.unified"
+    controllerName="myapp.controller.MenuItemEventing">
+    <u:Menu items="{path: '/menu'}" itemSelect="AzioneBatch">
         <u:MenuItem
             text="{nome}"
             startsSection="{nuovasezione}"
-            select="{metodo}"
-            enabled="{attivo}"
-        />
-       
+            enabled="{attivo}"/>
     </u:Menu>
 
 </core:FragmentDefinition>
