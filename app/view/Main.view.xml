@@ -9,10 +9,10 @@
                 <VBox height="25%" width="100%">
                     <HBox alignItems="Center">
                         <VBox height="100%" width="20%">
-                            <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                            <Image src="img/logo.png" class="Logo"/>
                         </VBox>
                         <VBox height="100%" alignItems="Center" width="60%" fitContainer="true">
-                            <Text text="Fara San Martino - Reparto Confezionamento" class="customTextTitle"/>
+                            <Text text="Techedge Food and Beverage" class="customTextTitle"/>
                         </VBox>
                         <HBox height="100%" width="20%">
                         </HBox>
@@ -23,7 +23,7 @@
                     <HBox>
                         <VBox height="100%" width="20%"/>
                         <VBox height="100%" width="30%" alignItems="Center">
-                            <GenericTile header="Piani di Confezionamento" press="onToPianiPage" class="tileSize bordoBlu tileTitle tileBlue tileTitleHoverBlue">
+                            <GenericTile header="Packaging Plans" press="onToPianiPage" class="tileSize bordoBlu tileTitle tileBlue tileTitleHoverBlue">
                                 <tileContent>
                                     <TileContent class="absoluteTileContentPosition">
                                         <content>
@@ -34,7 +34,7 @@
                             </GenericTile>
                         </VBox>
                         <VBox height="100%" width="30%" alignItems="Center">
-                            <GenericTile header="Sinottici" press="onSinotticiPage" class="tileSize bordoRosso tileTitle tileRed tileTitleHoverRed">
+                            <GenericTile header="Synoptic Charts" press="onSinotticiPage" class="tileSize bordoRosso tileTitle tileRed tileTitleHoverRed">
                                 <tileContent>
                                     <TileContent class="absoluteTileContentPosition">
                                         <content>
