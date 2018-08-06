@@ -12,7 +12,7 @@
                         <VBox height="100%" width="5%"/>
                         <HBox height="100%" width="25%">
                             <HBox height="100%">
-                                <Button text="Calcolo Consuntivi"
+                                <Button text="Balance Sheet"
                                         press="CreateReport"
                                         ariaDescribedBy="defaultButtonDescription genericButtonDescription"
                                         class="chiudiButton noFocus paddingleft larghezzaButtonLeft pianoGreyButton">
@@ -35,14 +35,14 @@
                         </VBox>
                         <HBox height="100%" width="25%">
                             <HBox width="100%" justifyContent="End">
-                                <Button text="Conferma Chiusura"
+                                <Button text="Confirm Closure"
                                         id="chiusuraPiano"
                                         press="ConfermaChiusuraPiano"
                                         enabled="false"
                                         ariaDescribedBy="defaultButtonDescription genericButtonDescription"
                                         class="chiudiButton noFocus larghezzaButtonLeft shiftButtonRight pianoGreyButton">
                                 </Button>
-                                <Button text="Esci" press="BackToPiani" class="chiudiButton noFocus paddingright larghezzaButtonRight pianoGreyButton"/>
+                                <Button text="Exit" press="BackToPiani" class="chiudiButton noFocus paddingright larghezzaButtonRight pianoGreyButton"/>
                             </HBox> 
                         </HBox> 
                         <VBox height="100%" width="5%"/>
@@ -124,34 +124,34 @@
                                                                             width="15%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Formato" />
+                                                                            <Text text="Size" />
                                                                         </Column>
                                                                         <Column
                                                                             width="9%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Confez." />
+                                                                            <Text text="Packaging" />
                                                                         </Column>
-                                                                        <Column width="25%">
-                                                                            <Text text="" />
-                                                                        </Column>
-                                                                        <Column
-                                                                            width="5%"
-                                                                            vAlign="Middle"
-                                                                            hAlign="Center">
-                                                                            <Text text="Qli" />
+                                                                        <Column width="25%" vAlign="Middle" hAlign="Center">
+                                                                            <Text text="Destination" />
                                                                         </Column>
                                                                         <Column
                                                                             width="5%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Cart." />
+                                                                            <Text text="Quintals" />
+                                                                        </Column>
+                                                                        <Column
+                                                                            width="5%"
+                                                                            vAlign="Middle"
+                                                                            hAlign="Center">
+                                                                            <Text text="Packs" />
                                                                         </Column>
                                                                         <Column
                                                                             width="6%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Ore" />
+                                                                            <Text text="Hours" />
                                                                         </Column>
                                                                         <Column
                                                                             visible="false"
@@ -194,7 +194,7 @@
                                                                     <Table 
                                                                         items="{linea>batchlist}"
                                                                         inset="false"
-                                                                        noDataText="Nessun batch lavorato"
+                                                                        noDataText="No batch worked"
                                                                         fixedLayout="false">
                                                                         <columns class="colorPage">
                                                                             <Column

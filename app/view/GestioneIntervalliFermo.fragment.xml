@@ -26,7 +26,7 @@
                     </VBox>
                     <HBox height="100%" width="20%">
                         <VBox width="100%">
-                            <Button text="Esci" press="onCloseDialog" class="chiudiButton paddingright" width="100%"/>
+                            <Button text="Exit" press="onCloseDialog" class="chiudiButton paddingright" width="100%"/>
                         </VBox>
                     </HBox> 
                     <VBox height="100%" width="5%"/>
@@ -46,25 +46,25 @@
                             id="GuastiDiLineaTable">
                             <t:columns>
                                 <t:Column hAlign="Center" width="15%">
-                                    <Label text="Inizio"/>
+                                    <Label text="Start"/>
                                     <t:template>
                                         <Text text="{guasti>inizio}"/>
                                     </t:template>
                                 </t:Column>
                                 <t:Column hAlign="Center" width="15%">
-                                    <Label text="Fine"/>
+                                    <Label text="End"/>
                                     <t:template>
                                         <Text text="{guasti>fine}"/>
                                     </t:template>
                                 </t:Column>
                                 <t:Column hAlign="Center" width="15%">
-                                    <Label text="Tempo"/>
+                                    <Label text="Time interval"/>
                                     <t:template>
                                         <Text text="{guasti>intervallo}"/>
                                     </t:template>
                                 </t:Column>
                                 <t:Column hAlign="Center" width="45%">
-                                    <Label text="Causale"/>
+                                    <Label text="Causal"/>
                                     <t:template>
                                         <Text text="{guasti>causale}"/>
                                     </t:template>

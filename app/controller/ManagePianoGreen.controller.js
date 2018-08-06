@@ -2583,14 +2583,14 @@ sap.ui.define([
             var vb4 = new sap.m.VBox({width: "10%"});
             var bt1 = new sap.m.Button({
                 id: "AnnullaFermo",
-                text: "Annulla",
+                text: "Exit",
                 width: "100%",
                 enabled: true,
                 press: this.onCloseDialog.bind(this)});
             bt1.addStyleClass("annullaButton");
             var bt2 = new sap.m.Button({
                 id: "ConfermaFermo",
-                text: "Conferma",
+                text: "Confirm",
                 width: "100%",
                 enabled: false,
                 press: this.onConfermaFermoCausalizzato.bind(this)});

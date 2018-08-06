@@ -2,47 +2,47 @@
     "stato": 0,
     "menu": [
         {
-            "nome": "Verifica Batch",
+            "nome": "Verify Batch",
             "attivo": false,
             "metodo": "visuBatch",
             "nuovasezione": false
         }, {
-            "nome": "Visualizza Attributi Batch",
+            "nome": "Batch Attributes",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": false
         }, {
-            "nome": "Trasferimento Batch a Linea",
+            "nome": "Transfer Batch To Line",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": true
         }, {
-            "nome": "Trasferimento Batch a Linea (solo attrezzaggio)",
+            "nome": "Transfer Batch To Line (only tooling)",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": false
         }, {
-            "nome": "Trasferimento schedulato",
+            "nome": "Scheduled Transfer",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": false
         }, {
-            "nome": "Richiamo Batch",
+            "nome": "Retrieve Batch",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": true
         }, {
-            "nome": "Cancellazione Batch",
+            "nome": "Delete Batch",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": false
         }, {
-            "nome": "Gestione Intervalli di Fermo",
+            "nome": "Manage Stops",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": true
         },{
-            "nome": "Causalizzazione Fermi Automatici",
+            "nome": "Entering Causals For Automatic Stops",
             "attivo": true,
             "metodo": "visuBatch",
             "nuovasezione": false

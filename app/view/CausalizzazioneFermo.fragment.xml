@@ -19,10 +19,10 @@
                         <Column width="30%" hAlign="Center">
                         </Column>
                         <Column width="15%" hAlign="Center">
-                            <Label text="Tempo"/>                                                       
+                            <Label text="Time interval"/>                                                       
                         </Column>
                         <Column width="45%" hAlign="Center">
-                            <Label text="Causale"/>
+                            <Label text="Causal"/>
                         </Column>
                         <Column width="10%" hAlign="Center">
                         </Column>
@@ -30,7 +30,7 @@
                     <items>
                         <ColumnListItem class="paddingTotaliCelle TotaliText TotaliCB" visible="true">
                             <cells>
-                                <Text textAlign="Center" text="Totale Complessivo"/>
+                                <Text textAlign="Center" text="Cumulative Total"/>
                                 <Text text="{guastilinea>/Totale/tempoGuastoTotale}"/>
                                 <Text text="{guastilinea>/Totale/causaleTotale}"/>
                                 <CheckBox textAlign="Center" id="CBTotaleCausa" selected="false" select="ChangeCheckedCausa" class="CBTotaleCausaCustom sapUiTinyMarginBegin"/>
@@ -49,25 +49,25 @@
                     rows="{guastilinea>/fermi}">
                     <t:columns>
                         <t:Column hAlign="Center" width="15%" resizable="false">
-                            <Label text="Inizio"/>
+                            <Label text="Start"/>
                             <t:template>
                                 <Text text="{guastilinea>inizio}"/>
                             </t:template>
                         </t:Column>
                         <t:Column hAlign="Center" width="15%" resizable="false">
-                            <Label text="Fine"/>
+                            <Label text="End"/>
                             <t:template>
                                 <Text text="{guastilinea>fine}"/>
                             </t:template>
                         </t:Column>
                         <t:Column hAlign="Center" width="15%" resizable="false">
-                            <Label text="Tempo"/>
+                            <Label text="Time interval"/>
                             <t:template>
                                 <Text text="{guastilinea>intervallo}"/>
                             </t:template>
                         </t:Column>
                         <t:Column hAlign="Center" width="45%" resizable="false">
-                            <Label text="Causale"/>
+                            <Label text="Causal"/>
                             <t:template>
                                 <Text text="{guastilinea>causale}"/>
                             </t:template>
@@ -79,18 +79,18 @@
                         </t:Column>
                     </t:columns>
                     <t:noData>
-                        <Text class="sapUiTableCtrlEmptyMsg" text="Non ci sono fermi automatici da causalizzare" textAlign="Center"/>
+                        <Text class="sapUiTableCtrlEmptyMsg" text="No automatic stops without causal" textAlign="Center"/>
                     </t:noData>
                 </t:Table>
             </VBox>
             <HBox width="100%" height="15%" alignItems="Center">
                 <VBox width="5%"/>
                 <VBox width="35%">
-                    <Button width="100%" text="Esci" class="annullaButton" press="onCloseDialog"/>
+                    <Button width="100%" text="Exit" class="annullaButton" press="onCloseDialog"/>
                 </VBox>
                 <VBox width="20%"/>
                 <VBox width="35%">
-                    <Button width="100%" enabled="false" text="Causalizza" press="onCausalizzaButton" class="confermaButton" id="ConfermaFermi"/>
+                    <Button width="100%" enabled="false" text="Enter causal" press="onCausalizzaButton" class="confermaButton" id="ConfermaFermi"/>
                 </VBox>
                 <VBox width="5%"/>
             </HBox>

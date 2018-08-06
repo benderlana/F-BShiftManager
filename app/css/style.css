@@ -30,7 +30,13 @@
     font-size: 20pt;
     font-family: Arial;
     line-height: 18pt;
-    white-space: normal;    
+    white-space: normal;
+}
+.tileTitle .sapMGTHdrContent .sapMText .sapMTextLineClamp {
+    height: 100%; 
+}
+.tileTitle .sapMGTHdrContent .sapMGTHdrTxt{
+    height: 100%;
 }
 .iconWhite .sapUiIcon {
     color: white;

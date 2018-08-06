@@ -12,12 +12,12 @@
                             <Image src="img/logo.png" class="Logo"/>
                         </VBox>
                         <VBox height="100%" alignItems="Center" width="60%" fitContainer="true">
-                            <Text text="Fara San Martino - Reparto Confezionamento" class="customTextTitle"/>
+                            <Text text="Techedge Packaging Division" class="customTextTitle"/>
                         </VBox>
                         <HBox height="100%" width="20%">
                             <VBox width="23%"/>
                             <VBox width="55%">
-                                <Button text="Esci" width="100%" press="BackToMain" class="chiudiButton noFocus"/>
+                                <Button text="Exit" width="100%" press="BackToMain" class="chiudiButton noFocus"/>
                             </VBox>
                             <VBox width="22%"/>
                         </HBox>
@@ -38,32 +38,32 @@
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Data"/>
+                                                    <Text text="Date"/>
                                                 </header>
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Turno"/>
+                                                    <Text text="Shift"/>
                                                 </header>
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Q.li confezionati"/>
+                                                    <Text text="Quintals packaged"/>
                                                 </header>
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Q.li residui"/>
+                                                    <Text text="Quintals left"/>
                                                 </header>
                                             </Column>  
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Linee Disponibili"/>
+                                                    <Text text="Available lines"/>
                                                 </header>
                                             </Column> 
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Ore"/>
+                                                    <Text text="Hours"/>
                                                 </header>
                                             </Column>                                             
                                         </columns>
@@ -73,7 +73,7 @@
                                 <VBox height="30%" width="100%" class="bordoBlu grey">
                                     <ScrollContainer id="scrollTurniConclusi" height="187px" horizontal="false" vertical="true" class="scrollingbar">
                                         <Table 
-                                            noDataText="Nessun piano passato da chiudere"
+                                            noDataText="No past plan has to be closed"
                                             width="100%"
                                             class="tableTextSize noBorder greyTable"
                                             items="{path: 'turni>/pianidiconfezionamento/conclusi'}">
@@ -174,7 +174,7 @@
                                 <VBox height="30%" width="100%" class="bordoBlu yellow">
                                     <ScrollContainer id="scrollTurniProgrammati" height="187px" horizontal="false" vertical="true" class="scrollingbar">
                                         <Table 
-                                            noDataText="Nessun piano programmato"
+                                            noDataText="No future plans"
                                             width="100%"
                                             items="{path: 'turni>/pianidiconfezionamento/programmati'}"
                                             class="tableTextSize noBorder yellowTable">

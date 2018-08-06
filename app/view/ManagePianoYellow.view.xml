@@ -11,7 +11,7 @@
                     <HBox>
                         <VBox height="100%" width="5%"/>
                         <VBox height="100%" width="15%">
-                            <Button text="Aggiorna" press="RefreshButton" width="100%" class="allarmeButton noFocus paddingleft" />
+                            <Button text="Refresh" press="RefreshButton" width="100%" class="allarmeButton noFocus paddingleft" />
                         </VBox>
                         <VBox height="100%" width="10%"/>
                         <VBox height="100%" width="40%">
@@ -21,7 +21,7 @@
                         </VBox>
                         <VBox height="100%" width="10%"/>
                         <VBox height="100%" width="15%">
-                            <Button text="Esci" press="BackToPiani" width="100%" class="chiudiButton noFocus paddingright" />
+                            <Button text="Exit" press="BackToPiani" width="100%" class="chiudiButton noFocus paddingright" />
                         </VBox>
                         <VBox height="100%" width="5%"/>
                     </HBox>
@@ -65,7 +65,7 @@
                                                                                 class="headerTabella paddingHeaderTabella">
                                                                                 <columns>
                                                                                     <Column  hAlign="Center">
-                                                                                        <Text text="Operatori"/>
+                                                                                        <Text text="Operators"/>
                                                                                     </Column>
                                                                                 </columns>
                                                                             </Table>
@@ -115,22 +115,22 @@
                                                                                     <Text text="Seq." />
                                                                                 </Column>
                                                                                 <Column width="22%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Formato" />
+                                                                                    <Text text="Size" />
                                                                                 </Column>
                                                                                 <Column width="15%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Confezionamento" />
+                                                                                    <Text text="Packaging" />
                                                                                 </Column>
                                                                                 <Column width="26%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Destinazione" />
+                                                                                    <Text text="Destination" />
                                                                                 </Column>
                                                                                 <Column width="7%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Quintali" />
+                                                                                    <Text text="Quintals" />
                                                                                 </Column>
                                                                                 <Column width="7%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Cartoni" />
+                                                                                    <Text text="Packs" />
                                                                                 </Column>
                                                                                 <Column width="9%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Ore" />
+                                                                                    <Text text="Hours" />
                                                                                 </Column>
                                                                                 <Column width="8%" hAlign="Center" vAlign="Middle">
                                                                                     <Text/>
@@ -140,7 +140,7 @@
                                                                         <ScrollContainer vertical='true' height="155px" class="scrollingbar">
                                                                             <Table class="removeBorders1 removeBorders2" 
                                                                                    width="100%" 
-                                                                                   noDataText="Nessun batch programmato"
+                                                                                   noDataText="No batch planned"
                                                                                    items="{path: 'linea>batchlist', templateShareable:false}">
                                                                                 <columns>
                                                                                     <Column width="6%" vAlign="Middle" hAlign="Center"/>
