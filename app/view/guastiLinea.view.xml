@@ -20,7 +20,7 @@
                         </VBox>
                         <HBox height="100%" width="20%">
                             <VBox width="100%">
-                                <Button text="Esci" press="ReturnToReport" class="chiudiButton paddingright" width="100%"/>
+                                <Button text="Exit" press="ReturnToReport" class="chiudiButton paddingright" width="100%"/>
                             </VBox>
                         </HBox> 
                         <VBox height="100%" width="5%"/>
@@ -40,25 +40,25 @@
                                 id="GuastiDiLineaTable">
                                 <t:columns>
                                     <t:Column hAlign="Center" vAlign="Middle" width="15%">
-                                        <Label text="Inizio"/>
+                                        <Label text="Start"/>
                                         <t:template>
                                             <Text text="{guasti>inizio}"/>
                                         </t:template>
                                     </t:Column>
                                     <t:Column hAlign="Center" vAlign="Middle" width="15%">
-                                        <Label text="Fine"/>
+                                        <Label text="End"/>
                                         <t:template>
                                             <Text text="{guasti>fine}"/>
                                         </t:template>
                                     </t:Column>
                                     <t:Column hAlign="Center" vAlign="Middle" width="15%">
-                                        <Label text="Tempo"/>
+                                        <Label text="Time Interval"/>
                                         <t:template>
                                             <Text text="{guasti>intervallo}"/>
                                         </t:template>
                                     </t:Column>
                                     <t:Column hAlign="Center" vAlign="Middle" width="45%">
-                                        <Label text="Causale"/>
+                                        <Label text="Causal"/>
                                         <t:template>
                                             <Text text="{guasti>causale}"/>
                                         </t:template>
@@ -71,7 +71,7 @@
                                     </t:Column>
                                 </t:columns>
                                 <t:noData>
-                                    <Text class="sapUiTableCtrlEmptyMsg" text="Non ci sono stati fermi durante la lavorazione del batch" textAlign="Center"/>
+                                    <Text class="sapUiTableCtrlEmptyMsg" text="No stops during batch processing" textAlign="Center"/>
                                 </t:noData>
                             </t:Table>                              
                         </VBox>

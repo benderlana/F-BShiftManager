@@ -76,7 +76,7 @@ sap.ui.define([
             Library.AjaxCallerData(link, function (Jdata) {
                 that.ModelCausali.setData(Jdata);
                 that.getView().setModel(that.ModelCausali, "cause");
-                that.CreaFinestraInserimento("Inserisci Fermo");
+                that.CreaFinestraInserimento("Enter new stop");
             });
         },
 //        ************************ TABELLA ************************
@@ -117,19 +117,19 @@ sap.ui.define([
         ModificaGuasti: function (oEvent) {
             var oText = oEvent.getParameter("item").getText();
             switch (oText) {
-                case "Modifica Causale Fermo":
+                case "Modify stop causal":
                     this.CreaFinestraModificaCausale(oText);
                     break;
-                case "Modifica Inizio/Fine del Fermo":
+                case "Modify start/end of the stop":
                     this.CreaFinestraModificaTempi(oText);
                     break;
-                case "Fraziona Causale di Fermo":
+                case "Split stop causal":
                     this.CreaFinestraFrazionamento(oText);
                     break;
-                case "Elimina Fermo":
+                case "Delete stop":
                     this.CreaFinestraEliminazione(oText);
                     break;
-                case "Inserisci Fermo":
+                case "Enter new stop":
                     this.CreaFinestraInserimento(oText);
             }
 
@@ -153,7 +153,7 @@ sap.ui.define([
             var oVBox1 = topBox.getItems()[0];
             var oVBox2 = topBox.getItems()[1];
             var oText1 = new sap.m.Text({
-                text: "Valore Corrente"
+                text: "Current Value"
             });
             var oText2 = new sap.m.Text({
                 text: this.row_binded.causale
@@ -162,7 +162,7 @@ sap.ui.define([
             var bBox1 = bottomBox.getItems()[0];
             var bBox2 = bottomBox.getItems()[1];
             var bText1 = new sap.m.Text({
-                text: "Nuovo Valore"
+                text: "New Value"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -196,7 +196,7 @@ sap.ui.define([
             var oVBox1 = topBox.getItems()[0];
             var oVBox2 = topBox.getItems()[1];
             var oText1 = new sap.m.Text({
-                text: "Valore Corrente"
+                text: "Current Values"
             });
             oVBox1.addItem(oText1);
             var oHBoxTop = new sap.m.HBox({
@@ -209,10 +209,10 @@ sap.ui.define([
                 width: "50%"
             });
             var oText2 = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             var oText3 = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             var oTextFine = new sap.m.Text({
                 text: this.row_binded.fine
@@ -236,7 +236,7 @@ sap.ui.define([
             oVBox1 = bottomBox.getItems()[0];
             oVBox2 = bottomBox.getItems()[1];
             var oText = new sap.m.Text({
-                text: "Nuovi Valori"
+                text: "New Values"
             });
             oText.addStyleClass("red");
             oVBox1.addItem(oText);
@@ -250,10 +250,10 @@ sap.ui.define([
                 width: "50%"
             });
             oText1 = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             oText2 = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             oTextFine = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -293,7 +293,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText1 = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             var oTextInizio = new sap.m.Text({
                 text: this.row_binded.inizio
@@ -311,7 +311,7 @@ sap.ui.define([
                 width: "100%"
             });
             oText1 = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             var oTextFine = new sap.m.Text({
                 text: this.row_binded.fine
@@ -333,7 +333,7 @@ sap.ui.define([
                 width: "100%"
             });
             oText1 = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -347,7 +347,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText1 = new sap.m.Text({
-                text: "causale"
+                text: "causal"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -366,7 +366,7 @@ sap.ui.define([
             oHBoxCentral.addItem(selectMenu);
             centralBox.addItem(oHBoxCentral);
             oText1 = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             oTextFine = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -401,7 +401,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -416,7 +416,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causale"
+                text: "causal"
             });
             var Causale = new sap.m.Text({
                 id: "Causale",
@@ -433,7 +433,7 @@ sap.ui.define([
             oHBoxCentral.addItem(Causale);
             centralBox.addItem(oHBoxCentral);
             oText = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             var oTextFine = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -467,7 +467,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "inizio"
+                text: "start"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -481,7 +481,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causale"
+                text: "causal"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -500,7 +500,7 @@ sap.ui.define([
             oHBoxCentral.addItem(selectMenu);
             centralBox.addItem(oHBoxCentral);
             oText = new sap.m.Text({
-                text: "fine"
+                text: "end"
             });
             var oTextFine = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -520,7 +520,7 @@ sap.ui.define([
             var oText = this.getView().byId("title").getText();
             var obj, link, data_inizio, data_fine;
             switch (oText) {
-                case "Modifica Causale Fermo":
+                case "Modify stop causal":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaCausaleFermo(oEvent);
                         this.oDialog.destroy();
@@ -538,7 +538,7 @@ sap.ui.define([
                         });
                     }
                     break;
-                case "Modifica Inizio/Fine del Fermo":
+                case "Modify start/end of the stop":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaTempiFermo();
                         this.oDialog.destroy();
@@ -556,7 +556,7 @@ sap.ui.define([
                         Library.AjaxCallerData(link, this.SUCCESSGuastoModificato.bind(this));
                     }
                     break;
-                case "Fraziona Causale di Fermo":
+                case "Split stop causal":
                     if (this.ISLOCAL === 1) {
                         this.LOCALFrazionaFermo();
                         this.oDialog.destroy();
@@ -574,7 +574,7 @@ sap.ui.define([
                         Library.AjaxCallerData(link, this.SUCCESSGuastoModificato.bind(this));
                     }
                     break;
-                case "Elimina Fermo":
+                case "Delete stop":
                     if (this.ISLOCAL === 1) {
                         this.LOCALEliminaFermo();
                         this.oDialog.destroy();
@@ -590,7 +590,7 @@ sap.ui.define([
                         Library.AjaxCallerData(link, this.SUCCESSGuastoModificato.bind(this));
                     }
                     break;
-                case "Inserisci Fermo":
+                case "Enter new stop":
                     if (this.ISLOCAL === 1) {
                         this.LOCALInserisciFermo();
                         this.oDialog.destroy();

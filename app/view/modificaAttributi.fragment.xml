@@ -11,7 +11,7 @@
             <VBox height="90%" width="100%">
                 <TabContainer id="attributiContainer" itemSelect="TabSelection">
                     <items>    
-                        <TabContainerItem name="Attributi" id="Attributi">
+                        <TabContainerItem name="Attributes" id="Attributi">
                             <content>
                                 <HBox>
                                     <VBox height="100%" width="1%"/>
@@ -35,20 +35,20 @@
                                             <wt:toolbar>
                                                 <Toolbar>
                                                     <ToolbarSpacer/>
-                                                    <Button text="Collassa" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                    <Button text="Espandi" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                    <Button text="Speciali" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
+                                                    <Button text="Collapse" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                    <Button text="Expand" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                    <Button text="No Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
                                                 </Toolbar>
                                             </wt:toolbar>
                                             <wt:columns>
                                                 <t:Column resizable="false">
-                                                    <Label text="ATTRIBUTI"/>
+                                                    <Label text="ATTRIBUTES"/>
                                                     <t:template>
                                                         <wt:StyleTextTreeTableAttr text="{SKU>name}" diff="{SKU>expand}" discr="{SKU>value}" maxLines="1"/>
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column resizable="false">
-                                                    <Label text="VALORE"/>
+                                                    <Label text="VALUE"/>
                                                     <t:template>
                                                         <HBox>
                                                             <wt:StyleTextTreeTableValue text="{SKU>value}" diff="{SKU>expand}" maxLines="1" tooltip="{SKU>value}"/>
@@ -61,7 +61,7 @@
                                 </HBox>
                             </content>
                         </TabContainerItem>
-                        <TabContainerItem name="Parametri" id="Parametri">
+                        <TabContainerItem name="Parameters" id="Parametri">
                             <content>
                                 <wt:CustomTreeTable
                                     id="Parametri_TT"
@@ -75,34 +75,34 @@
                                     app:mydata="Parametri_TT">
                                     <wt:toolbar>
                                         <Toolbar>
-                                            <Button text="Ripristina valori" press="RestoreDefault" class="TTButton"/>
+                                            <Button text="Restore values" press="RestoreDefault" class="TTButton"/>
                                             <ToolbarSpacer/>
-                                            <Button text="Collassa" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
-                                            <Button text="Espandi" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
-                                            <Button text="Da confermare" press="ShowRelevant" app:mydata="Parametri_TT" class="TTButton"/>
+                                            <Button text="Collapse" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                            <Button text="Expand" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                            <Button text="To be confirmed" press="ShowRelevant" app:mydata="Parametri_TT" class="TTButton"/>
                                         </Toolbar>
                                     </wt:toolbar>
                                     <wt:columns>
                                         <t:Column width="15rem" resizable="false">
-                                            <Label text="ATTRIBUTI"/>
+                                            <Label text="ATTRIBUTES"/>
                                             <t:template>
                                                 <Text text="{ModelParametri>name}" maxLines="2" class="verticalAlignment"/>
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="VALORE"/>
+                                            <Label text="VALUE"/>
                                             <t:template>
                                                 <Text text="{ModelParametri>value}" maxLines="2" tooltip="{ModelParametri>value}" class="verticalAlignment"/>
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="MATRICOLA/LOTTO"/>
+                                            <Label text="SERIAL NUMBER/BATCH"/>
                                             <t:template>
                                                 <Text text="{ModelParametri>codeValue}" visible="{= ${ModelParametri>code} === 1}" maxLines="2" tooltip="{ModelParametri>codeValue}" class="verticalAlignment"/>
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="MODIFICA VALORE"/>
+                                            <Label text="MODIFY VALUE"/>
                                             <t:template>
                                                 <Input value="{ModelParametri>valueModify}" editable="{= ${ModelParametri>modify} === 1}" type="Text" maxLength="30" visible="{= ${ModelParametri>modify} === 1}" class="diffStandard redInputParametri" />
                                             </t:template>
@@ -118,11 +118,11 @@
                 <HBox>
                     <VBox height="100%" width="10%"/>
                     <VBox height="100%" width="30%">
-                        <Button text="Annulla" width="100%" class="annullaButton" press="AnnullaModifiche"></Button>
+                        <Button text="Undo" width="100%" class="annullaButton" press="AnnullaModifiche"></Button>
                     </VBox>
                     <VBox height="100%" width="20%"/>
                     <VBox height="100%" width="30%">
-                        <Button text="Conferma" width="100%" class="confermaButton" press="ConfermaModifiche"></Button>
+                        <Button text="Confirm" width="100%" class="confermaButton" press="ConfermaModifiche"></Button>
                     </VBox>
                     <VBox height="100%" width="10%"/>
                 </HBox>

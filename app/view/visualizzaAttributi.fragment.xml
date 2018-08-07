@@ -11,7 +11,7 @@
             <VBox height="90%" width="100%">
                 <TabContainer id="attributiContainer" itemSelect="TabSelectionShow">
                     <items>    
-                        <TabContainerItem name="Attributi" id="Attributi">
+                        <TabContainerItem name="Attributes" id="Attributi">
                             <content>
                                 <VBox height="100%" width="100%">
                                     <wt:CustomTreeTable
@@ -27,20 +27,20 @@
                                         <wt:toolbar>
                                             <Toolbar>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                <Button text="Speciali" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="No Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <wt:StyleTextTreeTableAttr text="{SKU>name}" diff="{SKU>expand}" discr="{SKU>value}" maxLines="1"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{SKU>value}" diff="{SKU>expand}" maxLines="1" tooltip="{SKU>value}"/>
@@ -52,7 +52,7 @@
                                 </VBox>
                             </content>
                         </TabContainerItem>
-                        <TabContainerItem name="Parametri" id="Parametri">
+                        <TabContainerItem name="Parameters" id="Parametri">
                             <content>
                                 <VBox height="100%" width="100%">                 
                                     <wt:CustomTreeTable
@@ -67,25 +67,25 @@
                                         <wt:toolbar>
                                             <Toolbar>
                                                 <ToolbarSpacer/>
-                                                <Button text="Collassa" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
-                                                <Button text="Espandi" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                                <Button text="Collapse" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
+                                                <Button text="Expand" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
                                             <t:Column width="15rem" resizable="false">
-                                                <Label text="ATTRIBUTI"/>
+                                                <Label text="ATTRIBUTES"/>
                                                 <t:template>
                                                     <Text text="{ModelParametri>name}" maxLines="1"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="VALORE"/>
+                                                <Label text="VALUE"/>
                                                 <t:template>
                                                     <Text text="{ModelParametri>value}" maxLines="1" tooltip="{ModelParametri>value}"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="MATRICOLA/LOTTO"/>
+                                                <Label text="SERIAL NUMBER/BATCH"/>
                                                 <t:template>
                                                     <Text text="{ModelParametri>codeValue}" visible="{= ${ModelParametri>code} === 1}" maxLines="1" tooltip="{ModelParametri>codeValue}"/>
                                                 </t:template>
@@ -102,7 +102,7 @@
                 <HBox>
                     <VBox height="100%" width="30%"/>
                     <VBox height="100%" width="40%">
-                        <Button text="Chiudi" width="100%" class="annullaButton" press="AnnullaModifiche"></Button>
+                        <Button text="Close" width="100%" class="annullaButton" press="AnnullaModifiche"></Button>
                     </VBox>
                     <VBox height="100%" width="30%"/>
                 </HBox>

@@ -5,27 +5,27 @@
     controllerName="myapp.controller.guastiLinea">
     <u:Menu itemSelect="ModificaGuasti">
         <u:MenuItem
-            text="Inserisci Fermo"
+            text="Enter new stop"
             startsSection= "false"
             enabled= "true"
             />
         <u:MenuItem
-            text="Modifica Causale Fermo"
+            text="Modify stop causal"
             startsSection= "true"
             enabled= "true"
             />
         <u:MenuItem
-            text="Modifica Inizio/Fine del Fermo"
+            text="Modify start/end of the stop"
             startsSection= "false"
             enabled= "true"
             />                    
         <u:MenuItem
-            text="Fraziona Causale di Fermo"
+            text="Split stop causal"
             startsSection= "true"
             enabled= "true"
             />        
         <u:MenuItem
-            text="Elimina Fermo"
+            text="Delete stop"
             startsSection= "false"
             enabled= "true"
             />       

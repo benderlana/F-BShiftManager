@@ -33,11 +33,11 @@
                     <HBox>
                         <VBox height="49px" width="120px"/>
                         <VBox height="49px" width="360px">
-                            <Button text="Chiudi" width="360px" press="CloseSPCDialog" class="chiudiButton"/>
+                            <Button text="Close" width="360px" press="CloseSPCDialog" class="chiudiButton"/>
                         </VBox>
                         <VBox height="49px" width="240px"/>
                         <VBox height="49px" width="360px">
-                            <Button id="alarmButton" text="Rimuovi allarme" width="360px" enabled="false" press="RemoveAlarm" class="chiudiButton"/>
+                            <Button id="alarmButton" text="Remove alarm" width="360px" enabled="false" press="RemoveAlarm" class="chiudiButton"/>
                         </VBox>
                         <VBox height="49px" width="120px"/>
                     </HBox>

@@ -38,7 +38,7 @@
         <HBox>
             <VBox width="10%"/>
             <VBox width="80%">
-                <Button width="100%" text="Conferma" press="ConfermaCambio" id="confermaModificheButton" class="chiudiButton"/>
+                <Button width="100%" text="Confirm" press="ConfermaCambio" id="confermaModificheButton" class="chiudiButton"/>
             </VBox>
             <VBox width="10%"/>
         </HBox>

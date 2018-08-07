@@ -15,7 +15,7 @@
                         </VBox>
                         <HBox height="100%" width="20%">
                             <VBox width="100%">
-                                <Button text="Esci" press="onBackNav" class="chiudiButton paddingright" width="100%"/>
+                                <Button text="Exit" press="onBackNav" class="chiudiButton paddingright" width="100%"/>
                             </VBox>
                         </HBox> 
                         <VBox height="100%" width="5%"/>
@@ -49,9 +49,9 @@
                                     </t:Column>
                                     <t:Column id="ComponentiOEE" resizable="false" class="mysapUiTableCol">
                                         <t:multiLabels>
-                                            <Label text="Componenti OEE" textAlign="Center"/>
+                                            <Label text="OEE Components" textAlign="Center"/>
                                             <Label text="A" class="noBorderRight"/>
-                                            <Label text="Disponibilità" class="reportSapLabel"/>
+                                            <Label text="Availability" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable  text="{ReportOEE>Ar}" red="{ReportOEE>red/Ar}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -59,9 +59,9 @@
                                     </t:Column>
                                     <t:Column resizable="false" class="noBorderRight">
                                         <t:multiLabels>
-                                            <Label text="Componenti OEE"/>
+                                            <Label text="OEE Components"/>
                                             <Label text="P"/>
-                                            <Label text="Produttività" class="reportSapLabel"/>
+                                            <Label text="Productivity" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{ReportOEE>Pr}" red="{ReportOEE>red/Pr}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -69,9 +69,9 @@
                                     </t:Column>
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Componenti OEE"/>
+                                            <Label text="OEE Components"/>
                                             <Label text="Q"/>
-                                            <Label text="Qualità" class="reportSapLabel"/>
+                                            <Label text="Quality" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{ReportOEE>Qr}" red="{ReportOEE>red/Qr}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -79,9 +79,9 @@
                                     </t:Column> 
                                     <t:Column id="ComponentiPerdita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Disponibilità"/>
-                                            <Label text="Totale" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Availability"/>
+                                            <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <Text text="{= String(${ReportOEE>Al}).split('.')[0]}"/>
@@ -89,9 +89,9 @@
                                     </t:Column>  
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Disponibilità"/>
-                                            <Label text="Fermate" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Availability"/>
+                                            <Label text="Stops" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>AlFermo}).split('.')[0]}" red="{ReportOEE>red/AlFermo}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -99,8 +99,8 @@
                                     </t:Column> 
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Disponibilità"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Availability"/>
                                             <Label text="Set-up" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
@@ -109,9 +109,9 @@
                                     </t:Column>
                                     <t:Column id="ComponentiProduttivita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Produttività"/>
-                                            <Label text="Totale" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Productivity"/>
+                                            <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <Text text="{= String(${ReportOEE>Pl}).split('.')[0]}"/>
@@ -119,9 +119,9 @@
                                     </t:Column>  
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Produttività"/>
-                                            <Label text="Cad.Ridotta" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Productivity"/>
+                                            <Label text="Red. Freq." class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>PlVelocita}).split('.')[0]}" red="{ReportOEE>red/PlVelocita}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -129,9 +129,9 @@
                                     </t:Column>
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Produttività"/>
-                                            <Label text="M.Fermate" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Productivity"/>
+                                            <Label text="Microstops" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>PlMicrofermate}).split('.')[0]}" red="{ReportOEE>red/PlMicrofermate}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -139,9 +139,9 @@
                                     </t:Column> 
                                     <t:Column id="ComponentiQualita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Qualità"/>
-                                            <Label text="Totale" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Quality"/>
+                                            <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <Text text="{= String(${ReportOEE>Ql}).split('.')[0]}"/>
@@ -149,9 +149,9 @@
                                     </t:Column>
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Qualità"/>
-                                            <Label text="Scarti Lavor." class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Quality"/>
+                                            <Label text="Process Waste" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>QlScartiProduzione}).split('.')[0]}" red="{ReportOEE>red/QlScartiProduzione}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -159,9 +159,9 @@
                                     </t:Column> 
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Principali componenti di perdita [in minuti]"/>
-                                            <Label text="Qualità"/>
-                                            <Label text="Scarti Setup" class="reportSapLabel"/>
+                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Quality"/>
+                                            <Label text="Setup Wastes" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>QlScartiSetup}).split('.')[0]}" red="{ReportOEE>red/QlScartiSetup}" hierarchy="{ReportOEE>hierarchy}"/>
@@ -170,7 +170,6 @@
                                 </wt:columns>
                             </wt:HierarchyTable>
                         </VBox>
-                        <!--<VBox height="100%" width="5%"/>--> 
                     </HBox>
                 </VBox>
             </VBox>
