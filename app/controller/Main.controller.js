@@ -37,7 +37,7 @@ sap.ui.define([
             if (this.ISLOCAL === 1) {
                 link = "model/linee_riepilogo.json";
             } else {
-                MessageToast.show("Non ancora disponibile", {duration: 3000});
+                MessageToast.show("Not yet available", {duration: 3000});
             }
             Library.AjaxCallerData(link, this.SUCCESSModelLinee.bind(this));
             sap.ui.getCore().setModel(this.ModelLinee, "linee");
