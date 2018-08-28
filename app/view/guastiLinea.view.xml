@@ -40,7 +40,7 @@
                                 id="GuastiDiLineaTable">
                                 <t:columns>
                                     <t:Column hAlign="Center" vAlign="Middle" width="15%">
-                                        <Label text="Start"/>
+                                        <Label text="Begin"/>
                                         <t:template>
                                             <Text text="{guasti>inizio}"/>
                                         </t:template>
@@ -58,7 +58,7 @@
                                         </t:template>
                                     </t:Column>
                                     <t:Column hAlign="Center" vAlign="Middle" width="45%">
-                                        <Label text="Causal"/>
+                                        <Label text="Justification"/>
                                         <t:template>
                                             <Text text="{guasti>causale}"/>
                                         </t:template>
@@ -71,7 +71,7 @@
                                     </t:Column>
                                 </t:columns>
                                 <t:noData>
-                                    <Text class="sapUiTableCtrlEmptyMsg" text="No stops during batch processing" textAlign="Center"/>
+                                    <Text class="sapUiTableCtrlEmptyMsg" text="No stops to show" textAlign="Center"/>
                                 </t:noData>
                             </t:Table>                              
                         </VBox>

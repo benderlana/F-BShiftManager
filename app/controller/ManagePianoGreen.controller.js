@@ -547,15 +547,15 @@ sap.ui.define([
             var value = obj.getValue();
             if (isNaN(Number(value))) {
                 obj.setValue(this.bckupSEQ);
-                MessageToast.show("Inserire solo numeri interi", {duration: 3000});
+                MessageToast.show("Only integer numbers are allowed", {duration: 3000});
             } else {
                 if (Number(value) < 0) {
                     obj.setValue(this.bckupSEQ);
-                    MessageToast.show("Inserire solo numeri interi positivi", {duration: 3000});
+                    MessageToast.show("Only integer and positive numbers are allowed", {duration: 3000});
                 } else {
                     if (value.indexOf(".") > -1) {
                         obj.setValue(this.bckupSEQ);
-                        MessageToast.show("Inserire solo numeri interi positivi", {duration: 3000});
+                        MessageToast.show("Only integer and positive numbers are allowed", {duration: 3000});
                     } else {
                         this.bckupSEQ = value;
                     }
@@ -787,16 +787,16 @@ sap.ui.define([
             var value = obj.getValue();
             if (isNaN(Number(value))) {
                 obj.setValue(this.bckupQLI);
-                MessageToast.show("Inserire solo numeri", {duration: 3000});
+                MessageToast.show("Only numbers are allowed", {duration: 3000});
             } else {
                 if (Number(value) < 0) {
                     obj.setValue(this.bckupQLI);
-                    MessageToast.show("Inserire solo numeri positivi", {duration: 3000});
+                    MessageToast.show("Only positive numbers are allowed", {duration: 3000});
                 } else {
                     ind = 1 + value.indexOf(".") + value.indexOf(",");
                     if ((ind > -1) && ((value.length - ind) > 3)) {
                         obj.setValue(this.bckupQLI);
-                        MessageToast.show("Inserire massimo due decimali", {duration: 3000});
+                        MessageToast.show("Insert maximum two decimals", {duration: 3000});
                     } else {
                         this.bckupQLI = value;
                         this.ChangeValues(event);
@@ -810,16 +810,16 @@ sap.ui.define([
             var value = obj.getValue();
             if (isNaN(Number(value))) {
                 obj.setValue(this.bckupCRT);
-                MessageToast.show("Inserire solo numeri interi", {duration: 3000});
+                MessageToast.show("Only integer and positive numbers are allowed", {duration: 3000});
             } else {
                 if (Number(value) < 0) {
                     obj.setValue(this.bckupCRT);
-                    MessageToast.show("Inserire solo numeri interi positivi", {duration: 3000});
+                    MessageToast.show("Only integer numbers are allowed", {duration: 3000});
                 } else {
                     var ind = 1 + value.indexOf(".") + value.indexOf(",");
                     if (ind > -1) {
                         obj.setValue(this.bckupCRT);
-                        MessageToast.show("Inserire solo numeri interi positivi", {duration: 3000});
+                        MessageToast.show("Only integer and positive numbers are allowed", {duration: 3000});
                     } else {
                         this.bckupCRT = value;
                         this.ChangeValues(event);
@@ -835,7 +835,7 @@ sap.ui.define([
             var mins = Number(value.substring(3, 5));
             if (hours > 8 || (hours === 8 && mins !== 0)) {
                 obj.setValue(this.bckupHOUR);
-                MessageToast.show("Non si possono inserire batch da più di 8 ore", {duration: 3000});
+                MessageToast.show("You cannot insert batches requiring more than 8 hour", {duration: 3000});
             } else {
                 this.bckupHOUR = value;
                 this.ChangeValues(event);
@@ -963,7 +963,7 @@ sap.ui.define([
                     this.BusyDialog.close();
                 }
             } else {
-                MessageToast.show("Non si possono inserire batch con zero quintali", {duration: 2000});
+                MessageToast.show("You cannot insert batches with zero quintals", {duration: 2000});
             }
         },
 //              - ANNULLA CONFERMA/INSERISCI BATCH
@@ -1346,7 +1346,7 @@ sap.ui.define([
                         }
                         Library.AjaxCallerData(link, this.SUCCESSComboParametri.bind(this));
                     } else {
-                        MessageToast.show("Selezionare prima tutti i parametri.", {duration: 3000});
+                        MessageToast.show("Select first all the parameters.", {duration: 3000});
                         var TabContainer = this.getView().byId("attributiContainer");
                         TabContainer.setSelectedItem("Attributi");
                     }
@@ -1588,10 +1588,10 @@ sap.ui.define([
             var oText = event.getParameter("item").getText();
             var link, qli, cartoni, Path;
             switch (oText) {
-                case "Visualizza Attributi Batch":
+                case "Show Batch Details":
                     this.ShowBatchDetails();
                     break;
-                case "Trasferimento Batch a Linea":
+                case "Transfer Batch":
                     Path = this.oButton.getBindingContext("linea").sPath;
                     qli = this.ModelLinea.getProperty(Path).qli;
                     cartoni = this.ModelLinea.getProperty(Path).cartoni;
@@ -1600,10 +1600,10 @@ sap.ui.define([
                         link = "/XMII/Runner?Transaction=DeCecco/Transactions/ComboTrasferimento&Content-Type=text/json&BatchID=" + this.batch_id + "&LineaID=" + this.linea_id + "&PdcID=" + this.pdcID + "&RepartoID=" + this.repartoID + "&StabilimentoID=" + this.StabilimentoID + "&OutputParameter=JSON";
                         Library.AjaxCallerData(link, this.SUCCESSTrasferimentoBatch.bind(this));
                     } else {
-                        MessageToast.show("Non si possono trasferire batch con zero quintali", {duration: 2000});
+                        MessageToast.show("You cannot insert batches with zero quintals", {duration: 2000});
                     }
                     break;
-                case "Trasferimento Batch a Linea (solo attrezzaggio)":
+                case "Transfer Batch (setup only)":
                     Path = this.oButton.getBindingContext("linea").sPath;
                     qli = this.ModelLinea.getProperty(Path).qli;
                     cartoni = this.ModelLinea.getProperty(Path).cartoni;
@@ -1612,25 +1612,25 @@ sap.ui.define([
                         link = "/XMII/Runner?Transaction=DeCecco/Transactions/ComboTrasferimentoPredisposizione&Content-Type=text/json&BatchID=" + this.batch_id + "&LineaID=" + this.linea_id + "&PdcID=" + this.pdcID + "&RepartoID=" + this.repartoID + "&StabilimentoID=" + this.StabilimentoID + "&OutputParameter=JSON";
                         Library.AjaxCallerData(link, this.SUCCESSTrasferimentoBatchAttrezzaggio.bind(this));
                     } else {
-                        MessageToast.show("Non si possono trasferire batch con zero quintali", {duration: 2000});
+                        MessageToast.show("You cannot insert batches with zero quintals", {duration: 2000});
                     }
                     break;
-                case "Richiamo Batch":
+                case "Recall Batch":
                     this.BusyDialog.open();
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/BatchRichiamo&Content-Type=text/json&BatchID=" + this.batch_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSRichiamoBatch.bind(this));
                     break;
-                case "Cancellazione Batch":
+                case "Delete Batch":
                     this.BusyDialog.open();
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/CancellazioneBatch&Content-Type=text/json&BatchID=" + this.batch_id + "&LineaID=" + this.linea_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSCancellazioneBatch.bind(this));
                     break;
-                case "Gestione Intervalli di Fermo":
+                case "Manage Stops Intervals":
                     this.STOP = 1;
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetAllFermiFromBatchID&Content-Type=text/json&BatchID=" + this.batch_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSGestioneFermi.bind(this));
                     break;
-                case "Causalizzazione Fermi Automatici":
+                case "Justify Automatic Stops":
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetAllFermiAutoSenzaCausaFromBatchID&Content-Type=text/json&BatchID=" + this.batch_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSGuasti.bind(this));
                     break;
@@ -1808,7 +1808,7 @@ sap.ui.define([
                 var link = "/XMII/Runner?Transaction=DeCecco/Transactions/ComboInsertND_LogND&Content-Type=text/json&LineaID=" + this.linea_id + "&PdcID=" + this.pdcID + "&CausaleID=" + causale + "&datefrom=" + data_inizio + "&dateto=" + data_fine + "&OutputParameter=JSON";
                 Library.AjaxCallerData(link, this.SUCCESSInserisciFermoProgrammato.bind(this));
             } else {
-                MessageToast.show("Il campo causale è vuoto o errato. Inserire una causale e riprovare", {duration: 2000});
+                MessageToast.show("Please select a justification", {duration: 2000});
             }
         },
         SUCCESSInserisciFermoProgrammato: function (Jdata) {

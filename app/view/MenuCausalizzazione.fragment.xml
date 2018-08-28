@@ -10,17 +10,17 @@
             enabled= "true"
             />
         <u:MenuItem
-            text="Modify stop causal"
+            text="Modify stop justification"
             startsSection= "true"
             enabled= "true"
             />
         <u:MenuItem
-            text="Modify start/end of the stop"
+            text="Modify begin/end of the stop"
             startsSection= "false"
             enabled= "true"
             />                    
         <u:MenuItem
-            text="Split stop causal"
+            text="Divide stop causal"
             startsSection= "true"
             enabled= "true"
             />        

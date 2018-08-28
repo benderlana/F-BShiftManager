@@ -115,10 +115,10 @@
                                                                                     <Text text="Seq." />
                                                                                 </Column>
                                                                                 <Column width="22%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Size" />
+                                                                                    <Text text="Shape" />
                                                                                 </Column>
                                                                                 <Column width="15%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Packaging" />
+                                                                                    <Text text="Package" />
                                                                                 </Column>
                                                                                 <Column width="26%" hAlign="Center" vAlign="Middle">
                                                                                     <Text text="Destination" />
@@ -127,7 +127,7 @@
                                                                                     <Text text="Quintals" />
                                                                                 </Column>
                                                                                 <Column width="7%" hAlign="Center" vAlign="Middle">
-                                                                                    <Text text="Packs" />
+                                                                                    <Text text="Boxes" />
                                                                                 </Column>
                                                                                 <Column width="9%" hAlign="Center" vAlign="Middle">
                                                                                     <Text text="Hours" />

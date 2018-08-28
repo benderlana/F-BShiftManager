@@ -22,7 +22,7 @@
                             <Label text="Time interval"/>                                                       
                         </Column>
                         <Column width="45%" hAlign="Center">
-                            <Label text="Causal"/>
+                            <Label text="Justification"/>
                         </Column>
                         <Column width="10%" hAlign="Center">
                         </Column>
@@ -30,7 +30,7 @@
                     <items>
                         <ColumnListItem class="paddingTotaliCelle TotaliText TotaliCB" visible="true">
                             <cells>
-                                <Text textAlign="Center" text="Cumulative Total"/>
+                                <Text textAlign="Center" text="Total"/>
                                 <Text text="{guastilinea>/Totale/tempoGuastoTotale}"/>
                                 <Text text="{guastilinea>/Totale/causaleTotale}"/>
                                 <CheckBox textAlign="Center" id="CBTotaleCausa" selected="false" select="ChangeCheckedCausa" class="CBTotaleCausaCustom sapUiTinyMarginBegin"/>
@@ -38,7 +38,7 @@
                         </ColumnListItem>
                     </items>
                 </Table>
-                <TextArea id="NoFermiDaCausalizzare" width="100%" value="Non esistono fermi automatici da causalizzare" textAlign="Center" editable="false" visible="false"></TextArea>      
+                <TextArea id="NoFermiDaCausalizzare" width="100%" value="No automatic stops to justify" textAlign="Center" editable="false" visible="false"></TextArea>      
             </VBox>
             <VBox height="60%">
                 <t:Table
@@ -49,7 +49,7 @@
                     rows="{guastilinea>/fermi}">
                     <t:columns>
                         <t:Column hAlign="Center" width="15%" resizable="false">
-                            <Label text="Start"/>
+                            <Label text="Begin"/>
                             <t:template>
                                 <Text text="{guastilinea>inizio}"/>
                             </t:template>
@@ -67,7 +67,7 @@
                             </t:template>
                         </t:Column>
                         <t:Column hAlign="Center" width="45%" resizable="false">
-                            <Label text="Causal"/>
+                            <Label text="Justification"/>
                             <t:template>
                                 <Text text="{guastilinea>causale}"/>
                             </t:template>
@@ -79,7 +79,7 @@
                         </t:Column>
                     </t:columns>
                     <t:noData>
-                        <Text class="sapUiTableCtrlEmptyMsg" text="No automatic stops without causal" textAlign="Center"/>
+                        <Text class="sapUiTableCtrlEmptyMsg" text="No automatic stops to justify" textAlign="Center"/>
                     </t:noData>
                 </t:Table>
             </VBox>
@@ -90,7 +90,7 @@
                 </VBox>
                 <VBox width="20%"/>
                 <VBox width="35%">
-                    <Button width="100%" enabled="false" text="Enter causal" press="onCausalizzaButton" class="confermaButton" id="ConfermaFermi"/>
+                    <Button width="100%" enabled="false" text="Confirm" press="onCausalizzaButton" class="confermaButton" id="ConfermaFermi"/>
                 </VBox>
                 <VBox width="5%"/>
             </HBox>

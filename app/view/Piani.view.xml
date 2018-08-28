@@ -48,12 +48,12 @@
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Quintals packaged"/>
+                                                    <Text text="Qls packaged"/>
                                                 </header>
                                             </Column>
                                             <Column hAlign="Center">
                                                 <header>
-                                                    <Text text="Quintals left"/>
+                                                    <Text text="Qls left"/>
                                                 </header>
                                             </Column>  
                                             <Column hAlign="Center">
@@ -73,7 +73,7 @@
                                 <VBox height="30%" width="100%" class="bordoBlu grey">
                                     <ScrollContainer id="scrollTurniConclusi" height="187px" horizontal="false" vertical="true" class="scrollingbar">
                                         <Table 
-                                            noDataText="No past plan has to be closed"
+                                            noDataText="No plan to be closed"
                                             width="100%"
                                             class="tableTextSize noBorder greyTable"
                                             items="{path: 'turni>/pianidiconfezionamento/conclusi'}">

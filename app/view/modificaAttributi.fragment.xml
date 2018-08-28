@@ -37,7 +37,7 @@
                                                     <ToolbarSpacer/>
                                                     <Button text="Collapse" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
                                                     <Button text="Expand" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                    <Button text="No Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
+                                                    <Button text="Not Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
                                                 </Toolbar>
                                             </wt:toolbar>
                                             <wt:columns>
@@ -48,7 +48,7 @@
                                                     </t:template>
                                                 </t:Column>
                                                 <t:Column resizable="false">
-                                                    <Label text="VALUE"/>
+                                                    <Label text="VALUES"/>
                                                     <t:template>
                                                         <HBox>
                                                             <wt:StyleTextTreeTableValue text="{SKU>value}" diff="{SKU>expand}" maxLines="1" tooltip="{SKU>value}"/>
@@ -79,7 +79,7 @@
                                             <ToolbarSpacer/>
                                             <Button text="Collapse" press="CollapseAll" app:mydata="Parametri_TT" class="TTButton"/>
                                             <Button text="Expand" press="ExpandAll" app:mydata="Parametri_TT" class="TTButton"/>
-                                            <Button text="To be confirmed" press="ShowRelevant" app:mydata="Parametri_TT" class="TTButton"/>
+                                            <Button text="To be filled" press="ShowRelevant" app:mydata="Parametri_TT" class="TTButton"/>
                                         </Toolbar>
                                     </wt:toolbar>
                                     <wt:columns>
@@ -90,19 +90,19 @@
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="VALUE"/>
+                                            <Label text="VALUES"/>
                                             <t:template>
                                                 <Text text="{ModelParametri>value}" maxLines="2" tooltip="{ModelParametri>value}" class="verticalAlignment"/>
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="SERIAL NUMBER/BATCH"/>
+                                            <Label text="SERIAL NUMBERS"/>
                                             <t:template>
                                                 <Text text="{ModelParametri>codeValue}" visible="{= ${ModelParametri>code} === 1}" maxLines="2" tooltip="{ModelParametri>codeValue}" class="verticalAlignment"/>
                                             </t:template>
                                         </t:Column>
                                         <t:Column width="5rem" resizable="false">
-                                            <Label text="MODIFY VALUE"/>
+                                            <Label text="MODIFY VALUES"/>
                                             <t:template>
                                                 <Input value="{ModelParametri>valueModify}" editable="{= ${ModelParametri>modify} === 1}" type="Text" maxLength="30" visible="{= ${ModelParametri>modify} === 1}" class="diffStandard redInputParametri" />
                                             </t:template>

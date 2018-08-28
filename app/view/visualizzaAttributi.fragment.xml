@@ -29,7 +29,7 @@
                                                 <ToolbarSpacer/>
                                                 <Button text="Collapse" press="CollapseAll" app:mydata="SKU_TT" class="TTButton"/>
                                                 <Button text="Expand" press="ExpandAll" app:mydata="SKU_TT" class="TTButton"/>
-                                                <Button text="No Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
+                                                <Button text="Not Standard" press="ShowRelevant" app:mydata="SKU_TT" class="TTButton"/>
                                             </Toolbar>
                                         </wt:toolbar>
                                         <wt:columns>
@@ -40,7 +40,7 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <HBox>
                                                         <wt:StyleTextTreeTableValue text="{SKU>value}" diff="{SKU>expand}" maxLines="1" tooltip="{SKU>value}"/>
@@ -79,13 +79,13 @@
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="VALUE"/>
+                                                <Label text="VALUES"/>
                                                 <t:template>
                                                     <Text text="{ModelParametri>value}" maxLines="1" tooltip="{ModelParametri>value}"/>
                                                 </t:template>
                                             </t:Column>
                                             <t:Column width="5rem" resizable="false">
-                                                <Label text="SERIAL NUMBER/BATCH"/>
+                                                <Label text="SERIAL NUMBERS"/>
                                                 <t:template>
                                                     <Text text="{ModelParametri>codeValue}" visible="{= ${ModelParametri>code} === 1}" maxLines="1" tooltip="{ModelParametri>codeValue}"/>
                                                 </t:template>

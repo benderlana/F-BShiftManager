@@ -124,13 +124,13 @@
                                                                             width="15%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Size" />
+                                                                            <Text text="Shape" />
                                                                         </Column>
                                                                         <Column
                                                                             width="9%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Packaging" />
+                                                                            <Text text="Package" />
                                                                         </Column>
                                                                         <Column width="25%" vAlign="Middle" hAlign="Center">
                                                                             <Text text="Destination" />
@@ -145,7 +145,7 @@
                                                                             width="5%"
                                                                             vAlign="Middle"
                                                                             hAlign="Center">
-                                                                            <Text text="Packs" />
+                                                                            <Text text="Boxes" />
                                                                         </Column>
                                                                         <Column
                                                                             width="6%"
@@ -194,7 +194,7 @@
                                                                     <Table 
                                                                         items="{linea>batchlist}"
                                                                         inset="false"
-                                                                        noDataText="No batch worked"
+                                                                        noDataText="No batch processed"
                                                                         fixedLayout="false">
                                                                         <columns class="colorPage">
                                                                             <Column

@@ -46,7 +46,7 @@
                             id="GuastiDiLineaTable">
                             <t:columns>
                                 <t:Column hAlign="Center" width="15%">
-                                    <Label text="Start"/>
+                                    <Label text="Begin"/>
                                     <t:template>
                                         <Text text="{guasti>inizio}"/>
                                     </t:template>
@@ -64,7 +64,7 @@
                                     </t:template>
                                 </t:Column>
                                 <t:Column hAlign="Center" width="45%">
-                                    <Label text="Causal"/>
+                                    <Label text="Justification"/>
                                     <t:template>
                                         <Text text="{guasti>causale}"/>
                                     </t:template>

@@ -79,7 +79,7 @@
                                     </t:Column> 
                                     <t:Column id="ComponentiPerdita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Availability"/>
                                             <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -89,7 +89,7 @@
                                     </t:Column>  
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Availability"/>
                                             <Label text="Stops" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -99,9 +99,9 @@
                                     </t:Column> 
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Availability"/>
-                                            <Label text="Set-up" class="reportSapLabel"/>
+                                            <Label text="Setup" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>AlSetup}).split('.')[0]}" red="{ReportOEE>red/AlSetup}" hierarchy="{ReportOEE>hierarchy}" colName="dispSetup"/>
@@ -109,7 +109,7 @@
                                     </t:Column>
                                     <t:Column id="ComponentiProduttivita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Productivity"/>
                                             <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -119,7 +119,7 @@
                                     </t:Column>  
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Productivity"/>
                                             <Label text="Red. Freq." class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -129,7 +129,7 @@
                                     </t:Column>
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Productivity"/>
                                             <Label text="Microstops" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -139,7 +139,7 @@
                                     </t:Column> 
                                     <t:Column id="ComponentiQualita" resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Quality"/>
                                             <Label text="Total" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -149,7 +149,7 @@
                                     </t:Column>
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Quality"/>
                                             <Label text="Process Waste" class="reportSapLabel"/>
                                         </t:multiLabels>
@@ -159,9 +159,9 @@
                                     </t:Column> 
                                     <t:Column resizable="false">
                                         <t:multiLabels>
-                                            <Label text="Main loss components [in minutes]"/>
+                                            <Label text="Main loss components [minutes]"/>
                                             <Label text="Quality"/>
-                                            <Label text="Setup Wastes" class="reportSapLabel"/>
+                                            <Label text="Setup Waste" class="reportSapLabel"/>
                                         </t:multiLabels>
                                         <t:template>
                                             <wt:TextHierarchyTable text="{= String(${ReportOEE>QlScartiSetup}).split('.')[0]}" red="{ReportOEE>red/QlScartiSetup}" hierarchy="{ReportOEE>hierarchy}"/>
