@@ -12,7 +12,7 @@
                         <VBox height="100%" width="5%"/>
                         <HBox height="100%" width="25%">
                             <HBox height="100%">
-                                <Button text="Balance Sheet"
+                                <Button text="Create Report"
                                         press="CreateReport"
                                         ariaDescribedBy="defaultButtonDescription genericButtonDescription"
                                         class="chiudiButton noFocus paddingleft larghezzaButtonLeft pianoGreyButton">
@@ -20,7 +20,7 @@
                                 <Button 
                                     id="reportButton"
                                     class="chiudiButton noFocus larghezzaButtonRight shiftButtonLeft pianoGreyButton" 
-                                    text="Report OEE"
+                                    text="Show Report"
                                     visible="true"
                                     enabled="false"
                                     press="ShowReport"
