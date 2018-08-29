@@ -412,7 +412,7 @@ sap.ui.define([
         CheckOperatore: function (event) {
             var that = this;
             var check = 0;
-            if (event.getSource().getPlaceholder() === "Macchinista") {
+            if (event.getSource().getPlaceholder() === "Machinist") {
                 var selectBoxValue = event.getSource().getValue();
                 var oTables = this.getView().byId("managePianoTable").getItems();
                 for (var i = 0; i < oTables.length; i++) {
@@ -1070,7 +1070,7 @@ sap.ui.define([
             textHeader.setText(String(this.DescrizioneParametro));
             var samplingHeader = this.getView().byId("samplingSPC");
             if (Number(this.Fase) === 1) {
-                samplingHeader.setText("Campionamento in corso: " + String(this.Avanzamento) + "/50");
+                samplingHeader.setText("Sampling: " + String(this.Avanzamento) + "/50");
             } else {
                 samplingHeader.setText("");
             }
@@ -1327,9 +1327,9 @@ sap.ui.define([
 //      **************** POPUP MODIFICA ATTRIBUTI BATCH ****************
 
         TabSelection: function (event) {
-            if (event.getParameters().item !== "Attributi") {
+            if (event.getParameters().item !== "Attributes") {
                 var tabName = event.getParameters().item.getProperty("name");
-                if (tabName === "Parametri") {
+                if (tabName === "Parameters") {
                     var formatoSKU = this.getView().byId("formato_SKU");
                     var confezioneSKU = this.getView().byId("confezione_SKU");
                     var clienteSKU = this.getView().byId("cliente_SKU");
@@ -1348,7 +1348,7 @@ sap.ui.define([
                     } else {
                         MessageToast.show("Select first all the parameters.", {duration: 3000});
                         var TabContainer = this.getView().byId("attributiContainer");
-                        TabContainer.setSelectedItem("Attributi");
+                        TabContainer.setSelectedItem("Attributes");
                     }
                 }
             }
@@ -1625,7 +1625,7 @@ sap.ui.define([
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/CancellazioneBatch&Content-Type=text/json&BatchID=" + this.batch_id + "&LineaID=" + this.linea_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSCancellazioneBatch.bind(this));
                     break;
-                case "Manage Stops Intervals":
+                case "Manage Stop Intervals":
                     this.STOP = 1;
                     link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetAllFermiFromBatchID&Content-Type=text/json&BatchID=" + this.batch_id + "&OutputParameter=JSON";
                     Library.AjaxCallerData(link, this.SUCCESSGestioneFermi.bind(this));
@@ -1754,9 +1754,9 @@ sap.ui.define([
 //      **************** POPUP VISUALIZZA ATTRIBUTI BATCH ****************
 
         TabSelectionShow: function (event) {
-            if (event.getParameters().item !== "Attributi") {
+            if (event.getParameters().item !== "Attributes") {
                 var tabName = event.getParameters().item.getProperty("name");
-                if (tabName === "Parametri") {
+                if (tabName === "Parameters") {
                     var rowPath = this.row.getBindingContext("linea").sPath;
                     var row_binded = this.ModelLinea.getProperty(rowPath);
                     var link = "/XMII/Runner?Transaction=DeCecco/Transactions/SegmentoBatchCalcolo&Content-Type=text/json&BatchID=" + row_binded.batchID + "&LineaID=" + this.linea_id + "&OutputParameter=JSON";
@@ -1918,13 +1918,13 @@ sap.ui.define([
         ModificaGuasti: function (event) {
             var oText = event.getParameter("item").getText();
             switch (oText) {
-                case "Modify stop causal":
+                case "Modify stop justification":
                     this.CreaFinestraModificaCausale(oText);
                     break;
-                case "Modify start/end of the stop":
+                case "Modify begin/end of the stop":
                     this.CreaFinestraModificaTempi(oText);
                     break;
-                case "Split stop causal":
+                case "Divide stop justification":
                     this.CreaFinestraFrazionamento(oText);
                     break;
                 case "Delete stop":
@@ -2003,7 +2003,7 @@ sap.ui.define([
                 width: "50%"
             });
             var oText2 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oText3 = new sap.m.Text({
                 text: "end"
@@ -2044,7 +2044,7 @@ sap.ui.define([
                 width: "50%"
             });
             oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             oText2 = new sap.m.Text({
                 text: "end"
@@ -2086,7 +2086,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.Text({
                 text: this.row.inizio
@@ -2126,7 +2126,7 @@ sap.ui.define([
                 width: "100%"
             });
             oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -2140,7 +2140,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText1 = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -2193,7 +2193,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -2208,7 +2208,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var Causale = new sap.m.Text({
                 id: "Causale",
@@ -2259,7 +2259,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -2273,7 +2273,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -2322,7 +2322,7 @@ sap.ui.define([
             var oText = this.getView().byId("title").getText();
             var obj, link, data_inizio, data_fine;
             switch (oText) {
-                case "Modify stop causal":
+                case "Modify stop justification":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaCausaleFermo(event);
                         this.oDialog.destroy();
@@ -2340,7 +2340,7 @@ sap.ui.define([
                         });
                     }
                     break;
-                case "Modify start/end of the stop":
+                case "Modify begin/end of the stop":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaTempiFermo();
                         this.oDialog.destroy();
@@ -2358,7 +2358,7 @@ sap.ui.define([
                         Library.AjaxCallerData(link, this.SUCCESSGuastoModificato.bind(this));
                     }
                     break;
-                case "Split stop causal":
+                case "Divide stop justification":
                     if (this.ISLOCAL === 1) {
                         this.LOCALFrazionaFermo();
                         this.oDialog.destroy();

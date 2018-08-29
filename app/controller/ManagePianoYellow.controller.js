@@ -354,7 +354,7 @@ sap.ui.define([
         CheckOperatore: function (event) {
             var that = this;
             var check = 0;
-            if (event.getSource().getPlaceholder() === "Macchinista") {
+            if (event.getSource().getPlaceholder() === "Machinist") {
                 var selectBoxValue = event.getSource().getValue();
                 var oTables = this.getView().byId("managePianoTable").getItems();
                 for (var i = 0; i < oTables.length; i++) {
@@ -954,9 +954,9 @@ sap.ui.define([
 //        
 //      **************** POPUP MODIFICA ATTRIBUTI BATCH ****************
         TabSelection: function (event) {
-            if (event.getParameters().item !== "Attributi") {
+            if (event.getParameters().item !== "Attributes") {
                 var tabName = event.getParameters().item.getProperty("name");
-                if (tabName === "Parametri") {
+                if (tabName === "Parameters") {
                     var formatoSKU = this.getView().byId("formato_SKU");
                     var confezioneSKU = this.getView().byId("confezione_SKU");
                     var clienteSKU = this.getView().byId("cliente_SKU");
@@ -975,7 +975,7 @@ sap.ui.define([
                     } else {
                         MessageToast.show("Select first all the parameters.", {duration: 3000});
                         var TabContainer = this.getView().byId("attributiContainer");
-                        TabContainer.setSelectedItem("Attributi");
+                        TabContainer.setSelectedItem("Attributes");
                     }
                 }
             }
@@ -1318,9 +1318,9 @@ sap.ui.define([
 //      **************** POPUP VISUALIZZA ATTRIBUTI BATCH ****************
 
         TabSelectionShow: function (event) {
-            if (event.getParameters().item !== "Attributi") {
+            if (event.getParameters().item !== "Attributes") {
                 var tabName = event.getParameters().item.getProperty("name");
-                if (tabName === "Parametri") {
+                if (tabName === "Parameters") {
                     var rowPath = this.row.getBindingContext("linea").sPath;
                     var row_binded = this.ModelLinea.getProperty(rowPath);
                     var link = "/XMII/Runner?Transaction=DeCecco/Transactions/SegmentoBatchCalcolo&Content-Type=text/json&BatchID=" + row_binded.batchID + "&LineaID=" + this.linea_id + "&OutputParameter=JSON";

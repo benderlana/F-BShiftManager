@@ -20,7 +20,7 @@
             enabled= "true"
             />                    
         <u:MenuItem
-            text="Divide stop causal"
+            text="Divide stop justification"
             startsSection= "true"
             enabled= "true"
             />        

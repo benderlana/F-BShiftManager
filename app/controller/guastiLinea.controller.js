@@ -117,13 +117,13 @@ sap.ui.define([
         ModificaGuasti: function (oEvent) {
             var oText = oEvent.getParameter("item").getText();
             switch (oText) {
-                case "Modify stop causal":
+                case "Modify stop justification":
                     this.CreaFinestraModificaCausale(oText);
                     break;
-                case "Modify start/end of the stop":
+                case "Modify begin/end of the stop":
                     this.CreaFinestraModificaTempi(oText);
                     break;
-                case "Split stop causal":
+                case "Divide stop justification":
                     this.CreaFinestraFrazionamento(oText);
                     break;
                 case "Delete stop":
@@ -209,7 +209,7 @@ sap.ui.define([
                 width: "50%"
             });
             var oText2 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oText3 = new sap.m.Text({
                 text: "end"
@@ -250,7 +250,7 @@ sap.ui.define([
                 width: "50%"
             });
             oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             oText2 = new sap.m.Text({
                 text: "end"
@@ -293,7 +293,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.Text({
                 text: this.row_binded.inizio
@@ -333,7 +333,7 @@ sap.ui.define([
                 width: "100%"
             });
             oText1 = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -347,7 +347,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText1 = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -401,7 +401,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -416,7 +416,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var Causale = new sap.m.Text({
                 id: "Causale",
@@ -467,7 +467,7 @@ sap.ui.define([
                 width: "100%"
             });
             var oText = new sap.m.Text({
-                text: "start"
+                text: "begin"
             });
             var oTextInizio = new sap.m.TimePicker({
                 localeId: "it_IT",
@@ -481,7 +481,7 @@ sap.ui.define([
             oHBoxTop.addItem(oTextInizio);
             centralBox.addItem(oHBoxTop);
             oText = new sap.m.Text({
-                text: "causal"
+                text: "justification"
             });
             var selectMenu = new sap.m.Select({
                 autoAdjustWidth: true,
@@ -520,7 +520,7 @@ sap.ui.define([
             var oText = this.getView().byId("title").getText();
             var obj, link, data_inizio, data_fine;
             switch (oText) {
-                case "Modify stop causal":
+                case "Modify stop justification":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaCausaleFermo(oEvent);
                         this.oDialog.destroy();
@@ -538,7 +538,7 @@ sap.ui.define([
                         });
                     }
                     break;
-                case "Modify start/end of the stop":
+                case "Modify begin/end of the stop":
                     if (this.ISLOCAL === 1) {
                         this.LOCALModificaTempiFermo();
                         this.oDialog.destroy();
@@ -556,7 +556,7 @@ sap.ui.define([
                         Library.AjaxCallerData(link, this.SUCCESSGuastoModificato.bind(this));
                     }
                     break;
-                case "Split stop causal":
+                case "Divide stop justification":
                     if (this.ISLOCAL === 1) {
                         this.LOCALFrazionaFermo();
                         this.oDialog.destroy();
