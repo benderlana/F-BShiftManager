@@ -3,7 +3,7 @@
           xmlns:u="sap.ui.unified" xmlns:comp="myapp.component" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
           xmlns:wt="myapp.control"
           controllerName="myapp.controller.Main">
-    <Page id="myPage" showHeader="false" class="colorPage" enableScrolling="false">
+    <Page id="myPage" showHeader="false" class="colorPage bckgPage" enableScrolling="false">
         <content>
             <VBox height="100%" width="100%">
                 <VBox height="25%" width="100%">
