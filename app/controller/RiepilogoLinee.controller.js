@@ -18,6 +18,8 @@ sap.ui.define([
         STOPSPC: null,
         SPCCounter: null,
         ModelSPCData: new JSONModel({}),
+        ModelBarData: new JSONModel({}),
+        ModelPieData: new JSONModel({}),
         indexSPC: null,
         IDSelected: null,
         batchID: null,
@@ -71,8 +73,8 @@ sap.ui.define([
                         Jdata[i].Linee[j].IMG = String(Number(Jdata[i].Linee[j].formato.replace(/\D/g, ""))) + ".jpg";
                         Jdata[i].Linee[j].cartoniProdotti = String(Math.round(Number(Jdata[i].Linee[j].cartoniProdotti)));
                         Jdata[i].Linee[j].cartoniResidui = String(Math.round(Number(Jdata[i].Linee[j].cartoniResidui)));
-                        Jdata[i].Linee[j].disponibilita = String(Math.round(Number(Jdata[i].Linee[j].disponibilita.slice(0,Jdata[i].Linee[j].disponibilita.length-1))));
-                        Jdata[i].Linee[j].efficienza = String(Math.round(Number(Jdata[i].Linee[j].efficienza.slice(0,Jdata[i].Linee[j].efficienza.length-1))));
+                        Jdata[i].Linee[j].disponibilita = String(Math.round(Number(Jdata[i].Linee[j].disponibilita.slice(0, Jdata[i].Linee[j].disponibilita.length - 1))));
+                        Jdata[i].Linee[j].efficienza = String(Math.round(Number(Jdata[i].Linee[j].efficienza.slice(0, Jdata[i].Linee[j].efficienza.length - 1))));
                     }
                 }
                 this.ModelLinee.setData(Jdata);
@@ -86,56 +88,36 @@ sap.ui.define([
         GoToSinottico: function (event) {
 //            this.getView().byId("RiepilogoLineePage").setBusy(true);
             this.BusyDialog.open();
-            var path = event.getSource().getBindingContext("linee").getPath();
-            this.IDSelected = this.ModelLinee.getProperty(path).lineaID;
-            var link;
-            if (this.ISLOCAL !== 1) {
-                link = "/XMII/Runner?Transaction=DeCecco/Transactions/Sinottico/SinotticoLineeGood&Content-Type=text/json&OutputParameter=JSON";
-            }
+            this.ModelSinottico.setData(this.BuildModelSinottico(event));
+            sap.ui.getCore().setModel(this.ModelSinottico, "ModelSinottico");
+            this.getView().setModel(this.ModelSinottico, "ModelSinottico");
+//            var path = event.getSource().getBindingContext("linee").getPath();
+//            this.IDSelected = this.ModelLinee.getProperty(path).lineaID;
+//            var link;
+//            if (this.ISLOCAL !== 1) {
+//                link = "/XMII/Runner?Transaction=DeCecco/Transactions/Sinottico/SinotticoLineeGood&Content-Type=text/json&OutputParameter=JSON";
+//            }
             this.BusyDialog.close();
             this.getOwnerComponent().getRouter().navTo("OverviewLinea");
 //            Library.AjaxCallerData(link, this.SUCCESSGoToSinottico.bind(this));
         },
-        SUCCESSGoToSinottico: function (Jdata) {
-            var i, j;
-            for (i = 0; i < Jdata.length; i++) {
-                Jdata[i].IMG = Jdata[i].Descrizione.toLowerCase().split(" ").join("_") + ".png";
-                Jdata[i].IsSelected = (Jdata[i].LineaID === this.IDSelected) ? "1" : "0";
-                this.SetNameMacchine(Jdata[i]);
-                for (j = 0; j < Jdata[i].Macchine.length; j++) {
-                    Jdata[i].Macchine[j].class = Jdata[i].Macchine[j].nome.split(" ").join("");
+        BuildModelSinottico: function (event) {
+            var names = ["Marker 1", "Marker 2", "Weight Controller 1", "Weight Controller 2", "Labeller", "Palletizer"];
+            var repartoPath = "/" + event.getSource().getBindingContext("linee").getPath().split("/")[1];
+            var obj = [];
+            var temp, i, j;
+            var data = this.ModelLinee.getProperty(repartoPath).Linee;
+            for (i = 0; i < data.length; i++) {
+                temp = {};
+                temp.LineaID = data[i].lineaID;
+                temp.Descrizione = data[i].linea;
+                temp.Macchine = [];
+                for (j = 0; j < names.length; j++) {
+                    temp.Macchine.push({"nome": names[j]});
                 }
+                obj.push(temp);
             }
-            this.ModelSinottico.setData(Jdata);
-            sap.ui.getCore().setModel(this.ModelSinottico, "ModelSinottico");
-            this.getView().setModel(this.ModelSinottico, "ModelSinottico");
-            clearInterval(this.TIMER);
-            this.STOP = 1;
-            this.BusyDialog.close();
-            this.getOwnerComponent().getRouter().navTo("OverviewLinea");
-        },
-        SetNameMacchine: function (data_linea) {
-            var names = ["marcatore", "etichettatrice", "controllo peso", "scatolatrice"];
-            for (var i = 0; i < data_linea.Macchine.length; i++) {
-                for (var j = 0; j < names.length; j++) {
-                    if (data_linea.Macchine[i].nome.toLowerCase().indexOf(names[j]) > -1) {
-                        switch (names[j]) {
-                            case "marcatore":
-                                data_linea.Macchine[i].nome = (data_linea.Macchine[i].nome.indexOf("SX") > -1) ? "Marcatore SX" : "Marcatore DX";
-                                break;
-                            case "controllo peso":
-                                data_linea.Macchine[i].nome = (data_linea.Macchine[i].nome.indexOf("SX") > -1) ? "PackItal SX" : "PackItal DX";
-                                break;
-                            case "etichettatrice":
-                                data_linea.Macchine[i].nome = "Etichettatrice";
-                                break;
-                            case "scatolatrice":
-                                data_linea.Macchine[i].nome = "Scatolatrice";
-                                break;
-                        }
-                    }
-                }
-            }
+            return obj;
         },
         getRandom: function () {
             var val = Math.floor(3 * Math.random());
@@ -188,15 +170,20 @@ sap.ui.define([
             this.Allarme = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].allarme;
             this.Fase = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].fase;
             this.Avanzamento = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].avanzamento;
-            if (Jdata.valori === "") {
+
+            Jdata.graph1 = this.ParseBarData(Jdata.graph1, "#");
+            this.ModelBarData.setProperty("/", Jdata.graph1);
+            this.ModelPieData.setProperty("/", Jdata.graph3);
+
+            if (Jdata.graph2.valori === "") {
                 isEmpty = 1;
             } else {
                 isEmpty = 0;
-                Jdata = this.ParseSPCData(Jdata, "#");
+                Jdata.graph2 = this.ParseSPCData(Jdata.graph2, "#");
                 if (this.Fase === "1") {
-                    Jdata = this.Phase1(Jdata);
+                    Jdata.graph2 = this.Phase1(Jdata.graph2);
                 }
-                this.ModelSPCData.setProperty("/", Jdata);
+                this.ModelSPCData.setProperty("/", Jdata.graph2);
             }
             this.SPCDialogFiller(isEmpty);
             if (this.STOPSPC === 0) {
@@ -219,7 +206,7 @@ sap.ui.define([
                         link = "model/JSON_SPCData.json";
                     } else {
                         if (typeof this.ParametroID !== "undefined") {
-                            link = "/XMII/Runner?Transaction=DeCecco/Transactions/SPCDataPlot&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.idLinea + "&ParametroID=" + this.ParametroID;
+                            link = "/XMII/Runner?Transaction=DeCecco/Transactions/Graphs/Graphs&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.idLinea + "&ParametroID=" + this.ParametroID;
                         }
                     }
                     Library.AjaxCallerData(link, this.SUCCESSSPCDataLoad.bind(this));
@@ -237,7 +224,6 @@ sap.ui.define([
                 samplingHeader.setText("");
             }
             if (discr !== 1) {
-                var plotBox = this.getView().byId("plotBox");
                 var alarmButton = this.getView().byId("alarmButton");
                 if (Number(this.Fase) === 2 && Number(this.Allarme) === 1) {
                     alarmButton.setEnabled(true);
@@ -249,12 +235,136 @@ sap.ui.define([
                     alarmButton.addStyleClass("chiudiButton");
                 }
                 if (!((Number(this.Fase) === 1) && (this.ModelSPCData.getData().valori.length < 50))) {
-                    var data = this.ModelSPCData.getData();
-                    var result = this.PrepareDataToPlot(data, this.Fase);
+                    var plotBox = this.getView().byId("plotBox1");
+                    var data = this.ModelBarData.getData();
+                    var result = this.PrepareBarDataToPlot(data);
                     var ID = jQuery.sap.byId(plotBox.getId()).get(0);
+                    Plotly.newPlot(ID, result.dataPlot, result.layout);
+
+                    plotBox = this.getView().byId("plotBox3");
+                    data = this.ModelPieData.getData();
+                    result = this.PreparePieDataToPlot(data);
+                    ID = jQuery.sap.byId(plotBox.getId()).get(0);
+                    Plotly.newPlot(ID, result.dataPlot, result.layout);
+
+                    plotBox = this.getView().byId("plotBox");
+                    data = this.ModelSPCData.getData();
+                    result = this.PrepareDataToPlot(data, this.Fase);
+                    ID = jQuery.sap.byId(plotBox.getId()).get(0);
                     Plotly.newPlot(ID, result.dataPlot, result.layout);
                 }
             }
+        },
+        ParseBarData: function (data, char) {
+            var i;
+            data.belowTime = [];
+            data.aboveTime = [];
+            data.below = [];
+            data.above = [];
+            data.aboveBase = [];
+            data.belowBase = [];
+            var tempRef = Number(data.ref);
+            var tempInf = Number(data.limInf);
+            var tempSup = Number(data.limSup);
+            for (var key in data) {
+                if (key === "valori" || key === "time") {
+                    data.ref = [];
+                    data.limInf = [];
+                    data.limSup = [];
+                    data[key] = data[key].split(char);
+                    for (i = data[key].length - 1; i >= 0; i--) {
+                        if (data[key][i] === "") {
+                            data[key].splice(i, 1);
+                        } else {
+                            data.ref.push(tempRef);
+                            data.limInf.push(tempInf);
+                            data.limSup.push(tempSup);
+                            if (key !== "time") {
+                                data[key][i] = Number(data[key][i]);
+                            }
+                        }
+                    }
+                }
+            }
+            for (i = 0; i < data.valori.length; i++) {
+                if (data.valori[i] >= tempRef) {
+                    data.aboveTime.push(data.time[i]);
+                    data.aboveBase.push(tempRef);
+                    data.above.push(data.valori[i] - tempRef);
+                } else {
+                    data.belowTime.push(data.time[i]);
+                    data.belowBase.push(data.valori[i]);
+                    data.below.push(tempRef - data.valori[i]);
+                }
+            }
+            return data;
+        },
+        PrepareBarDataToPlot: function (Jdata) {
+            var dataPlot, layout;
+            var ref = {
+                x: Jdata.time,
+                y: Jdata.ref,
+                type: 'scatter',
+                line: {color: 'blue', width: 1}
+            };
+            var above = {
+                x: Jdata.aboveTime,
+                y: Jdata.above,
+                base: Jdata.aboveBase,
+                type: 'bar',
+                marker: {color: 'red'}
+            };
+            var below = {
+                x: Jdata.belowTime,
+                y: Jdata.below,
+                base: Jdata.belowBase,
+                type: 'bar',
+                marker: {color: 'green'}
+            };
+            var limInf = {
+                x: Jdata.time,
+                y: Jdata.limInf,
+                type: 'scatter',
+                line: {color: 'red', width: 1}
+            };
+            var limSup = {
+                x: Jdata.time,
+                y: Jdata.limSup,
+                type: 'scatter',
+                line: {color: 'red', width: 1}
+            };
+            dataPlot = [ref, above, below, limInf, limSup];
+            layout = {
+                showlegend: false,
+                autosize: true,
+                xaxis: {
+                    showgrid: true,
+                    zeroline: false
+                },
+                yaxis: {
+                    showgrid: true,
+                    zeroline: false,
+                    range: [Jdata.limInf[0] - 1, Jdata.limSup[0] + 1]
+                }
+            };
+            layout.xaxis.linewidth = 1;
+            layout.xaxis.mirror = true;
+            layout.yaxis.linewidth = 1;
+            layout.yaxis.mirror = true;
+            return {dataPlot: dataPlot, layout: layout};
+        },
+
+        PreparePieDataToPlot: function (Jdata) {
+            var dataPlot = [{
+                values: [Number(Jdata.UB), Number(Jdata.US), Number(Jdata.SS)],
+                labels: ["Good Items", "Rejected Items", "Setup Trial Items"],
+                type: 'pie'
+            }];
+            var layout = {
+                height: "400px",
+                width: "500px"
+            };
+            return {dataPlot: dataPlot, layout: layout};
         },
         RemoveAlarm: function () {
             this.STOPSPC = 1;
@@ -311,7 +421,8 @@ sap.ui.define([
                 x: Jdata.time,
                 y: Jdata.valori,
                 type: 'scatter',
-                line: {color: 'rgb(0,58,107)', width: 1}
+                line: {color: 'rgb(0,58,107)', width: 1},
+                config: {displayModeBar: false}
             };
             var limSup = {
                 x: Jdata.time,
@@ -336,7 +447,8 @@ sap.ui.define([
                 yaxis: {
                     showgrid: true,
                     zeroline: false
-                }
+                },
+                config: {displayModeBar: false}
             };
             if (fase === "1") {
                 var MR = {

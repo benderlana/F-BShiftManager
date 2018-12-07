@@ -27,9 +27,16 @@ sap.ui.define([
             oRouter.getRoute("OverviewLinea").attachPatternMatched(this.URLChangeCheck, this);
         },
         URLChangeCheck: function () {
+            var i, j, tab, button;
+            var Jdata = this.ModelSinottico.getData();
+            for (i = 0; i < Jdata.length; i++) {
+                Jdata[i].IMG = Jdata[i].Descrizione.toLowerCase().split(" ").join("_") + ".png";
+                for (j = 0; j < Jdata[i].Macchine.length; j++) {
+                    Jdata[i].Macchine[j].class = Jdata[i].Macchine[j].nome.split(" ").join("");
+                }
+            }
             clearInterval(this.TIMER);
             this.STOP = 0;
-            var i, j, tab, button;
             this.getView().setModel(this.ModelSinottico, "ModelSinottico");
             var TabContainer = this.getView().byId("schemaLineeContainer");
             for (i = 0; i < TabContainer.getItems().length; i++) {
@@ -73,22 +80,23 @@ sap.ui.define([
             this.TIMER = setTimeout(this.RefreshCall.bind(this), msec);
         },
         RefreshCall: function () {
-            var link;
-            if (this.ISLOCAL !== 1) {
-                link = "/XMII/Runner?Transaction=DeCecco/Transactions/Sinottico/SinotticoLineeGood&Content-Type=text/json&OutputParameter=JSON";
-            }
-            Library.AjaxCallerData(link, this.RefreshModelSinottico.bind(this));
+//            var link;
+//            if (this.ISLOCAL !== 1) {
+//                link = "/XMII/Runner?Transaction=DeCecco/Transactions/Sinottico/SinotticoLineeGood&Content-Type=text/json&OutputParameter=JSON";
+//            }
+//            Library.AjaxCallerData(link, this.RefreshModelSinottico.bind(this));
+            this.RefreshModelSinottico();
         },
         RefreshModelSinottico: function (Jdata) {
+            Jdata = this.ModelSinottico.getData();
             var i, j;
             if (this.STOP === 0) {
                 this.Counter = 0;
                 for (i = 0; i < Jdata.length; i++) {
                     Jdata[i].IMG = Jdata[i].Descrizione.toLowerCase().split(" ").join("_") + ".png";
-                    Jdata[i].IsSelected = (Jdata[i].LineaID === this.IDSelected) ? "1" : "0";
-                    this.SetNameMacchine(Jdata[i]);
                     for (j = 0; j < Jdata[i].Macchine.length; j++) {
                         Jdata[i].Macchine[j].class = Jdata[i].Macchine[j].nome.split(" ").join("");
+                        Jdata[i].Macchine[j].stato = this.getRandom();
                     }
                 }
                 this.ModelSinottico.setData(Jdata);
@@ -96,43 +104,28 @@ sap.ui.define([
                 this.getView().setModel(this.ModelSinottico, "ModelSinottico");
             }
         },
-        SetNameMacchine: function (data_linea) {
-            var names = ["marcatore", "etichettatrice", "controllo peso", "scatolatrice"];
-            for (var i = 0; i < data_linea.Macchine.length; i++) {
-                for (var j = 0; j < names.length; j++) {
-                    if (data_linea.Macchine[i].nome.toLowerCase().indexOf(names[j]) > -1) {
-                        switch (names[j]) {
-                            case "marcatore":
-                                data_linea.Macchine[i].nome = (data_linea.Macchine[i].nome.indexOf("SX") > -1) ? "Marcatore SX" : "Marcatore DX";
-                                break;
-                            case "controllo peso":
-                                data_linea.Macchine[i].nome = (data_linea.Macchine[i].nome.indexOf("SX") > -1) ? "PackItal SX" : "PackItal DX";
-                                break;
-                            case "etichettatrice":
-                                data_linea.Macchine[i].nome = "Etichettatrice";
-                                break;
-                            case "scatolatrice":
-                                data_linea.Macchine[i].nome = "Scatolatrice";
-                                break;
-                        }
-                    }
-                }
-            }
-        },
         getRandom: function () {
-            var val = Math.floor(4 * Math.random());
+            var val = Math.floor(3 * Math.random());
             switch (val) {
                 case 0:
-                    return "9";
+                    return "Good";
                 case 1:
-                    return "10";
-                case 2:
-                    return "13";
+                    return "Warning";
                 default:
-                    return "32";
+                    return "Error";
             }
         },
         BackToRiepilogo: function () {
+            var i, j, button;
+            var TabContainer = this.getView().byId("schemaLineeContainer");
+            for (i = 0; i < TabContainer.getItems().length; i++) {
+                for (j = 0; j < this.ModelSinottico.getData()[i].Macchine.length; j++) {
+                    button = sap.ui.getCore().byId(this.ModelSinottico.getData()[i].Macchine[j].nome.split(" ").join("") + "_" + this.ModelSinottico.getData()[i].LineaID);
+                    if (button) {
+                        button.destroy();
+                    }
+                }
+            }
             clearInterval(this.TIMER);
             this.BusyDialog.open();
             this.STOP = 1;

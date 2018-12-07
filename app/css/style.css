@@ -1056,8 +1056,65 @@
     color: #003A6B !important;
 }
 
+.shiftImage {
+    padding-top: 5rem;
+}
 
+.buttonSinottico .sapMBtnInner {
+    font-family: Arial;
+    font-size: 20pt;
+    border-radius: 10px;
+    border: 1px solid #003A6B;
+}
 
+.Marker1 {
+    position: absolute;
+    top: 4rem;
+    left: 3rem;
+}
+.Marker2 {
+    position: absolute;
+    left: 3rem;
+    bottom: -1rem;
+}
+.WeightController1 {
+    position: absolute;
+    top: 6rem;
+    left: 18rem;
+}
+.WeightController2 {
+    position: absolute;
+    bottom: 1rem;
+    left: 18rem;
+}
+.Palletizer {
+    position: absolute;
+    top: 4rem;
+    right: 30rem;
+}
+.Labeller {
+    position: absolute;
+    bottom: 4rem;
+    right: 7rem;
+}
+
+.buttonGood .sapMBtnInner {
+    color: #003A6B;
+    text-shadow: 0 0 0;
+    background: #7CA295;
+}
+
+.buttonWarning .sapMBtnInner {
+    color: #003A6B;
+    text-shadow: 0 0 0;
+    background: #FFD300;
+}
+
+.buttonError .sapMBtnInner {
+    color: white;
+    text-shadow: 0 0 0;
+    background: #A71930;
+}
 
 
 
