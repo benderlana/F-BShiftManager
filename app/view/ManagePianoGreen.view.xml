@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
           xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
           xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-          xmlns:cus="myapp.control"
+          xmlns:wt="myapp.control"
           controllerName="myapp.controller.ManagePianoGreen">
     <Page id="managePianoGreen" class="colorPage" showHeader="false">
         <content>
@@ -87,7 +87,8 @@
                                                                                             </cells>
                                                                                         </ColumnListItem>
                                                                                     </items>
-                                                                                </Table>    
+                                                                                </Table> 
+                                                                                <wt:CustomButtonMessage id="msgButton" width="80%" icon="sap-icon://message-popup" class="messageButton" text="System Log and Messages" newMessages="{linea>msg}" press="ShowMessaggi"/>
                                                                             </ScrollContainer> 
                                                                         </VBox>
                                                                     </VBox>

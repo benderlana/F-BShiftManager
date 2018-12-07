@@ -16,6 +16,7 @@ sap.ui.define([
         checkSingoloCausa: null,
         checkTotaleCausa: null,
         ModelGuastiLinea: null,
+        ModelMessaggi: new JSONModel({}),
         ModelGuasti: new JSONModel({}),
         ModelCausali: new JSONModel({}),
         _menu: null,
@@ -439,6 +440,100 @@ sap.ui.define([
                 console.log(error);
             });
         },
+
+        ShowMessaggi: function (event) {
+            clearInterval(this.SMTIMER);
+            this.BusyDialog.open();
+            this.linea_id = this.getView().getModel("linea").getProperty(event.getSource().getBindingContext("linea").sPath).lineaID;
+            this.STOPMSG = 0;
+            var oView = this.getView();
+            this.oDialog = oView.byId("messaggi");
+            if (!this.oDialog) {
+                this.oDialog = sap.ui.xmlfragment(oView.getId(), "myapp.view.MessagePopup", this);
+                oView.addDependent(this.oDialog);
+            }
+            this.oDialog.open();
+            this.oDialog.setBusy(true);
+            this.RefreshMsgCounter = 2;
+            var that = this;
+            this.SMTIMER = setInterval(function () {
+                try {
+                    that.RefreshMsgCounter++;
+                    if (that.STOPMSG === 0 && that.RefreshMsgCounter >= 2) {
+                        that.RefreshMsgFunction();
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+            }, 1000);
+            Library.RemoveClosingButtons.bind(this)("MessageContainer");
+        },
+        SUCCESSMessaggi: function (Jdata) {
+            this.BusyDialog.open();
+            var temp, i;
+            if (this.oDialog) {
+                if (this.oDialog.isOpen()) {
+                    for (i = 0; i < Jdata.sistema.length; i++) {
+                        temp = Jdata.sistema[i].datalog.split("T");
+                        Jdata.sistema[i].datalog = temp[0].split("-").reverse().join("/") + ", " + temp[1];
+                    }
+                    for (i = 0; i < Jdata.chat.length; i++) {
+                        Jdata.chat[i].origine = Jdata.chat[i].origine.toUpperCase();
+                        temp = Jdata.chat[i].datalog.split("T");
+                        Jdata.chat[i].datalog = temp[0].split("-").reverse().join("/") + ", " + temp[1];
+                    }
+                    this.ModelMessaggi.setData(Jdata);
+                    this.getView().setModel(this.ModelMessaggi, "messaggi");
+                    this.oDialog.setBusy(false);
+                    if (this.STOPMSG === 0) {
+                        this.RefreshMsgCounter = 0;
+                    }
+                }
+            }
+        },
+        RefreshMsgFunction: function (msec) {
+            this.RefreshMsgCounter = 0;
+            if (typeof msec === "undefined") {
+                msec = 0;
+            }
+            setTimeout(this.RefreshMsgCall.bind(this), msec);
+        },
+        RefreshMsgCall: function () {
+            var link;
+            if (this.ISLOCAL !== 1) {
+                link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetMessagesFromLineaIDOrigine&Content-Type=text/json&LineaID=" + this.linea_id + "&Origine=Capoturno&OutputParameter=JSON";
+            }
+            Library.AjaxCallerData(link, this.SUCCESSMessaggi.bind(this));
+        },
+        DestroyDialogMsg: function () {
+            this.ModelMessaggi.setData({});
+            clearInterval(this.SMTIMER);
+            this.BusyDialog.close();
+            this.STOPMSG = 1;
+            this.oDialog.destroy();
+            this.RerenderTimePickers();
+            this.oDialog = this.getView().byId("GestioneIntervalliFermo");
+            this.ModelLinea.refresh();
+        },
+        SendMessage: function () {
+            var link;
+            var msg = this.getView().byId("inputMessage").getValue();
+            this.getView().byId("inputMessage").setValue("");
+            if (this.ISLOCAL !== 1) {
+                link = "/XMII/Runner?Transaction=DeCecco/Transactions/SendMessageChat&Content-Type=text/json&LineaID=" + this.linea_id + "&Messaggio=" + encodeURI(msg) + "&Imp=1&Origine=Capoturno&OutputParameter=JSON";
+            }
+            Library.AjaxCallerData(link, this.SUCCESSMessaggi.bind(this));
+        },
+        MSGChanged: function () {
+            var obj = this.getView().byId("inputMessage");
+            if (obj.getValue().indexOf('"') > -1 || obj.getValue().indexOf("'") > -1 || obj.getValue().indexOf("&") > -1 || obj.getValue().indexOf("\\") > -1 || obj.getValue().indexOf("#") > -1 || obj.getValue().indexOf("€") > -1 || obj.getValue().indexOf("+") > -1 || obj.getValue() === "?") {
+                this.getView().byId("inputMessage").setValue(this.bckupMSG);
+                MessageToast.show("Carattere non valido!", {duration: 2000});
+            } else {
+                this.bckupMSG = obj.getValue();
+            }
+        },
+
 //       ************************ TABELLA 80% DI DESTRA ************************
 //        
 //         -> PULSANTI SPC CON REFRESH

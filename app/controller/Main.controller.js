@@ -13,6 +13,7 @@ sap.ui.define([
         ISLOCAL: null,
         ModelLinee: new JSONModel({}),
         ModelTiles: new JSONModel({}),
+        BusyDialog: new sap.m.BusyDialog(),
         onInit: function () {
             this.ISLOCAL = Number(jQuery.sap.getUriParameters().get("ISLOCAL"));
             this.ISLOCALModel.setData({"ISLOCAL": this.ISLOCAL});
@@ -37,14 +38,20 @@ sap.ui.define([
             if (this.ISLOCAL === 1) {
                 link = "model/linee_riepilogo.json";
             } else {
-                MessageToast.show("Not yet available", {duration: 3000});
+                this.BusyDialog.open();
+//                link = "model/JSON_RiepilogoLinee";
+                link = "/XMII/Runner?Transaction=DeCecco/Transactions/GetInfoSinottico&Content-Type=text/json&StabilimentoID=" + this.StabilimentoID + "&OutputParameter=JSON";
+                Library.AjaxCallerData(link, this.SUCCESSModelLinee.bind(this));
+//                MessageToast.show("Not yet available", {duration: 3000});
+//                this.getOwnerComponent().getRouter().navTo("RiepilogoLinee");
+//                this.BusyDialog.close();
             }
-            Library.AjaxCallerData(link, this.SUCCESSModelLinee.bind(this));
-            sap.ui.getCore().setModel(this.ModelLinee, "linee");
         },
         SUCCESSModelLinee: function (Jdata) {
             this.ModelLinee.setData(Jdata);
+            sap.ui.getCore().setModel(this.ModelLinee, "linee");
             this.getOwnerComponent().getRouter().navTo("RiepilogoLinee");
+            this.BusyDialog.close();
         }
     });
     return MainController;

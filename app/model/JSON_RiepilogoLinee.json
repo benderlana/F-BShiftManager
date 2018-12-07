@@ -1,0 +1,76 @@
+[  
+   {  
+      "Reparto":"Pasta Corta",
+      "Linee":[  
+         {  
+            "lineaID":"1",
+            "linea":"Coppia 05",
+            "statoLinea":"Disponibile.Lavorazione",
+            "disponibilita":"99.74%",
+            "efficienza":"-1.91%",
+            "qualita":"101.658668518066",
+            "avanzamento":"-38.122001139323",
+            "barColor":"orange",
+            "formato":"046 Gnocchi",
+            "SPC":[  
+               {  
+                  "numeroCampionamenti":"0",
+                  "fase":"2",
+                  "allarme":"1",
+                  "descrizioneParametro":"Pesata istantanea netta [cg]",
+                  "parametroId":"38",
+                  "avanzamento":"50"
+               },
+               {  
+                  "numeroCampionamenti":"0",
+                  "fase":"2",
+                  "allarme":"1",
+                  "descrizioneParametro":"Pesata istantanea netta [cg]",
+                  "parametroId":"97",
+                  "avanzamento":"50"
+               }
+            ],
+            "cartoniProdotti":"-38122",
+            "cartoniResidui":"39122",
+            "destinazione":"ITA + ESTERO",
+            "batchID":"25"
+         },
+         {  
+            "lineaID":"16",
+            "linea":"Coppia 06",
+            "statoLinea":"",
+            "disponibilita":"",
+            "efficienza":"",
+            "qualita":"",
+            "avanzamento":"",
+            "barColor":"",
+            "formato":"",
+            "SPC":[  
+
+            ],
+            "cartoniProdotti":"",
+            "cartoniResidui":"",
+            "destinazione":"",
+            "batchID":""
+         },
+         {  
+            "lineaID":"31",
+            "linea":"Linea test",
+            "statoLinea":"",
+            "disponibilita":"",
+            "efficienza":"",
+            "qualita":"",
+            "avanzamento":"",
+            "barColor":"",
+            "formato":"",
+            "SPC":[  
+
+            ],
+            "cartoniProdotti":"",
+            "cartoniResidui":"",
+            "destinazione":"",
+            "batchID":""
+         }
+      ]
+   }
+]

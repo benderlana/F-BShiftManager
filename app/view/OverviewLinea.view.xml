@@ -1,0 +1,38 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:cus="myapp.control"
+          xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+          controllerName="myapp.controller.OverviewLinea">
+    <Page id="OverviewLineaPage" class="colorPage" showHeader="false">
+        <content>
+            <VBox height="25%" width="100%">
+                <HBox alignItems="Center">
+                    <VBox height="100%" width="20%">
+                        <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                    </VBox>
+                    <VBox height="100%" alignItems="Center" width="60%" fitContainer="true">
+                        <Text text="Techedge Packaging Division" class="customTextTitle"/>
+                    </VBox>
+                    <HBox height="100%" width="20%">
+                        <VBox width="23%"/>
+                        <VBox width="55%">
+                            <Button text="Exit" width="100%" press="BackToRiepilogo" class="chiudiButton noFocus"/>
+                        </VBox>
+                        <VBox width="22%"/>
+                    </HBox>
+                </HBox>
+            </VBox>
+            <VBox height="75%" width="100%">
+                <TabContainer id="schemaLineeContainer" items="{path: 'ModelSinottico>/'}">
+                    <items>    
+                        <TabContainerItem name="{ModelSinottico>Descrizione}">
+                            <content>
+                                <Image src="img/{ModelSinottico>IMG}" width="100%" class="shiftImage"/>
+                            </content>
+                        </TabContainerItem>
+                    </items>
+                </TabContainer>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

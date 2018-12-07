@@ -112,9 +112,9 @@
                     "pattern": "RiepilogoLinee",
                     "target": "RiepilogoLinee"
                 }, {
-                    "name": "sinotticoLinea",
-                    "pattern": "sinotticoLinea",
-                    "target": "sinotticoLinea"
+                    "name": "OverviewLinea",
+                    "pattern": "OverviewLinea",
+                    "target": "OverviewLinea"
                 }],
             "targets": {
                 "main": {
@@ -145,8 +145,8 @@
                 "RiepilogoLinee": {
                     "viewName": "view.RiepilogoLinee"
                 },
-                "sinotticoLinea": {
-                    "viewName": "view.SinotticiDiLinea"
+                "OverviewLinea": {
+                    "viewName": "view.OverviewLinea"
                 }
             }
         },

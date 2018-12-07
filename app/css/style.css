@@ -511,6 +511,11 @@
 .colorPage {
     background-color: white;
 }
+.bckgPage
+{
+    background-image: url('../img/techedge.png');
+    background-size:cover;
+}
 .blueText .sapMText {
     color: #004785;
 }
@@ -836,6 +841,230 @@
 .sapMLabel {
     color: #004785 !important;
 }
+
+.messageButton .sapMBtnInner {
+    background: white;
+    color: #003A6B;
+    border-radius: 10px;
+    border-color: #003A6B;
+    width: 117%;
+    left: 0.5rem;
+}
+.messageButton .sapMBtnIcon {
+    color: #003A6B;
+}
+.newMessageButton .sapMBtnInner {
+    background: #FFD300;
+    color: #003A6B;
+    border-radius: 10px;
+    border-color: #003A6B;
+    width: 117%;
+    left: 0.5rem;
+}
+.newMessageButton .sapMBtnIcon {
+    color: #003A6B;
+}
+
+.shiftDown {
+    margin: 1.5rem;
+}
+.textCT {
+    color: #A71930;
+}
+.textOP {
+    color: #003A6B;
+}
+
+.shiftDownContent {
+    top: 4rem;
+}
+
+.fontTable .sapMText {
+    font-size: 15pt;
+}
+
+
+.bordoBluSin {
+    border: solid 1px #003A6B;
+}
+.bordoBluSinL {
+    border-left: 1px solid #003A6B;
+}
+.bordoBluSinR {
+    border-right: 1px solid #003A6B;
+}
+.bordoBluSinB {
+    border-bottom: 1px solid #003A6B;
+}
+.bordoBluSinT {
+    border-top: 1px solid #003A6B;
+}
+
+.ProgressBarFixSin {
+    height: 3rem;
+    border: none;
+    padding: 0px;
+    margin: 0.1px;
+}
+.ProgressBarFixSin .sapMPIText {
+    font-size: 20pt;
+    color : #003A6B;
+    font-family: Arial;
+    font-weight: normal;
+}
+.SPCButtonsDimensionsSin .sapMBtnInner {
+    position: relative;
+    border: 0px;
+    border-radius: 0px;
+    height: 2.9rem;
+    bottom: 0.3rem;
+    /*width: 6.6rem;*/
+}
+.SPCButtonsDimensionsSin .sapMBtnContent {
+    position: absolute;
+    left: 40.5%;
+    top: 10%;
+    font-size: 11pt;
+}
+.SPCCorrection .sapMBtnInner {
+    /*width: 6.65rem;*/
+}
+.SPCButtonColorGreenSin .sapMBtnInner {
+    background: #7CA295; 
+}
+.SPCButtonEmptySin .sapMBtnInner {
+    background: white; 
+}
+.SPCButtonColorYellowSin .sapMBtnInner {
+    background: #FFD300;
+}
+.SPCButtonPhase1Sin .sapMBtnIcon {
+    position: absolute;
+    max-height: 100%;
+    height: 90%;
+    width: 65%;
+    left: 23%;
+    top: 5%;
+}
+.LineaDispoSin .sapMBtnInner{
+    border: solid 5px #7CA295;
+    border-radius: 0%;
+}
+.LineaNonDispoSin .sapMBtnInner{
+    border: solid 5px #A71930;
+    border-radius: 0%;
+}
+.LineaVuotaSin .sapMBtnInner{
+    background: white;
+    color: #003A6B;
+}
+.LineaVuotaSin:hover> .sapMBtnInner:hover{
+    background: white;
+    color: #003A6B;
+}
+.LineaAttrezzaggioSin .sapMBtnInner{
+    background: #FFD300;
+    color: #003A6B;
+}
+.LineaAttrezzaggioSin:hover> .sapMBtnInner:hover{
+    background: #FFD300;
+    color: #003A6B;
+}
+.LineaLavorazioneSin .sapMBtnInner{
+    background: #7CA295;
+    color: #003A6B;
+}
+.LineaLavorazioneSin:hover> .sapMBtnInner:hover{
+    background: #7CA295;
+    color: #003A6B;
+}
+.LineaFermoSin .sapMBtnInner{
+    background: #A71930;
+    color: white;
+}
+.LineaFermoSin:hover> .sapMBtnInner:hover{
+    background: #A71930;
+    color: white;
+}
+.LineaSvuotamentoSin .sapMBtnInner{
+    background: #5E3032;
+    color: white;
+}
+.LineaSvuotamentoSin:hover> .sapMBtnInner:hover{
+    background: #5E3032;
+    color: white;
+}
+
+.sapMBtnLineaLong .sapMBtn {
+    height: 100%; 
+    padding: 0pt !important;
+    margin: 0pt !important;  
+}
+.sapMBtnLineaLong .sapMBtnBase {
+    height: 100%; 
+    padding: 0pt !important;
+    margin: 0pt !important;  
+}
+.sapMBtnLineaLong .sapMBtnText .sapMBtnContent {
+    line-height: 1.8rem;
+    text-shadow: 0 0 0;
+    font-size: 20pt;
+    padding-top: 0.2rem;
+}
+.sapMBtnLineaLong .sapMBtnInner {
+    height: 2.3rem;
+    bottom: 0.3rem;
+    /*width: 11.1rem;*/
+    box-sizing: content-box;
+}
+.LineeMPILong {
+    position: relative;
+    border: 0px !important;
+    padding: 0px !important;
+    margin: 0rem !important;
+    height: 2.9rem;
+    bottom: 0.05rem;
+}
+.LineeMPILong .sapMPIText {
+    color: #003A6B; 
+    background-color: transparent !important;
+    position: absolute !important;
+    right: 0rem; 
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    font-size: 20pt;
+}
+
+.noDelimitator.sapMLIBShowSeparator > td{
+    border-top: 0px !important;
+}
+.cellePiani {
+    height: 50px;
+}
+.SPCButtonEmpty .sapMBtnInner {
+    background: white; 
+}
+
+.paddingVBox {
+    padding: 3px;
+}
+.textVBox .sapMFlexItem {
+    text-align: center; 
+}
+
+.blueText {
+    color: #003A6B !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
