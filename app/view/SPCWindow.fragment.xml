@@ -7,28 +7,27 @@
     xmlns:t="sap.ui.table">
     <Dialog contentWidth="1220px" contentHeight="800px" id="SPCWindow" afterClose="CloseSPCDialog" showHeader="false" class="colorPage bordoBlu">
         <VBox>
+<!--            <VBox height="50px" width="1200px">
+                <HBox>
+                    <VBox height="50px" width="1200px">
+                        <FlexBox alignItems="Start" justifyContent="Center">
+                            <Text id="headerSPCWindow" text="" class="textTop"/>
+                        </FlexBox>
+                    </VBox>
+                </HBox>
+            </VBox>
             <VBox height="700px" width="1200px">
                 <HBox>
                     <VBox height="700px" width="600px" class="blueBorderR">
                         <VBox height="350px" width="600px" class="blueBorderB">
-                            <VBox id="plotBox1" height="600px" width="600px" class="colorPage"/>
+                            <VBox id="plotBox1" height="350px" width="600px" class="colorPage"/>
                         </VBox>
                         <VBox height="350px" width="600px">
-                            <VBox id="plotBox3" height="600px" width="600px" class="colorPage"/>
+                            <VBox id="plotBox3" height="350px" width="600px" class="colorPage"/>
                         </VBox>
                     </VBox>
                     <VBox height="700px" width="600px">
                         <VBox height="350px" width="600px" class="blueBorderB">
-                            <VBox height="14px" width="600px" class="colorPage"/>
-                            <VBox height="36px" width="600px" class="colorPage">
-                                <HBox>
-                                    <VBox height="56px" width="600px">
-                                        <FlexBox alignItems="Start" justifyContent="Center">
-                                            <Text id="headerSPCWindow" text="" class=""/>
-                                        </FlexBox>
-                                    </VBox>
-                                </HBox>
-                            </VBox>
                             <VBox height="36px" width="600px" class="colorPage">
                                 <HBox>
                                     <VBox height="56px" width="600px">
@@ -38,7 +37,7 @@
                                     </VBox>
                                 </HBox>
                             </VBox>
-                            <VBox id="plotBox" height="600px" width="600px" class="colorPage"/>
+                            <VBox id="plotBox" height="200px" width="600px" class="colorPage"/>
                             <VBox height="21px" width="600px" class="colorPage"/>
                             <VBox height="49px" width="600px" class="colorPage">
                                 <HBox>
@@ -50,16 +49,19 @@
                                 </HBox>
                             </VBox>
                         </VBox>
-                        <VBox height="350px" width="600px"/>
+                        <VBox height="350px" width="600px">
+                            <VBox id="plotBox4" height="350px" width="600px" class="colorPage"/>
+                        </VBox>
                     </VBox>
                 </HBox>
             </VBox>
-            <VBox height="50px" width="1200px">
+            <VBox height="10px" width="1200px"/>
+            <VBox height="20px" width="1200px">
                 <FlexBox alignItems="Start" justifyContent="Center">
                     <Button text="Close" width="180px" press="CloseSPCDialog" class="chiudiButton"/>
                 </FlexBox>
             </VBox>
-            <VBox height="20px" width="1200px"/>
+            <VBox height="10px" width="1200px"/>-->
         </VBox>
     </Dialog>
 </core:FragmentDefinition>

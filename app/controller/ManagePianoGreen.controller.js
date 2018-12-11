@@ -19,6 +19,7 @@ sap.ui.define([
         ModelMessaggi: new JSONModel({}),
         ModelGuasti: new JSONModel({}),
         ModelCausali: new JSONModel({}),
+        buttonPressed: new JSONModel({}),
         _menu: null,
         guasti: null,
         StabilimentoID: null,
@@ -169,7 +170,7 @@ sap.ui.define([
                 this.pdcID = Jdata.pdcId;
                 if (this.STOP === 0) {
                     Jdata = this.BarColorCT(Jdata);
-                    this.SPCColorCT(Jdata);
+//                    this.SPCColorCT(Jdata);
                     var temp = JSON.parse(JSON.stringify(this.ModelLinea.getData()));
                     if (Jdata.isRidotta === "0") {
                         this.ModelLinea.getData().linee = this.ModelFullUpdate(Jdata.linee, temp.linee);
@@ -270,14 +271,7 @@ sap.ui.define([
             this.DeleteUncompleteBatches();
             this.STOP = 1;
             this.getView().byId("ManageIconTabBar").setSelectedKey("1");
-            var oHistory = History.getInstance();
-            var sPreviousHash = oHistory.getPreviousHash();
-            if (sPreviousHash !== undefined) {
-                window.history.go(-1);
-            } else {
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("overview", true);
-            }
+            this.getOwnerComponent().getRouter().navTo("piani");
         },
 //         -> PULSANTE AGGIORNA
         RefreshButton: function () {
@@ -288,6 +282,11 @@ sap.ui.define([
 //         -> CAMBIO REPARTO
         ChangeReparto: function (event) {
             var link;
+            var AddButton;
+            for (var i = 0; i < this.ModelLinea.getData().linee.length; i++) {
+                AddButton = this.getView().byId("managePianoTable").getItems()[i].getCells()[0].getItems()[0].getItems()[1].getItems()[0].getItems()[0].getItems()[3].getItems()[0];
+                AddButton.setEnabled(true);
+            }
             var that = this;
             this.repartoID = event.getParameters().key;
             if (this.ISLOCAL !== 1) {
@@ -297,7 +296,6 @@ sap.ui.define([
                 });
                 var data = this.ModelLinea.getData();
                 data = this.BarColorCT(data);
-                this.SPCColorCT(data);
                 this.ModelLinea.setData(data);
                 this.SettingsButtonColor();
                 this.LineButtonStyle();
@@ -538,78 +536,20 @@ sap.ui.define([
 //        
 //         -> PULSANTI SPC CON REFRESH
         SPCGraph: function (event) {
-            this.STOPSPC = 0;
-            clearInterval(this.SPCTimer);
-            this.SPCCounter = 5;
-            this.pathLinea = event.getSource().getBindingContext("linea").sPath;
-            this.indexSPC = Number(event.getSource().data("mydata"));
-            this.idBatch = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].IDbatchAttivo;
-            this.idLinea = this.ModelLinea.getProperty(this.pathLinea).lineaID;
-            this.ParametroID = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].parametroId;
-            this.DescrizioneParametro = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].descrizioneParametro;
-            this.SPCDialog = this.getView().byId("SPCWindow");
-            if (!this.SPCDialog) {
-                this.SPCDialog = sap.ui.xmlfragment(this.getView().getId(), "myapp.view.SPCWindow", this);
-                this.getView().addDependent(this.SPCDialog);
-            }
-            this.SPCDialog.open();
-            this.SPCDataCaller();
-            var that = this;
-            this.SPCTimer = setInterval(function () {
-                try {
-                    that.SPCCounter++;
-                    if (that.STOPSPC === 0 && that.SPCCounter >= 5) {
-                        that.SPCRefresh();
-                    }
-                } catch (e) {
-                    console.log(e);
-                }
-            }, 1000);
-        },
-        SUCCESSSPCDataLoad: function (Jdata) {
-            var isEmpty;
-            this.Allarme = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].allarme;
-            this.Fase = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].fase;
-            this.Avanzamento = this.ModelLinea.getProperty(this.pathLinea).SPC[this.indexSPC].avanzamento;
-            if (Jdata.valori === "") {
-                isEmpty = 1;
-            } else {
-                isEmpty = 0;
-                Jdata = this.ParseSPCData(Jdata, "#");
-                if (this.Fase === "1") {
-                    Jdata = this.Phase1(Jdata);
-                }
-                this.ModelSPCData.setProperty("/", Jdata);
-            }
-            this.SPCDialogFiller(isEmpty);
-            if (this.STOPSPC === 0) {
-                this.SPCCounter = 0;
-            }
-        },
-        SPCRefresh: function (msec) {
-            this.SPCCounter = 0;
-            if (typeof msec === "undefined") {
-                msec = 0;
-            }
-            setTimeout(this.SPCDataCaller.bind(this), msec);
-        },
-        SPCDataCaller: function () {
-            if (this.SPCDialog) {
-                if (this.SPCDialog.isOpen()) {
-                    var link;
-                    if (this.ISLOCAL === 1) {
-                        link = "model/JSON_SPCData.json";
-                    } else {
-                        if (typeof this.ParametroID !== "undefined") {
-                            link = "/XMII/Runner?Transaction=DeCecco/Transactions/SPCDataPlot&Content-Type=text/json&OutputParameter=JSON&LineaID=" + this.idLinea + "&ParametroID=" + this.ParametroID;
-                        }
-                    }
-                    Library.SyncAjaxCallerData(link, this.SUCCESSSPCDataLoad.bind(this));
-                }
-            }
+            clearInterval(this.TIMER);
+            this.STOP = 1;
+            var obj = {};
+            obj.path = event.getSource().getBindingContext("linea").sPath;
+            obj.index = Number(event.getSource().data("mydata"));
+            obj.view = "managePianoGreen";
+            this.buttonPressed.setData(obj);
+            sap.ui.getCore().setModel(this.buttonPressed, "buttonPressed");
+            sap.ui.getCore().setModel(this.ModelLinea, "ModelLinee");
+            this.getOwnerComponent().getRouter().navTo("LiveStats");
         },
 //         -> PULSANTE AGGIUNTA BATCH
         AddBatch: function (event) {
+            this.linea_id = Library.GetLineaID(event.getSource().getBindingContext("linea").sPath, this.getView().getModel("linea"));
             var path = event.getSource().getBindingContext("linea").sPath.split("/");
             var index = Number(path[path.indexOf("linee") + 1]);
             var AddButton = this.getView().byId("managePianoTable").getItems()[index].getCells()[0].getItems()[0].getItems()[1].getItems()[0].getItems()[0].getItems()[3].getItems()[0];

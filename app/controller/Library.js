@@ -149,6 +149,17 @@ sap.ui.define([
             }
             tabContainer.getAggregation("_tabStrip").getAggregation("_select").setVisible(false);
         },
+        GetLineaID: function (address, model) {
+            var vec_path = address.split("/");
+            if (address[0] === "/") {
+                vec_path.shift();
+            }
+            var path_linea = "";
+            for (var i = 0;i < 2; i++) {
+                path_linea += "/" + vec_path[i];
+            }
+            return model.getProperty(path_linea).lineaID;
+        },
         AjaxCallerVoid: function (address, Func) {
             var req = jQuery.ajax({
                 url: address,

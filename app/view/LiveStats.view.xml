@@ -1,0 +1,80 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.commons" xmlns="sap.m"
+          xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table"
+          xmlns:wt="myapp.control"
+          xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+          controllerName="myapp.controller.LiveStats">
+    <Page id="LiveStatsPage" class="colorPage" showHeader="false">
+        <content>
+            <VBox height="100%" width="100%">
+                <VBox height="3%" width="100%"/>
+                <VBox height="5%" width="100%">
+                    <HBox>
+                        <VBox height="100%" width="20%">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <Button id="alarmButton" text="Remove SPC alarm" enabled="false" press="RemoveAlarm" class="chiudiButton"/>
+                            </FlexBox>
+                        </VBox>
+                        <VBox height="100%" width="60%">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <wt:CustomStatusButton width="10%" stato="{button>/stato}" class="LineDis" enabled="false"/>
+                                <Text id="headerSPCWindow" text="" class="textTop"/>
+                            </FlexBox>
+                        </VBox>
+                        <VBox height="100%" width="20%">
+                            <FlexBox alignItems="Start" justifyContent="Center">
+                                <Button text="Exit" press="BackToMain" width="200%" class="chiudiButton"/>
+                            </FlexBox>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox height="2%" width="100%"/>
+                <VBox height="90%" width="100%">
+                    <HBox>
+                        <VBox height="100%" width="50%" class="statsBorderR">
+                            <VBox height="50%" width="100%" class="statsBorderB">
+                                <VBox id="plotBox1" height="100%" width="100%" class="colorPage"/>
+                            </VBox>
+                            <VBox height="50%" width="100%">
+                                <VBox id="plotBox3" height="100%" width="100%" class="colorPage"/>
+                            </VBox>
+                        </VBox>
+                        <VBox height="100%" width="50%">
+                            <VBox height="50%" width="100%" class="statsBorderB">
+<!--                                <VBox height="10%" width="100%" class="colorPage">
+                                    <HBox>
+                                        <VBox height="100%" width="100%">
+                                            <FlexBox alignItems="Start" justifyContent="Center">
+                                                <Text id="samplingSPC" text="" class=""/>
+                                            </FlexBox>
+                                        </VBox>
+                                    </HBox>
+                                </VBox>-->
+                                <VBox id="plotBox" height="100%" width="100%" class="colorPage"/>
+<!--                                <VBox height="5%" width="100%" class="colorPage"/>
+                                <VBox height="15%" width="100%" class="colorPage">
+                                    <HBox>
+                                        <VBox height="100%" width="25%"/>
+                                        <VBox height="100%" width="50%">
+                                            <Button id="alarmButton" text="Remove alarm" width="100%" enabled="false" press="RemoveAlarm" class="chiudiButtonStats"/>
+                                        </VBox>
+                                        <VBox height="100%" width="25%"/>
+                                    </HBox>
+                                </VBox>-->
+                            </VBox>
+                            <VBox height="50%" width="100%">
+                                <VBox id="plotBox4" height="100%" width="100%" class="colorPage"/>
+                            </VBox>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <!--                <VBox height="2%" width="100%"/>
+                <VBox height="6%" width="100%">
+                    <FlexBox alignItems="Start" justifyContent="Center">
+                        <Button text="Close" press="CloseSPCDialog" class="chiudiButton"/>
+                    </FlexBox>
+                </VBox>
+                <VBox height="2%" width="100%"/>-->
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

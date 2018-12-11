@@ -115,6 +115,10 @@
                     "name": "OverviewLinea",
                     "pattern": "OverviewLinea",
                     "target": "OverviewLinea"
+                },{
+                    "name": "LiveStats",
+                    "pattern": "LiveStats",
+                    "target": "LiveStats"
                 }],
             "targets": {
                 "main": {
@@ -147,6 +151,9 @@
                 },
                 "OverviewLinea": {
                     "viewName": "view.OverviewLinea"
+                },
+                "LiveStats": {
+                    "viewName": "view.LiveStats"
                 }
             }
         },

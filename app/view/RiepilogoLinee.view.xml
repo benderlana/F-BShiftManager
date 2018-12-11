@@ -8,7 +8,7 @@
             <VBox height="25%" width="100%">
                 <HBox alignItems="Center">
                     <VBox height="100%" width="20%">
-                        <Image src="img/dececco_marchio_standard_rgb.png" class="Logo"/>
+                        <Image src="img/logo.png" class="Logo"/>
                     </VBox>
                     <VBox height="100%" alignItems="Center" width="60%" fitContainer="true">
                         <Text text="Techedge Packaging Division" class="customTextTitle"/>
@@ -62,10 +62,10 @@
                                                                         stato="{linee>barColor}"/>
                                                                 </VBox>
                                                                 <VBox width="11.75%" height="100%" class="bordoBluSinR">
-                                                                    <wt:CustomButtonSPC enabled="false" width="100%" class="SPCButtonsDimensionsSin SPCButtonEmpty" fase="{linee>SPC/0/fase}" nCamp="{linee>SPC/0/numeroCampionamenti}" allarme="{linee>SPC/0/allarme}" press="SPCGraph" app:mydata="0"/>
+                                                                    <wt:CustomStatsButton enabled="false" width="100%" stato="{linee>statoLinea}" class="SPCCorrection SPCButtonsDimensionsSin" press="SPCGraph" app:mydata="0"/>
                                                                 </VBox>
                                                                 <VBox width="11.75%" height="100%">
-                                                                    <wt:CustomButtonSPC enabled="false" width="100%" class="SPCCorrection SPCButtonsDimensionsSin SPCButtonEmpty" fase="{linee>SPC/1/fase}" nCamp="{linee>SPC/1/numeroCampionamenti}" allarme="{linee>SPC/1/allarme}" press="SPCGraph" app:mydata="1"/>
+                                                                    <wt:CustomStatsButton enabled="false" width="100%" stato="{linee>statoLinea}" class="SPCCorrection SPCButtonsDimensionsSin" press="SPCGraph" app:mydata="1"/>
                                                                 </VBox>
                                                             </HBox>
                                                             <HBox height="1.5rem" width="100%" class="bordoBluSinL bordoBluSinB bordoBluSinR">

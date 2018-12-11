@@ -108,10 +108,10 @@
                                                                                 barColor="{linee>barColor}"/>
                                                                         </VBox>
                                                                         <VBox width="10%" height="100%" class="bordoBluR bordoBluT">
-                                                                            <Button enabled="false" width="100%" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="0"/>
+                                                                            <wt:CustomStatsButton enabled="false" width="100%" stato="{linea>statolinea}" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="0"/>
                                                                         </VBox>
                                                                         <VBox width="10%" height="100%" class="bordoBluT">
-                                                                            <Button enabled="false" width="100%" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="1"/>
+                                                                            <wt:CustomStatsButton enabled="false" width="100%" stato="{linea>statolinea}" class="SPCButtonsDimensions" press="SPCGraph" app:mydata="1"/>
                                                                         </VBox>
                                                                         <VBox width="10%" height="100%" class="bordoBluR bordoBluT bordoBluL">
                                                                             <Button icon="sap-icon://add" press="AddBatch" width="100%" class="AddButton"/>

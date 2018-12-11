@@ -616,7 +616,7 @@
     height: 50px;
 }
 .cellePiani .sapMListTblCell{
-    padding: 0.1rem !important;
+    margin-top: 0.1rem !important;
 }
 .cellePiani .sapMInput {
     width: 100% !important;
@@ -661,50 +661,62 @@
 .LineaDispo .sapMBtnInner{
     border: solid 5px #80C342;
     border-radius: 0%;
+    text-shadow: 0 0 0;
 }
 .LineaNonDispo .sapMBtnInner{
     border: solid 5px #DC6774;
     border-radius: 0%;
+    text-shadow: 0 0 0;
 }
 .LineaVuota .sapMBtnInner{
     background: white;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaVuota:hover> .sapMBtnInner:hover{
     background: white;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaAttrezzaggio .sapMBtnInner{
     background: #FFD300;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaAttrezzaggio:hover> .sapMBtnInner:hover{
     background: #FFD300;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaLavorazione .sapMBtnInner{
     background: #80C342;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaLavorazione:hover> .sapMBtnInner:hover{
     background: #80C342;
     color: #004785;
+    text-shadow: 0 0 0;
 }
 .LineaFermo .sapMBtnInner{
     background: #DC6774;
     color: white;
+    text-shadow: 0 0 0;
 }
 .LineaFermo:hover> .sapMBtnInner:hover{
     background: #DC6774;
     color: white;
+    text-shadow: 0 0 0;
 }
 .LineaSvuotamento .sapMBtnInner{
     background: #5E3032;
     color: white;
+    text-shadow: 0 0 0;
 }
 .LineaSvuotamento:hover> .sapMBtnInner:hover{
     background: #5E3032;
     color: white;
+    text-shadow: 0 0 0;
 }
 .AddButton .sapMBtnInner {
     height: 2.95rem;
@@ -869,7 +881,7 @@
     margin: 1.5rem;
 }
 .textCT {
-    color: #A71930;
+    color: #DC6774;
 }
 .textOP {
     color: #003A6B;
@@ -917,7 +929,7 @@
     border: 0px;
     border-radius: 0px;
     height: 2.9rem;
-    bottom: 0.3rem;
+    bottom: 0.25rem;
     /*width: 6.6rem;*/
 }
 .SPCButtonsDimensionsSin .sapMBtnContent {
@@ -951,7 +963,7 @@
     border-radius: 0%;
 }
 .LineaNonDispoSin .sapMBtnInner{
-    border: solid 5px #A71930;
+    border: solid 5px #DC6774;
     border-radius: 0%;
 }
 .LineaVuotaSin .sapMBtnInner{
@@ -979,11 +991,11 @@
     color: #003A6B;
 }
 .LineaFermoSin .sapMBtnInner{
-    background: #A71930;
+    background: #DC6774;
     color: white;
 }
 .LineaFermoSin:hover> .sapMBtnInner:hover{
-    background: #A71930;
+    background: #DC6774;
     color: white;
 }
 .LineaSvuotamentoSin .sapMBtnInner{
@@ -1012,8 +1024,8 @@
     padding-top: 0.2rem;
 }
 .sapMBtnLineaLong .sapMBtnInner {
-    height: 2.3rem;
-    bottom: 0.3rem;
+    height: 2.25rem;
+    bottom: 0.25rem;
     /*width: 11.1rem;*/
     box-sizing: content-box;
 }
@@ -1023,7 +1035,6 @@
     padding: 0px !important;
     margin: 0rem !important;
     height: 2.9rem;
-    bottom: 0.05rem;
 }
 .LineeMPILong .sapMPIText {
     color: #003A6B; 
@@ -1113,92 +1124,48 @@
 .buttonError .sapMBtnInner {
     color: white;
     text-shadow: 0 0 0;
-    background: #A71930;
+    background: #DC6774;
+}
+.modebar{
+    display: none !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*DA CONTROLLARE*/
-/*.lessOmbra .sapMBtnInner {
-    text-shadow: 0 0 0 #ffffff;
+.statsBorderR {
+    border-right: solid 1px #003A6B;
 }
-.tileLayout {
-    float: left;
+.statsBorderB {
+    border-bottom: solid 1px #003A6B;
 }
-.fix_b {
-    margin-bottom: 0px;
-}
-.centrati * {
-    width: 100% !important;
-    height: 100% !important;
-    background-color: green !important;
-    margin: 0 auto !important;  
-}
-.testo-grande *{
-    font-size: 150% !important;
-    text-align: center;
-    font-weight: bold;
-
-}
-.sapMStdTileTitle {
-    font-size: 200% !important;
-    text-align: center;
-    font-weight: bold;
-}
-.sapMStdTileTopRow{
-    height: 5rem !important;
-}
-.customTextFermo {
+.chiudiButtonStats .sapMBtnInner {
+    font-family: Arial;
     font-size: 15pt;
-    font-weight: bold;
-    text-align: center;
-}
-.borderButton .sapMBtnInner{
-    border: 1px solid #737373;
-}
-.borderMiddleTable .sapMListTbl th {
-    border: solid 1px;
+    background: #f2f2f2;
     color: #004785;
+    border-radius: 10px;
+    height: 100%;
 }
-.RightVBox {
-    bottom: 0.4rem;
+
+.LineRunning .sapMBtnInner {
+    background: #80C342;
+    border-radius: 100px;
+    opacity: 1;
 }
-.SPCVBox {
-    width: 8% !important;
-    bottom: 0.1rem;
-    height: 3.2rem !important;
+.LineStopped .sapMBtnInner {
+    background: #DC6774;
+    border-radius: 100px;
+    opacity: 1;
 }
-.styleVBoxLeftbottom {
-    bottom: 0rem;
+
+.LineDis {
+    opacity: 1 !important;
 }
-.styleVBoxRightbottom {
-    bottom: 0.2rem;
+
+.ActiveStats .sapMBtnInner {
+    background: #FFD300; 
 }
-.borderBoxRight {
-    border-right: 1.5px solid #004785;
-}*/
+
+.ActiveStats .sapMBtnIcon {
+    color: #003A6B;
+    padding: 5%;
+    font-size: 30pt !important;
+}
