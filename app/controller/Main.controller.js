@@ -18,6 +18,13 @@ sap.ui.define([
             this.ISLOCAL = Number(jQuery.sap.getUriParameters().get("ISLOCAL"));
             this.ISLOCALModel.setData({"ISLOCAL": this.ISLOCAL});
             sap.ui.getCore().setModel(this.ISLOCALModel, "ISLOCAL");
+            Library.SyncAjaxCallerData("/XMII/Runner?Transaction=DeCecco/Transactions/GetAllReparti&Content-Type=text/json&OutputParameter=JSON", this.DoNothing.bind(this), this.RefreshPage.bind(this));
+        },
+        DoNothing: function () {
+            console.log("");
+        },
+        RefreshPage: function () {
+            location.reload(true);
         },
         onToPianiPage: function () {
             var link;

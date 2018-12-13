@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Controller, JSONModel, Library) {
     "use strict";
     return Controller.extend("myapp.controller.LiveStats", {
-        ModelLinee: sap.ui.getCore().getModel("ModelLinee"),
+        ModelLinee: new JSONModel({}),
         ModelButton: new JSONModel({}),
         STOP: null,
         ISLOCAL: sap.ui.getCore().getModel("ISLOCAL").getData().ISLOCAL,
@@ -19,13 +19,15 @@ sap.ui.define([
         indexSPC: null,
         batchID: null,
         Linea: null,
-        buttonPressed: sap.ui.getCore().getModel("buttonPressed"),
+        buttonPressed: new JSONModel({}),
 //  FUNZIONI D'INIZIALIZZAZIONE      
         onInit: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.getRoute("LiveStats").attachPatternMatched(this.URLChangeCheck, this);
         },
         URLChangeCheck: function () {
+            this.buttonPressed = sap.ui.getCore().getModel("buttonPressed");
+            this.ModelLinee = sap.ui.getCore().getModel("ModelLinee");
             this.STOP = 0;
             clearInterval(this.TIMER);
             this.Counter = 15;
@@ -35,7 +37,7 @@ sap.ui.define([
             this.idLinea = this.ModelLinee.getProperty(this.pathLinea).lineaID;
             this.ParametroID = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].parametroId;
             this.DescrizioneParametro = this.FixDescription();
-            this.batchID = this.ModelLinee.getProperty(this.pathLinea).batchID;
+            this.batchID = (this.buttonPressed.getData().view === "RiepilogoLinee") ? this.ModelLinee.getProperty(this.pathLinea).batchID : this.ModelLinee.getProperty(this.pathLinea).batchlist[0].batchID;
 //            this.RefreshCall();
             var that = this;
             this.TIMER = setInterval(function () {
@@ -76,7 +78,6 @@ sap.ui.define([
         SUCCESSSPCDataLoad: function (Jdata) {
             this.ModelButton.setData({stato: Jdata.statoLinea});
             this.getView().setModel(this.ModelButton, "button");
-            var isEmpty;
             this.Allarme = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].allarme;
             this.Fase = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].fase;
             this.Avanzamento = this.ModelLinee.getProperty(this.pathLinea).SPC[this.indexSPC].avanzamento;
@@ -93,10 +94,12 @@ sap.ui.define([
         },
         //      FUNZIONI SPC    
         SPCDialogFiller: function () {
+            var fase = this.ModelSPCData.getData().fase[0];
+            var allarme = this.ModelSPCData.getData().allarme[0];
             var textHeader = this.getView().byId("headerSPCWindow");
             textHeader.setText(String(this.DescrizioneParametro));
             var alarmButton = this.getView().byId("alarmButton");
-            if (Number(this.Fase) === 2 && Number(this.Allarme) === 1) {
+            if (Number(fase) === 2 && Number(allarme) === 1) {
                 alarmButton.setEnabled(true);
                 alarmButton.removeStyleClass("chiudiButton");
                 alarmButton.addStyleClass("allarmeButton");
@@ -117,7 +120,7 @@ sap.ui.define([
             Plotly.newPlot(ID, result.dataPlot, result.layout, {responsive: true});
             plotBox = this.getView().byId("plotBox");
             data = this.ModelSPCData.getData();
-            result = this.PrepareDataToPlot(data, this.Fase, this.Avanzamento);
+            result = this.PrepareDataToPlot(data);
             ID = jQuery.sap.byId(plotBox.getId()).get(0);
             Plotly.newPlot(ID, result.dataPlot, result.layout, {responsive: true});
             plotBox = this.getView().byId("plotBox4");
@@ -241,7 +244,7 @@ sap.ui.define([
             var max = (isNaN(Math.max.apply(null, Jdata.aboveBad))) ? Jdata.limSup[0] : Math.max(Math.max.apply(null, Jdata.aboveBad) + Jdata.ref[0], Jdata.limSup[0]);
             layout = {
                 title: 'Packages Weight Deviations from Target',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size:30},
                 showlegend: false,
                 autosize: false,
                 width: 750,
@@ -270,8 +273,9 @@ sap.ui.define([
                     marker: {colors: ["#80C342", "#DC6774", "#FFD300"]}
                 }];
             var layout = {
+                font: {color: '#003A6B', size:15},
                 title: 'Packaging Quality',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size:30},
                 autosize: false,
                 width: 550,
                 height: 370
@@ -294,8 +298,9 @@ sap.ui.define([
                     orientation: 'h'
                 }];
             var layout = {
+                font: {color: '#003A6B', size:15},
                 title: 'Automatic Stops Distribution',
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size:30},
                 yaxis: {
                     automargin: true
                 },
@@ -315,7 +320,6 @@ sap.ui.define([
             alarmButton.addStyleClass("chiudiButton");
             var link = "/XMII/Runner?Transaction=DeCecco/Transactions/ResetSPCAlarm&Content-Type=text/json&BatchID=" + this.batchID + "&ParametroID=" + this.ParametroID;
             Library.AjaxCallerVoid(link, this.RefreshFunction.bind(this));
-            this.BackToMain();
         },
         ParseSPCData: function (data, char) {
             for (var key in data) {
@@ -332,7 +336,10 @@ sap.ui.define([
             }
             return data;
         },
-        PrepareDataToPlot: function (Jdata, fase, avanzamento) {
+        PrepareDataToPlot: function (Jdata) {
+            var fase = Jdata.fase[0];
+            var allarme = Jdata.allarme[0];
+            var avanzamento = Jdata.avanzamento[0];
             var dataPlot, layout;
             var valori = {
                 x: Jdata.time,
@@ -353,11 +360,11 @@ sap.ui.define([
                 type: 'scatter',
                 line: {color: '#DC6774', width: 1}
             };
-            dataPlot = (fase === "1") ? [] : [valori, limSup, limInf];
-            var title = (fase === "1") ? "SPC Chart - Sampling... " + avanzamento + "/50" : "SPC Chart";
+            dataPlot = (fase === 1) ? [] : [valori, limSup, limInf];
+            var title = (fase === 1) ? "SPC Chart - Sampling... " + avanzamento + "/50" : "SPC Chart";
             layout = {
                 title: title,
-                titlefont: {color: '#003A6B'},
+                titlefont: {color: '#003A6B', size:30},
                 showlegend: false,
                 autosize: false,
                 width: 800,
@@ -372,7 +379,7 @@ sap.ui.define([
                 },
                 config: {displayModeBar: false}
             };
-            if (Number(this.Allarme) === 0) {
+            if (Number(allarme) === 0) {
                 layout.xaxis.linecolor = "#80C342";
                 layout.yaxis.linecolor = "#80C342";
             } else {

@@ -138,7 +138,7 @@
                                                                             </columns>
                                                                         </Table>
                                                                         <ScrollContainer vertical='true' height="155px" class="scrollingbar">
-                                                                            <Table class="removeBorders1 removeBorders2" 
+                                                                            <Table class="removeBorders1 removeBorders2 tableBatch" 
                                                                                    width="100%" 
                                                                                    noDataText="No batch planned"
                                                                                    items="{path: 'linea>batchlist', templateShareable:false}">

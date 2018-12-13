@@ -70,7 +70,7 @@ sap.ui.define([
                 for (var i = 0; i < Jdata.length; i++) {
                     for (var j = 0; j < Jdata[i].Linee.length; j++) {
                         Jdata[i].Linee[j].SPC = Jdata[i].Linee[j].SPC.reverse();
-                        Jdata[i].Linee[j].avanzamento = (Number(Jdata[i].Linee[j].avanzamento) * 100 >= 100) ? 100 : Number(Jdata[i].Linee[j].avanzamento) * 100;
+                        Jdata[i].Linee[j].avanzamento = (Number(Jdata[i].Linee[j].avanzamento) >= 100) ? 100 : Number(Jdata[i].Linee[j].avanzamento);
                         Jdata[i].Linee[j].perc_avanzamento = String(Math.round(Number(Jdata[i].Linee[j].avanzamento)));
                         Jdata[i].Linee[j].destinazione = (Jdata[i].Linee[j].destinazione === "---") ? "" : Jdata[i].Linee[j].destinazione;
                         Jdata[i].Linee[j].IMG = String(Number(Jdata[i].Linee[j].formato.replace(/\D/g, ""))) + ".jpg";

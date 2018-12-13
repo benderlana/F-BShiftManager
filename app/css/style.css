@@ -615,6 +615,11 @@
 .cellePiani {
     height: 50px;
 }
+.tableBatch .sapMListTblCell {
+    padding: 0rem 0rem !important;
+    padding-left: 0.1rem !important;
+    vertical-align: middle !important;
+}
 .cellePiani .sapMListTblCell{
     margin-top: 0.1rem !important;
 }
@@ -1078,7 +1083,7 @@
     border: 1px solid #003A6B;
 }
 
-.Marker1 {
+/*.Marker1 {
     position: absolute;
     top: 4rem;
     left: 3rem;
@@ -1107,7 +1112,40 @@
     position: absolute;
     bottom: 4rem;
     right: 7rem;
+}*/
+
+
+.Marker1 {
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
 }
+.Marker2 {
+    position: absolute;
+    left: 3rem;
+    bottom: -4rem;
+}
+.WeightController1 {
+    position: absolute;
+    top: 2rem;
+    left: 20rem;
+}
+.WeightController2 {
+    position: absolute;
+    bottom: -4rem;
+    left: 20rem;
+}
+.Palletizer {
+    position: absolute;
+    top: 1rem;
+    right: 31rem;
+}
+.Labeller {
+    position: absolute;
+    bottom: 0rem;
+    right: 6rem;
+}
+
 
 .buttonGood .sapMBtnInner {
     color: #003A6B;
@@ -1168,4 +1206,8 @@
     color: #003A6B;
     padding: 5%;
     font-size: 30pt !important;
+}
+.textSin {
+    font-size: 11pt;
+    color: #004785;
 }
